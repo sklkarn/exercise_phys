@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Kinematics Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #16a085;
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+            font-style: italic;
+        }
+        .question-box {
+            background: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #27ae60;
+        }
+        .math {
+            font-family: "Courier New", Courier, monospace;
+            background: #fdfdfd;
+            padding: 2px 5px;
+            font-weight: bold;
+        }
+        .options {
+            margin-top: 15px;
+        }
+        label {
+            display: block;
+            background: #f9f9f9;
+            margin: 8px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        label:hover {
+            background: #e9f7ef;
+            border-color: #27ae60;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 12px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+        button:hover {
+            background-color: #219653;
+        }
+        .answers-section {
+            display: none;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #27ae60;
+        }
+        .explanation {
+            background: #f9f9f9;
+            padding: 12px;
+            margin: 10px 0 20px 0;
+            border-left: 3px solid #666;
+            font-size: 0.95em;
+        }
+        .correct-ans {
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Advanced Kinematics Quiz</h1>
+    <p class="intro">A comprehensive 20-question test evaluating calculus-based kinematics with non-constant acceleration.</p>
+
+    <h2>Part 1: Foundational Variable Acceleration</h2>
+
+    <!-- Question 1 -->
+    <div class="question-box">
+        <p>1. The acceleration of a particle is given by <span class="math">a(t) = 6t - 4</span> m/s². If the particle starts from rest at the origin, what is its velocity at <span class="math">t = 3</span> seconds?</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q1"> A) 14 m/s</label>
+            <label><input type="radio" name="p1_q1"> B) 15 m/s</label>
+            <label><input type="radio" name="p1_q1"> C) 18 m/s</label>
+            <label><input type="radio" name="p1_q1"> D) 27 m/s</label>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-box">
+        <p>2. A body moves along a straight line such that its velocity is <span class="math">v(t) = 3t² + 2t</span>. What is the total displacement of the body between <span class="math">t = 1s</span> and <span class="math">t = 2s</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q2"> A) 5 m</label>
+            <label><input type="radio" name="p1_q2"> B) 7 m</label>
+            <label><input type="radio" name="p1_q2"> C) 10 m</label>
+            <label><input type="radio" name="p1_q2"> D) 12 m</label>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-box">
+        <p>3. The position of an object is defined by <span class="math">s(t) = t³ - 6t² + 9t</span>. At what time <span class="math">t > 0</span> is the acceleration of the object equal to zero?</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q3"> A) t = 1 s</label>
+            <label><input type="radio" name="p1_q3"> B) t = 2 s</label>
+            <label><input type="radio" name="p1_q3"> C) t = 3 s</label>
+            <label><input type="radio" name="p1_q3"> D) t = 4 s</label>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-box">
+        <p>4. If acceleration is given as a function of velocity, <span class="math">a = -0.5v</span>, and the initial velocity is <span class="math">v₀ = 10 m/s</span>, which expression correctly describes the velocity at time <span class="math">t</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q4"> A) v(t) = 10 - 0.5t</label>
+            <label><input type="radio" name="p1_q4"> B) v(t) = 10e^(-0.5t)</label>
+            <label><input type="radio" name="p1_q4"> C) v(t) = 10 - 0.25t²</label>
+            <label><input type="radio" name="p1_q4"> D) v(t) = ln(10 - 0.5t)</label>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question-box">
+        <p>5. An object’s acceleration is <span class="math">a(v) = 2√v</span>. If the object starts with velocity <span class="math">v = 4 m/s</span> at <span class="math">t = 0</span>, find the time taken for the velocity to reach <span class="math">9 m/s</span>.</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q5"> A) 0.5 s</label>
+            <label><input type="radio" name="p1_q5"> B) 1.0 s</label>
+            <label><input type="radio" name="p1_q5"> C) 2.0 s</label>
+            <label><input type="radio" name="p1_q5"> D) 5.0 s</label>
+        </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question-box">
+        <p>6. For a particle where acceleration is a function of position, <span class="math">a(x) = 4x</span>, which relationship should be used to find the velocity as a function of position?</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q6"> A) v = ∫ a dt</label>
+            <label><input type="radio" name="p1_q6"> B) v dv = a dx</label>
+            <label><input type="radio" name="p1_q6"> C) x = ∫ v dt</label>
+            <label><input type="radio" name="p1_q6"> D) a = dv/dt</label>
+        </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question-box">
+        <p>7. The velocity of a particle is <span class="math">v = kx</span> where <span class="math">k</span> is a constant and <span class="math">x</span> is position. What is the acceleration of the particle in terms of <span class="math">x</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q7"> A) a = k</label>
+            <label><input type="radio" name="p1_q7"> B) a = kx²</label>
+            <label><input type="radio" name="p1_q7"> C) a = k²x</label>
+            <label><input type="radio" name="p1_q7"> D) a = 0</label>
+        </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question-box">
+        <p>8. A rocket's acceleration increases linearly with time: <span class="math">a(t) = kt</span>. If it starts from rest, the displacement <span class="math">s</span> is proportional to which power of <span class="math">t</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q8"> A) t</label>
+            <label><input type="radio" name="p1_q8"> B) t²</label>
+            <label><input type="radio" name="p1_q8"> C) t³</label>
+            <label><input type="radio" name="p1_q8"> D) t⁴</label>
+        </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question-box">
+        <p>9. A particle moves such that <span class="math">v = 2t²</span>. What is the average acceleration between <span class="math">t = 0</span> and <span class="math">t = 3</span> seconds?</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q9"> A) 6 m/s²</label>
+            <label><input type="radio" name="p1_q9"> B) 12 m/s²</label>
+            <label><input type="radio" name="p1_q9"> C) 18 m/s²</label>
+            <label><input type="radio" name="p1_q9"> D) 4 m/s²</label>
+        </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question-box">
+        <p>10. If the jerk (rate of change of acceleration) is a constant <span class="math">j = 2 m/s³</span> and the object starts from rest with zero initial acceleration, what is its velocity at <span class="math">t = 2s</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="p1_q10"> A) 2 m/s</label>
+            <label><input type="radio" name="p1_q10"> B) 4 m/s</label>
+            <label><input type="radio" name="p1_q10"> C) 8 m/s</label>
+            <label><input type="radio" name="p1_q10"> D) 1 m/s</label>
+        </div>
+    </div>
+
+    <h2>Part 2: Advanced Integration & Functional Dependent Motion</h2>
+
+    <!-- Question 11 -->
+    <div class="question-box">
+        <p>11. The acceleration of a particle is given by <span class="math">a(t) = 12t - 6</span> m/s². If it starts from rest, find its velocity at <span class="math">t = 2</span> seconds.</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q1"> A) 12 m/s</label>
+            <label><input type="radio" name="p2_q1"> B) 18 m/s</label>
+            <label><input type="radio" name="p2_q1"> C) 24 m/s</label>
+            <label><input type="radio" name="p2_q1"> D) 6 m/s</label>
+        </div>
+    </div>
+
+    <!-- Question 12 -->
+    <div class="question-box">
+        <p>12. A particle's velocity is <span class="math">v(t) = 6t² - 4t</span>. What is its displacement from <span class="math">t = 0</span> to <span class="math">t = 3</span> seconds?</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q2"> A) 36 m</label>
+            <label><input type="radio" name="p2_q2"> B) 42 m</label>
+            <label><input type="radio" name="p2_q2"> C) 18 m</label>
+            <label><input type="radio" name="p2_q2"> D) 54 m</label>
+        </div>
+    </div>
+
+    <!-- Question 13 -->
+    <div class="question-box">
+        <p>13. An object's position follows <span class="math">s(t) = 2t³ - 12t² + 5</span>. At what time <span class="math">t > 0</span> is the acceleration zero?</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q3"> A) 2 s</label>
+            <label><input type="radio" name="p2_q3"> B) 4 s</label>
+            <label><input type="radio" name="p2_q3"> C) 1 s</label>
+            <label><input type="radio" name="p2_q3"> D) 3 s</label>
+        </div>
+    </div>
+
+    <!-- Question 14 -->
+    <div class="question-box">
+        <p>14. If a rocket experiences drag acceleration <span class="math">a(v) = -0.2v</span>, and its initial velocity is <span class="math">v₀ = 50 m/s</span>, what is its velocity expression at time <span class="math">t</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q4"> A) v(t) = 50e^(-0.2t)</label>
+            <label><input type="radio" name="p2_q4"> B) v(t) = 50 - 0.2t</label>
+            <label><input type="radio" name="p2_q4"> C) v(t) = 50 - 0.1t²</label>
+            <label><input type="radio" name="p2_q4"> D) v(t) = 50ln(-0.2t)</label>
+        </div>
+    </div>
+
+    <!-- Question 15 -->
+    <div class="question-box">
+        <p>15. The velocity of a particle depends on position: <span class="math">v(x) = 4x</span>. Find its acceleration as a function of position x.</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q5"> A) 16x</label>
+            <label><input type="radio" name="p2_q5"> B) 4</label>
+            <label><input type="radio" name="p2_q5"> C) 8x²</label>
+            <label><input type="radio" name="p2_q5"> D) 16</label>
+        </div>
+    </div>
+
+    <!-- Question 16 -->
+    <div class="question-box">
+        <p>16. An object starts from rest with a time-dependent acceleration of <span class="math">a(t) = cos(t)</span>. What is its velocity at <span class="math">t = π/2</span> seconds?</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q6"> A) 1 m/s</label>
+            <label><input type="radio" name="p2_q6"> B) 0 m/s</label>
+            <label><input type="radio" name="p2_q6"> C) -1 m/s</label>
+            <label><input type="radio" name="p2_q6"> D) 0.5 m/s</label>
+        </div>
+    </div>
+
+    <!-- Question 17 -->
+    <div class="question-box">
+        <p>17. If the jerk (rate of change of acceleration) is constant at <span class="math">j = 6 m/s³</span>, and the object starts from rest with an initial acceleration of 0, what is its displacement at <span class="math">t = 2s</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q7"> A) 8 m</label>
+            <label><input type="radio" name="p2_q7"> B) 12 m</label>
+            <label><input type="radio" name="p2_q7"> C) 4 m</label>
+            <label><input type="radio" name="p2_q7"> D) 16 m</label>
+        </div>
+    </div>
+
+    <!-- Question 18 -->
+    <div class="question-box">
+        <p>18. A body's acceleration satisfies <span class="math">a(v) = 3√v</span>. If it starts with <span class="math">v = 1 m/s</span> at <span class="math">t = 0</span>, how long does it take to reach a velocity of 16 m/s?</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q8"> A) 2.0 s</label>
+            <label><input type="radio" name="p2_q8"> B) 3.0 s</label>
+            <label><input type="radio" name="p2_q8"> C) 1.5 s</label>
+            <label><input type="radio" name="p2_q8"> D) 5.0 s</label>
+        </div>
+    </div>
+
+    <!-- Question 19 -->
+    <div class="question-box">
+        <p>19. The velocity of a particle is <span class="math">v(t) = t³ - 2t</span>. What is the average acceleration of the particle between <span class="math">t = 1s</span> and <span class="math">t = 3s</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q9"> A) 11 m/s²</label>
+            <label><input type="radio" name="p2_q9"> B) 22 m/s²</label>
+            <label><input type="radio" name="p2_q9"> C) 9 m/s²</label>
+            <label><input type="radio" name="p2_q9"> D) 14 m/s²</label>
+        </div>
+    </div>
+
+    <!-- Question 20 -->
+    <div class="question-box">
+        <p>20. An object's acceleration is related to position by <span class="math">a(x) = 3x²</span>. If it starts from rest at the origin (x=0), find its velocity when it reaches position <span class="math">x = 2 m</span>.</p>
+        <div class="options">
+            <label><input type="radio" name="p2_q10"> A) 4 m/s</label>
+            <label><input type="radio" name="p2_q10"> B) 2 m/s</label>
+            <label><input type="radio" name="p2_q10"> C) 8 m/s</label>
+            <label><input type="radio" name="p2_q10"> D) 16 m/s</label>
+        </div>
+    </div>
+
+    <button onclick="toggleAnswers()">Show/Hide Solutions</button>
+
+    <!-- Solutions Section -->
+    <div id="answersBox" class="answers-section">
+        <h2>Answer Key & Solutions</h2>
+
+        <h3>Part 1 Key</h3>
+        <ul>
+            <li><strong>1. B</strong> — 15 m/s</li>
+            <li><strong>2. C</strong> — 10 m</li>
+            <li><strong>3. B</strong> — t = 2 s</li>
+            <li><strong>4. B</strong> — v(t) = 10e^(-0.5t)</li>
+            <li><strong>5. B</strong> — 1.0 s</li>
+            <li><strong>6. B</strong> — v dv = a dx</li>
+            <li><strong>7. C</strong> — a = k²x</li>
+            <li><strong>8. C</strong> — t³</li>
+            <li><strong>9. A</strong> — 6 m/s²</li>
+            <li><strong>10. B</strong> — 4 m/s</li>
+        </ul>
+
+        <h3>Part 2 Calculus Derivations</h3>
+        <p><strong>Question 11: <span class="correct-ans">A) 12 m/s</span></strong></p>
+        <div class="explanation">v(t) = ∫(12t - 6)dt = 6t² - 6t. At t = 2s: 6(4) - 6(2) = 24 - 12 = 12 m/s.</div>
+
+        <p><strong>Question 12: <span class="correct-ans">A) 36 m</span></strong></p>
+        <div class="explanation">Δs = ∫[0 to 3] (6t² - 4t) dt = [2t³ - 2t²] from 0 to 3 = (2(27) - 2(9)) = 54 - 18 = 36 m.</div>
+
+        <p><strong>Question 13: <span class="correct-ans">A) 2 s</span></strong></p>
+        <div class="explanation">v(t) = s'(t) = 6t² - 24t. a(t) = v'(t) = 12t - 24. Set a(t) = 0 → 12t = 24 → t = 2 s.</div>
+
+        <p><strong>Question 14: <span class="correct-ans">A) v(t) = 50e^(-0.2t)</span></strong></p>
+        <div class="explanation">dv/dt = -0.2v → ∫(1/v)dv = ∫-0.2dt → ln(v) = -0.2t + C. With initial v₀=50, v(t) = 50e^(-0.2t).</div>
+
+        <p><strong>Question 15: <span class="correct-ans">A) 16x</span></strong></p>
+        <div class="explanation">Using a = v(dv/dx). Since v = 4x, dv/dx = 4. Substituting back: a = (4x)(4) = 16x.</div>
+
+        <p><strong>Question 16: <span class="correct-ans">A) 1 m/s</span></strong></p>
+        <div class="explanation">v(t) = ∫ cos(t)dt = sin(t) + C. Rest at t=0 means C=0. At t = π/2, v = sin(π/2) = 1 m/s.</div>
+
+        <p><strong>Question 17: <span class="correct-ans">A) 8 m</span></strong></p>
+        <div class="explanation">da/dt = 6 → a(t) = 6t. v(t) = ∫ 6t dt = 3t². s(t) = ∫ 3t² dt = t³. At t = 2s, s = 2³ = 8 m.</div>
+
+        <p><strong>Question 18: <span class="correct-ans">A) 2.0 s</span></strong></p>
+        <div class="explanation">dv/dt = 3√v → v^(-1/2) dv = 3 dt. Integrating: 2√v = 3t + C. At t=0, v=1 → C=2. For v=16: 2√16 = 3t + 2 → 8 = 3t + 2 → 3t = 6 → t = 2.0 s.</div>
+
+        <p><strong>Question 19: <span class="correct-ans">A) 11 m/s²</span></strong></p>
+        <div class="explanation">a_avg = [v(3) - v(1)] / [3 - 1]. v(3) = 3³ - 2(3) = 21. v(1) = 1³ - 2(1) = -1. a_avg = [21 - (-1)] / 2 = 22 / 2 = 11 m/s².</div>
+
+        <p><strong>Question 20: <span class="correct-ans">A) 4 m/s</span></strong></p>
+        <div class="explanation">v dv = a dx → v dv = 3x² dx. Integrate both sides: v²/2 = x³ + C. Starts from rest at origin, so C = 0. At x = 2: v²/2 = 2³ = 8 → v² = 16 → v = 4 m/s.</div>
+    </div>
+
+    <script>
+        function toggleAnswers() {
+            var x = document.getElementById("answersBox");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

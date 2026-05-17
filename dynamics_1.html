@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Force and Equilibrium 10-Question Quiz</title>
+    
+    <!-- Polyfill for MathJax in older browsers -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <!-- MathJax Configuration for clean math rendering -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f3f5;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 750px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #1a365d;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        .question {
+            display: none;
+        }
+        .question.active {
+            display: block;
+        }
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+        .diagram {
+            text-align: center;
+            margin: 20px auto;
+            background: #f8fafc;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            max-width: 100%;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .option-btn {
+            display: block;
+            width: 100%;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1rem;
+            color: #4a5568;
+            transition: all 0.2s ease-in-out;
+        }
+        .option-btn:hover {
+            background: #ebf8ff;
+            border-color: #3182ce;
+            color: #2b6cb0;
+        }
+        .option-btn.correct {
+            background: #48bb78 !important;
+            color: white !important;
+            border-color: #38a169 !important;
+        }
+        .option-btn.wrong {
+            background: #f56565 !important;
+            color: white !important;
+            border-color: #e53e3e !important;
+        }
+        .nav-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #edf2f7;
+        }
+        .btn {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #2b6cb0;
+        }
+        .btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+        #result-card {
+            text-align: center;
+            display: none;
+            padding: 20px 0;
+        }
+        #score-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #38a169;
+            margin: 20px 0;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #edf2f7;
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: #3182ce;
+            width: 10%;
+            transition: width 0.3s ease;
+        }
+        svg text {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Force & Equilibrium Quiz</h1>
+    <div class="subtitle">Test your understanding of translational and rotational static equilibrium</div>
+    
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <div id="quiz-body">
+        <!-- Q1 -->
+        <div class="question active" data-correct="1">
+            <div class="question-text">1. A block sits motionless on a flat table. Which diagram correctly represents the vertical forces acting on the block to maintain static equilibrium?</div>
+            <div class="diagram">
+                <svg width="300" height="150" viewBox="0 0 300 150">
+                    <line x1="40" y1="100" x2="260" y2="100" stroke="#4a5568" stroke-width="4"/>
+                    <rect x="110" y="40" width="80" height="60" fill="#ed8936" stroke="#dd6b20" stroke-width="2"/>
+                    <line x1="150" y1="40" x2="150" y2="10" stroke="#e53e3e" stroke-width="3" marker-end="url(#arrow)"/>
+                    <text x="162" y="25" fill="#e53e3e" font-weight="bold">F_N</text>
+                    <line x1="150" y1="70" x2="150" y2="135" stroke="#2d3748" stroke-width="3" marker-end="url(#arrow)"/>
+                    <text x="162" y="130" fill="#2d3748" font-weight="bold">F_g</text>
+                    <defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke" /></marker></defs>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">The downward gravity force is greater than the upward normal force ($F_g > F_N$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">The upward normal force perfectly balances the downward gravitational force ($\sum F_y = F_N - F_g = 0$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">The normal force acts downward alongside gravity ($\sum F_y = F_N + F_g$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">There are no vertical forces acting on the block at all.</button></li>
+            </ul>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question" data-correct="2">
+            <div class="question-text">2. Three concurrent forces act on a ring as shown below, and the ring remains completely static. What is the net horizontal force ($\sum F_{x}$) acting on the ring?</div>
+            <div class="diagram">
+                <svg width="300" height="140" viewBox="0 0 300 140">
+                    <circle cx="150" cy="70" r="15" fill="none" stroke="#718096" stroke-width="4"/>
+                    <line x1="135" y1="70" x2="65" y2="70" stroke="#3182ce" stroke-width="3" marker-end="url(#arrow)"/>
+                    <text x="70" y="60" fill="#3182ce" font-weight="bold">15 N</text>
+                    <line x1="165" y1="65" x2="225" y2="35" stroke="#3182ce" stroke-width="2.5" marker-end="url(#arrow)"/>
+                    <line x1="165" y1="75" x2="225" y2="105" stroke="#3182ce" stroke-width="2.5" marker-end="url(#arrow)"/>
+                    <text x="210" y="75" fill="#4a5568" font-style="italic">Equilibrium</text>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">$15\text{ N}$ to the left</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">$7.5\text{ N}$ to the right</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">$0\text{ N}$, because the system is confirmed to be in static equilibrium.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">It cannot be determined without knowing the explicit structural angles.</button></li>
+            </ul>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question" data-correct="0">
+            <div class="question-text">3. An object of weight $W$ is suspended symmetrically by two ropes. If the system is in translational equilibrium, what must be true about the vertical tension components?</div>
+            <div class="diagram">
+                <svg width="300" height="150" viewBox="0 0 300 150">
+                    <line x1="40" y1="20" x2="260" y2="20" stroke="#2d3748" stroke-width="4"/>
+                    <line x1="150" y1="85" x2="90" y2="20" stroke="#718096" stroke-width="2.5"/>
+                    <line x1="150" y1="85" x2="210" y2="20" stroke="#718096" stroke-width="2.5"/>
+                    <circle cx="150" cy="100" r="18" fill="#9f7aea"/>
+                    <text x="144" y="104" fill="white" font-weight="bold">W</text>
+                    <text x="80" y="55" fill="#2d3748">$T_1$</text>
+                    <text x="205" y="55" fill="#2d3748">$T_2$</text>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">The sum of the vertical components equals the weight ($T_{1y} + T_{2y} = W$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">The sum of the vertical components doubles the weight ($T_{1y} + T_{2y} = 2W$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">Each individual vertical tension perfectly equals the weight ($T_{1y} = W$ and $T_{2y} = W$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">The vertical tension component plays no role in supporting weight.</button></li>
+            </ul>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question" data-correct="3">
+            <div class="question-text">4. A uniform beam is balanced perfectly at its center of gravity. If a mass $m_1$ is placed on the left side, what must occur to keep the system in rotational equilibrium ($\sum \tau = 0$)?</div>
+            <div class="diagram">
+                <svg width="300" height="120" viewBox="0 0 300 120">
+                    <line x1="30" y1="70" x2="270" y2="70" stroke="#4a5568" stroke-width="6"/>
+                    <polygon points="150,70 140,100 160,100" fill="#e53e3e"/>
+                    <rect x="70" y="45" width="25" height="25" fill="#3182ce"/>
+                    <text x="77" y="62" fill="white" font-weight="bold">m1</text>
+                    <text x="142" y="115" fill="#2d3748" font-weight="bold">Pivot</text>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">Another mass must be added directly above the pivot point.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">The pivot must be shifted further to the left side.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">The system will stay balanced without any changes.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">A balancing clockwise torque ($\tau_{\text{clockwise}}$) must be applied on the right side.</button></li>
+            </ul>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question" data-correct="1">
+            <div class="question-text">5. Look at the box being pulled across a surface at a completely constant velocity. What is the relationship between the applied pulling force ($F_P$) and the friction force ($F_f$)?</div>
+            <div class="diagram">
+                <svg width="300" height="130" viewBox="0 0 300 130">
+                    <line x1="30" y1="90" x2="270" y2="90" stroke="#4a5568" stroke-width="3"/>
+                    <rect x="110" y="40" width="80" height="50" fill="#4fd1c5" stroke="#319795" stroke-width="2"/>
+                    <line x1="190" y1="65" x2="250" y2="65" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+                    <text x="215" y="55" fill="#2b6cb0" font-weight="bold">F_P</text>
+                    <line x1="110" y1="80" x2="60" y2="80" stroke="#e53e3e" stroke-width="2.5" marker-end="url(#arrow)"/>
+                    <text x="70" y="98" fill="#e53e3e" font-weight="bold">F_f</text>
+                    <text x="115" y="25" fill="#718096" font-style="italic">v = constant</text>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">$F_P > F_f$, because the object is actively moving forward.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">$F_P = F_f$, because constant velocity means dynamic equilibrium ($\sum F_x = 0$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">$F_P < F_f$, because friction eventually overpowers velocity.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">There is zero friction because the object is moving continuously.</button></li>
+            </ul>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question" data-correct="2">
+            <div class="question-text">6. A sign hangs from a rigid horizontal strut supported by a cable. What type of equilibrium does this system exhibit if it remains perfectly stationary?</div>
+            <div class="diagram">
+                <svg width="300" height="150" viewBox="0 0 300 150">
+                    <line x1="50" y1="10" x2="50" y2="140" stroke="#2d3748" stroke-width="5"/>
+                    <line x1="50" y1="40" x2="220" y2="40" stroke="#4a5568" stroke-width="4"/>
+                    <line x1="50" y1="120" x2="220" y2="40" stroke="#e53e3e" stroke-width="2"/>
+                    <rect x="80" y="40" width="100" height="50" fill="#ecc94b"/>
+                    <text x="110" y="70" fill="#2d3748" font-weight="bold">SIGN</text>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">Rotational equilibrium only ($\sum \tau = 0$)</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">Translational equilibrium only ($\sum F = 0$)</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">Static equilibrium, requiring both $\sum F = 0$ and $\sum \tau = 0$.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">Unstable kinetic balance.</button></li>
+            </ul>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question" data-correct="0">
+            <div class="question-text">7. Two forces, $F_1 = 10\text{ N}$ and $F_2 = 10\text{ N}$, act on opposite ends of a uniform bar pivoted at its center. What is the net torque ($\sum \tau$) acting on the system?</div>
+            <div class="diagram">
+                <svg width="300" height="130" viewBox="0 0 300 130">
+                    <line x1="50" y1="65" x2="250" y2="65" stroke="#4a5568" stroke-width="6"/>
+                    <circle cx="150" cy="65" r="6" fill="#000"/>
+                    <line x1="50" y1="65" x2="50" y2="25" stroke="#3182ce" stroke-width="2.5" marker-end="url(#arrow)"/>
+                    <text x="35" y="18" fill="#3182ce" font-weight="bold">F1=10N</text>
+                    <line x1="250" y1="65" x2="250" y2="105" stroke="#3182ce" stroke-width="2.5" marker-end="url(#arrow)"/>
+                    <text x="215" y="120" fill="#3182ce" font-weight="bold">F2=10N</text>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">The torques reinforce each other to rotate the bar counter-clockwise ($\sum \tau \neq 0$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">$0\text{ N}\cdot\text{m}$ because the forces are completely equal and opposite.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">$0\text{ N}\cdot\text{m}$ because both forces point away from the origin pivot point.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">The bar will move linearly upward instead of rotating.</button></li>
+            </ul>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question" data-correct="2">
+            <div class="question-text">8. A block rest completely motionless on a ramp inclined at angle $\theta$. What balances the downslope component of gravity ($F_g \sin\theta$)?</div>
+            <div class="diagram">
+                <svg width="300" height="140" viewBox="0 0 300 140">
+                    <polygon points="40,110 260,110 260,30" fill="#e2e8f0" stroke="#cbd5e0"/>
+                    <path d="M 70 110 A 30 30 0 0 0 90 92" fill="none" stroke="#4a5568" stroke-width="2"/>
+                    <text x="95" y="105">θ</text>
+                    <g transform="rotate(-20 150 70)">
+                        <rect x="120" y="40" width="60" height="40" fill="#ed8936"/>
+                        <line x1="120" y1="60" x2="80" y2="60" stroke="#e53e3e" stroke-width="2.5" marker-end="url(#arrow)"/>
+                        <text x="45" y="55" fill="#e53e3e">Static F_f</text>
+                    </g>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">The perpendicular Normal Force ($F_N$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">The total weight vector ($m\vec{g}$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">The static friction force ($F_f$) acting back directly up the ramp surface.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">Kinetic friction acting downslope.</button></li>
+            </ul>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question" data-correct="1">
+            <div class="question-text">9. A sphere stands completely still on top of a narrow, rounded dome. If bumped slightly, it falls off immediately. What state of equilibrium describes its initial placement?</div>
+            <div class="diagram">
+                <svg width="300" height="130" viewBox="0 0 300 130">
+                    <path d="M 50 110 Q 150 20 250 110" fill="none" stroke="#4a5568" stroke-width="3"/>
+                    <circle cx="150" cy="60" r="14" fill="#4299e1"/>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">Stable Equilibrium</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">Unstable Equilibrium</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">Neutral Equilibrium</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">Dynamic Kinetic Balance</button></li>
+            </ul>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question" data-correct="3">
+            <div class="question-text">10. An engineer calculates forces acting on a structural beam truss node. For this node to satisfy translational equilibrium in 2D space, what must occur?</div>
+            <div class="diagram">
+                <svg width="300" height="140" viewBox="0 0 300 140">
+                    <circle cx="150" cy="70" r="10" fill="#2d3748"/>
+                    <line x1="150" y1="70" x2="90" y2="30" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)"/>
+                    <line x1="150" y1="70" x2="220" y2="70" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)"/>
+                    <line x1="150" y1="70" x2="130" y2="130" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)"/>
+                </svg>
+            </div>
+            <ul class="options">
+                <li><button class="option-btn" onclick="checkAnswer(this, 0)">Only the vertical dimensions must clear out ($\sum F_y = 0$).</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 1)">The net torque around the node point must evaluate to exactly $100\text{ N}\cdot\text{m}$.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 2)">The total forces pulling right must out-value the forces pointing left.</button></li>
+                <li><button class="option-btn" onclick="checkAnswer(this, 3)">Both independent spatial component sums must equal zero simultaneously ($\sum F_x = 0$ and $\sum F_y = 0$).</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="result-card">
+        <h2>Quiz Complete!</h2>
+        <p>Your structural engineering score is:</p>
+        <div id="score-display">0 / 10</div>
+        <button class="btn" onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="nav-footer" id="nav-footer">
+        <span id="progress-text">Question 1 of 10</span>
+        <button class="btn" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+    </div>
+</div>
+
+<script>
+    let currentQuestionIdx = 0;
+    let score = 0;
+    let answered = false;
+    
+    const questions = document.querySelectorAll('.question');
+    const nextBtn = document.getElementById('next-btn');
+    const progressText = document.getElementById('progress-text');
+    const progressBar = document.getElementById('progress-bar');
+    const quizBody = document.getElementById('quiz-body');
+    const resultCard = document.getElementById('result-card');
+    const scoreDisplay = document.getElementById('score-display');
+    const navFooter = document.getElementById('nav-footer');
+
+    function updateProgressBar() {
+        const percentage = ((currentQuestionIdx + 1) / questions.length) * 100;
+        progressBar.style.width = `${percentage}%`;
+    }
+
+    function checkAnswer(button, idx) {
+        if (answered) return; 
+        
+        const currentQuestion = questions[currentQuestionIdx];
+        const correctIdx = parseInt(currentQuestion.getAttribute('data-correct'));
+        const options = currentQuestion.querySelectorAll('.option-btn');
+        
+        answered = true;
+        
+        if (idx === correctIdx) {
+            button.classList.add('correct');
+            score++;
+        } else {
+            button.classList.add('wrong');
+            options[correctIdx].classList.add('correct'); 
+        }
+        
+        nextBtn.disabled = false;
+        if (currentQuestionIdx === questions.length - 1) {
+            nextBtn.innerText = "Finish Quiz";
+        }
+    }
+
+    function nextQuestion() {
+        questions[currentQuestionIdx].classList.remove('active');
+        currentQuestionIdx++;
+        
+        if (currentQuestionIdx < questions.length) {
+            questions[currentQuestionIdx].classList.add('active');
+            progressText.innerText = `Question ${currentQuestionIdx + 1} of ${questions.length}`;
+            updateProgressBar();
+            nextBtn.disabled = true;
+            answered = false;
+        } else {
+            // Out of questions -> Display results
+            quizBody.style.display = 'none';
+            navFooter.style.display = 'none';
+            resultCard.style.display = 'block';
+            scoreDisplay.innerText = `${score} / ${questions.length}`;
+            progressBar.style.width = '100%';
+        }
+    }
+
+    function restartQuiz() {
+        currentQuestionIdx = 0;
+        score = 0;
+        answered = false;
+        
+        quizBody.style.display = 'block';
+        navFooter.style.display = 'flex';
+        resultCard.style.display = 'none';
+        nextBtn.innerText = "Next Question";
+        nextBtn.disabled = true;
+        progressText.innerText = `Question 1 of ${questions.length}`;
+        progressBar.style.width = '10%';
+        
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.classList.remove('correct', 'wrong');
+        });
+        
+        questions.forEach(q => q.classList.remove('active'));
+        questions[0].classList.add('active');
+    }
+</script>
+
+</body>
+</html>

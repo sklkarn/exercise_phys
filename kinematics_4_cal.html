@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinematics: Variable Acceleration Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .question-box {
+            background: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .math {
+            font-family: "Courier New", Courier, monospace;
+            background: #fdfdfd;
+            padding: 2px 5px;
+            font-weight: bold;
+        }
+        .options {
+            margin-top: 15px;
+        }
+        label {
+            display: block;
+            background: #f9f9f9;
+            margin: 8px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        label:hover {
+            background: #e9f7ef;
+            border-color: #27ae60;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .answers-section {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #27ae60;
+        }
+        .explanation {
+            background: #f9f9f9;
+            padding: 12px;
+            margin: 10px 0 20px 0;
+            border-left: 3px solid #666;
+            font-size: 0.95em;
+        }
+        .correct-ans {
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Variable Acceleration Quiz</h1>
+    <p class="intro">Test your knowledge of calculus-based kinematics where acceleration is a function of time, velocity, or position.</p>
+
+    <!-- Question 1 -->
+    <div class="question-box">
+        <p>1. The acceleration of a particle is given by <span class="math">a(t) = 6t - 4</span> m/s². If the particle starts from rest at the origin, what is its velocity at <span class="math">t = 3</span> seconds?</p>
+        <div class="options">
+            <label><input type="radio" name="q1"> A) 14 m/s</label>
+            <label><input type="radio" name="q1"> B) 15 m/s</label>
+            <label><input type="radio" name="q1"> C) 18 m/s</label>
+            <label><input type="radio" name="q1"> D) 27 m/s</label>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-box">
+        <p>2. A body moves along a straight line such that its velocity is <span class="math">v(t) = 3t² + 2t</span>. What is the total displacement of the body between <span class="math">t = 1s</span> and <span class="math">t = 2s</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="q2"> A) 5 m</label>
+            <label><input type="radio" name="q2"> B) 7 m</label>
+            <label><input type="radio" name="q2"> C) 10 m</label>
+            <label><input type="radio" name="q2"> D) 12 m</label>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-box">
+        <p>3. The position of an object is defined by <span class="math">s(t) = t³ - 6t² + 9t</span>. At what time <span class="math">t > 0</span> is the acceleration of the object equal to zero?</p>
+        <div class="options">
+            <label><input type="radio" name="q3"> A) t = 1 s</label>
+            <label><input type="radio" name="q3"> B) t = 2 s</label>
+            <label><input type="radio" name="q3"> C) t = 3 s</label>
+            <label><input type="radio" name="q3"> D) t = 4 s</label>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-box">
+        <p>4. If acceleration is given as a function of velocity, <span class="math">a = -0.5v</span>, and the initial velocity is <span class="math">v₀ = 10 m/s</span>, which expression correctly describes the velocity at time <span class="math">t</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="q4"> A) v(t) = 10 - 0.5t</label>
+            <label><input type="radio" name="q4"> B) v(t) = 10e^(-0.5t)</label>
+            <label><input type="radio" name="q4"> C) v(t) = 10 - 0.25t²</label>
+            <label><input type="radio" name="q4"> D) v(t) = ln(10 - 0.5t)</label>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question-box">
+        <p>5. An object’s acceleration is <span class="math">a(v) = 2√v</span>. If the object starts with velocity <span class="math">v = 4 m/s</span> at <span class="math">t = 0</span>, find the time taken for the velocity to reach <span class="math">9 m/s</span>.</p>
+        <div class="options">
+            <label><input type="radio" name="q5"> A) 0.5 s</label>
+            <label><input type="radio" name="q5"> B) 1.0 s</label>
+            <label><input type="radio" name="q5"> C) 2.0 s</label>
+            <label><input type="radio" name="q5"> D) 5.0 s</label>
+        </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question-box">
+        <p>6. For a particle where acceleration is a function of position, <span class="math">a(x) = 4x</span>, which relationship should be used to find the velocity as a function of position?</p>
+        <div class="options">
+            <label><input type="radio" name="q6"> A) v = ∫ a dt</label>
+            <label><input type="radio" name="q6"> B) v dv = a dx</label>
+            <label><input type="radio" name="q6"> C) x = ∫ v dt</label>
+            <label><input type="radio" name="q6"> D) a = dv/dt</label>
+        </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question-box">
+        <p>7. The velocity of a particle is <span class="math">v = kx</span> where <span class="math">k</span> is a constant and <span class="math">x</span> is position. What is the acceleration of the particle in terms of <span class="math">x</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="q7"> A) a = k</label>
+            <label><input type="radio" name="q7"> B) a = kx²</label>
+            <label><input type="radio" name="q7"> C) a = k²x</label>
+            <label><input type="radio" name="q7"> D) a = 0</label>
+        </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question-box">
+        <p>8. A rocket's acceleration increases linearly with time: <span class="math">a(t) = kt</span>. If it starts from rest, the displacement <span class="math">s</span> is proportional to which power of <span class="math">t</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="q8"> A) t</label>
+            <label><input type="radio" name="q8"> B) t²</label>
+            <label><input type="radio" name="q8"> C) t³</label>
+            <label><input type="radio" name="q8"> D) t⁴</label>
+        </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question-box">
+        <p>9. A particle moves such that <span class="math">v = 2t²</span>. What is the average acceleration between <span class="math">t = 0</span> and <span class="math">t = 3</span> seconds?</p>
+        <div class="options">
+            <label><input type="radio" name="q9"> A) 6 m/s²</label>
+            <label><input type="radio" name="q9"> B) 12 m/s²</label>
+            <label><input type="radio" name="q9"> C) 18 m/s²</label>
+            <label><input type="radio" name="q9"> D) 4 m/s²</label>
+        </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question-box">
+        <p>10. If the jerk (rate of change of acceleration) is a constant <span class="math">j = 2 m/s³</span> and the object starts from rest with zero initial acceleration, what is its velocity at <span class="math">t = 2s</span>?</p>
+        <div class="options">
+            <label><input type="radio" name="q10"> A) 2 m/s</label>
+            <label><input type="radio" name="q10"> B) 4 m/s</label>
+            <label><input type="radio" name="q10"> C) 8 m/s</label>
+            <label><input type="radio" name="q10"> D) 1 m/s</label>
+        </div>
+    </div>
+
+    <!-- Solutions Section -->
+    <div class="answers-section">
+        <h2>Answer Key & Complete Solutions</h2>
+
+        <p><strong>Question 1: <span class="correct-ans">B) 15 m/s</span></strong></p>
+        <div class="explanation">
+            Integrate acceleration to find velocity: v(t) = ∫(6t - 4)dt = 3t² - 4t + C. Since it starts from rest, C = 0.<br>
+            At t = 3s: v(3) = 3(3)² - 4(3) = 27 - 12 = 15 m/s.
+        </div>
+
+        <p><strong>Question 2: <span class="correct-ans">C) 10 m</span></strong></p>
+        <div class="explanation">
+            Displacement is the definite integral of velocity: Δs = ∫[1 to 2] (3t² + 2t) dt.<br>
+            Antiderivative is [t³ + t²] evaluated from 1 to 2.<br>
+            At t = 2: (2³ + 2²) = 8 + 4 = 12.<br>
+            At t = 1: (1³ + 1²) = 1 + 1 = 2.<br>
+            Δs = 12 - 2 = 10 m.
+        </div>
+
+        <p><strong>Question 3: <span class="correct-ans">B) t = 2 s</span></strong></p>
+        <div class="explanation">
+            Velocity is the first derivative: v(t) = s'(t) = 3t² - 12t + 9.<br>
+            Acceleration is the second derivative: a(t) = v'(t) = 6t - 12.<br>
+            Set a(t) = 0: 6t - 12 = 0 → 6t = 12 → t = 2 s.
+        </div>
+
+        <p><strong>Question 4: <span class="correct-ans">B) v(t) = 10e^(-0.5t)</span></strong></p>
+        <div class="explanation">
+            Write acceleration as dv/dt: dv/dt = -0.5v.<br>
+            Separate variables: (1/v) dv = -0.5 dt.<br>
+            Integrate both sides: ln(v) = -0.5t + C → v(t) = e^(-0.5t + C) = A*e^(-0.5t).<br>
+            Using initial condition v(0) = 10 gives A = 10, so v(t) = 10e^(-0.5t).
+        </div>
+
+        <p><strong>Question 5: <span class="correct-ans">B) 1.0 s</span></strong></p>
+        <div class="explanation">
+            dv/dt = 2√v → v^(-1/2) dv = 2 dt.<br>
+            Integrate both sides: 2√v = 2t + C → √v = t + C.<br>
+            At t = 0, v = 4 → √4 = 0 + C → C = 2. Therefore, √v = t + 2.<br>
+            Find t when v = 9: √9 = t + 2 → 3 = t + 2 → t = 1.0 s.
+        </div>
+
+        <p><strong>Question 6: <span class="correct-ans">B) v dv = a dx</span></strong></p>
+        <div class="explanation">
+            Using the chain rule, acceleration can be rewritten from dv/dt into a position-dependent form: <br>
+            a = (dv/dx) * (dx/dt). Since dx/dt = v, this simplifies to a = v(dv/dx), which rearranges cleanly to v dv = a dx.
+        </div>
+
+        <p><strong>Question 7: <span class="correct-ans">C) a = k²x</span></strong></p>
+        <div class="explanation">
+            Using a = v(dv/dx):<br>
+            Given v = kx, differentiate with respect to x: dv/dx = k.<br>
+            Substitute back into formula: a = (kx) * (k) = k²x.
+        </div>
+
+        <p><strong>Question 8: <span class="correct-ans">C) t³</span></strong></p>
+        <div class="explanation">
+            First integration for velocity: v(t) = ∫ kt dt = (1/2)kt² + C₁.<br>
+            Second integration for displacement: s(t) = ∫ (1/2)kt² dt = (1/6)kt³ + C₁t + C₂.<br>
+            Thus, displacement is directly proportional to t³.
+        </div>
+
+        <p><strong>Question 9: <span class="correct-ans">A) 6 m/s²</span></strong></p>
+        <div class="explanation">
+            Average acceleration is defined as change in velocity divided by change in time: a_avg = (v_final - v_initial) / Δt.<br>
+            v(3) = 2(3)² = 18 m/s.<br>
+            v(0) = 2(0)² = 0 m/s.<br>
+            a_avg = (18 - 0) / (3 - 0) = 6 m/s².
+        </div>
+
+        <p><strong>Question 10: <span class="correct-ans">B) 4 m/s</span></strong></p>
+        <div class="explanation">
+            Jerk is the derivative of acceleration (j = da/dt), so a(t) = ∫ j dt = ∫ 2 dt = 2t.<br>
+            Velocity is the integral of acceleration: v(t) = ∫ 2t dt = t².<br>
+            At t = 2s: v(2) = 2² = 4 m/s.
+        </div>
+    </div>
+
+</body>
+</html>

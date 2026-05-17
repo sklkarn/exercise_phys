@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprehensive Kinematics Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 20px auto; line-height: 1.6; color: #333; padding: 0 20px; }
+    h1, h2 { text-align: center; color: #2c3e50; }
+    .section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #eee; }
+    .question { margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 6px; background: white; }
+    .question p { margin: 0 0 10px; font-weight: bold; }
+    svg { border: 1px solid #eee; margin: 10px 0; background: #fff; display: block; }
+    button { padding: 12px 24px; font-size: 16px; cursor: pointer; border-radius: 4px; border: none; transition: 0.3s; }
+    .btn-submit { background-color: #27ae60; color: white; }
+    .btn-submit:hover { background-color: #219150; }
+    .btn-reset { background-color: #e74c3c; color: white; margin-left: 10px; }
+    .btn-reset:hover { background-color: #c0392b; }
+    .feedback { font-weight: bold; margin-top: 8px; font-size: 0.9em; }
+    .correct-msg { color: #27ae60; }
+    .incorrect-msg { color: #e74c3c; }
+    #resultBox { margin: 30px 0; padding: 20px; text-align: center; font-size: 24px; font-weight: bold; border-top: 2px solid #2c3e50; }
+    .controls { text-align: center; margin-bottom: 50px; }
+  </style>
+</head>
+<body>
+
+  <h1>Kinematics Master Quiz</h1>
+  <p style="text-align: center;">Test your knowledge on motion, graphical analysis, and vertical projectiles.</p>
+
+  <form id="masterQuizForm">
+    
+    <div class="section">
+      <h2>Section 1: General Kinematics</h2>
+      <div class="question" data-q="s1q1">
+        <p>1. Kinematics is the study of:</p>
+        <label><input type="radio" name="s1q1" value="b"> Motion without regard to its causes</label><br>
+        <label><input type="radio" name="s1q1" value="a"> Forces causing motion</label><br>
+        <label><input type="radio" name="s1q1" value="c"> Energy transformations</label><br>
+        <label><input type="radio" name="s1q1" value="d"> Electric fields</label>
+      </div>
+
+      <div class="question" data-q="s1q2">
+        <p>2. Displacement is best described as:</p>
+        <label><input type="radio" name="s1q2" value="b"> Change in position in a specific direction</label><br>
+        <label><input type="radio" name="s1q2" value="a"> Total path length traveled</label><br>
+        <label><input type="radio" name="s1q2" value="c"> Speed per unit time</label><br>
+        <label><input type="radio" name="s1q2" value="d"> Rate of change of acceleration</label>
+      </div>
+
+      <div class="question" data-q="s1q3">
+        <p>3. The SI unit of velocity is:</p>
+        <label><input type="radio" name="s1q3" value="b"> m/s</label><br>
+        <label><input type="radio" name="s1q3" value="a"> m</label><br>
+        <label><input type="radio" name="s1q3" value="c"> m/s²</label><br>
+        <label><input type="radio" name="s1q3" value="d"> N</label>
+      </div>
+
+      <div class="question" data-q="s1q4">
+        <p>4. The SI unit of acceleration is:</p>
+        <label><input type="radio" name="s1q4" value="b"> m/s²</label><br>
+        <label><input type="radio" name="s1q4" value="a"> m/s</label><br>
+        <label><input type="radio" name="s1q4" value="c"> N</label><br>
+        <label><input type="radio" name="s1q4" value="d"> J</label>
+      </div>
+
+      <div class="question" data-q="s1q5">
+        <p>5. A car goes from 0 m/s to 20 m/s in 4 s. Its average acceleration is:</p>
+        <label><input type="radio" name="s1q5" value="c"> 5 m/s²</label><br>
+        <label><input type="radio" name="s1q5" value="a"> 2 m/s²</label><br>
+        <label><input type="radio" name="s1q5" value="b"> 4 m/s²</label><br>
+        <label><input type="radio" name="s1q5" value="d"> 80 m/s²</label>
+      </div>
+
+      <div class="question" data-q="s1q6">
+        <p>6. An object moves with constant velocity. Its acceleration is:</p>
+        <label><input type="radio" name="s1q6" value="a"> Zero</label><br>
+        <label><input type="radio" name="s1q6" value="b"> Constant but non-zero</label><br>
+        <label><input type="radio" name="s1q6" value="c"> Increasing</label><br>
+        <label><input type="radio" name="s1q6" value="d"> Decreasing</label>
+      </div>
+
+      <div class="question" data-q="s1q7">
+        <p>7. Near Earth’s surface, the magnitude of acceleration due to gravity is approximately:</p>
+        <label><input type="radio" name="s1q7" value="c"> 9.8 m/s²</label><br>
+        <label><input type="radio" name="s1q7" value="a"> 0 m/s²</label><br>
+        <label><input type="radio" name="s1q7" value="b"> 4.9 m/s²</label><br>
+        <label><input type="radio" name="s1q7" value="d"> 19.6 m/s²</label>
+      </div>
+
+      <div class="question" data-q="s1q8">
+        <p>8. A body is thrown straight up. At the highest point, its velocity and acceleration are:</p>
+        <label><input type="radio" name="s1q8" value="b"> v = 0, a = g downward</label><br>
+        <label><input type="radio" name="s1q8" value="a"> v = 0, a = 0</label><br>
+        <label><input type="radio" name="s1q8" value="c"> v = g upward, a = 0</label><br>
+        <label><input type="radio" name="s1q8" value="d"> v = g downward, a = g downward</label>
+      </div>
+
+      <div class="question" data-q="s1q9">
+        <p>9. Which equation of motion is correct for constant acceleration?</p>
+        <label><input type="radio" name="s1q9" value="d"> All of the above</label><br>
+        <label><input type="radio" name="s1q9" value="a"> v = u + at</label><br>
+        <label><input type="radio" name="s1q9" value="b"> s = ut + ½at²</label><br>
+        <label><input type="radio" name="s1q9" value="c"> v² = u² + 2as</label>
+      </div>
+
+      <div class="question" data-q="s1q10">
+        <p>10. A position–time graph is a straight line with positive slope. This indicates:</p>
+        <label><input type="radio" name="s1q10" value="a"> Constant positive velocity</label><br>
+        <label><input type="radio" name="s1q10" value="b"> Increasing acceleration</label><br>
+        <label><input type="radio" name="s1q10" value="c"> Motion with changing direction</label><br>
+        <label><input type="radio" name="s1q10" value="d"> Object at rest</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Section 2: Graphical Analysis</h2>
+      
+      <div class="question" data-q="s2q1">
+        <p>11. The position–time graph below shows motion along a straight line. What does it indicate?</p>
+        <svg width="260" height="160">
+          <line x1="30" y1="130" x2="230" y2="130" stroke="black" stroke-width="2"/>
+          <line x1="30" y1="130" x2="30" y2="30" stroke="black" stroke-width="2"/>
+          <line x1="40" y1="120" x2="220" y2="40" stroke="blue" stroke-width="4"/>
+        </svg>
+        <label><input type="radio" name="s2q1" value="B"> Constant positive velocity</label><br>
+        <label><input type="radio" name="s2q1" value="A"> Object is at rest</label><br>
+        <label><input type="radio" name="s2q1" value="C"> Increasing velocity</label><br>
+        <label><input type="radio" name="s2q1" value="D"> Constant negative velocity</label>
+      </div>
+
+      <div class="question" data-q="s2q2">
+        <p>12. The position–time graph below is horizontal. What is the object’s velocity?</p>
+        <svg width="260" height="160">
+          <line x1="30" y1="130" x2="230" y2="130" stroke="black" stroke-width="2"/>
+          <line x1="30" y1="130" x2="30" y2="30" stroke="black" stroke-width="2"/>
+          <line x1="40" y1="80" x2="220" y2="80" stroke="blue" stroke-width="4"/>
+        </svg>
+        <label><input type="radio" name="s2q2" value="C"> Zero</label><br>
+        <label><input type="radio" name="s2q2" value="A"> Positive and constant</label><br>
+        <label><input type="radio" name="s2q2" value="B"> Negative and constant</label><br>
+        <label><input type="radio" name="s2q2" value="D"> Increasing</label>
+      </div>
+
+      <div class="question" data-q="s2q3">
+        <p>13. The velocity–time graph below starts from zero and increases linearly. What does it represent?</p>
+        <svg width="260" height="160">
+          <line x1="30" y1="130" x2="230" y2="130" stroke="black" stroke-width="2"/>
+          <line x1="30" y1="130" x2="30" y2="30" stroke="black" stroke-width="2"/>
+          <line x1="30" y1="130" x2="220" y2="40" stroke="blue" stroke-width="4"/>
+        </svg>
+        <label><input type="radio" name="s2q3" value="B"> Constant positive acceleration</label><br>
+        <label><input type="radio" name="s2q3" value="A"> Constant velocity</label><br>
+        <label><input type="radio" name="s2q3" value="C"> Constant negative acceleration</label><br>
+        <label><input type="radio" name="s2q3" value="D"> Object at rest</label>
+      </div>
+
+      <div class="question" data-q="s2q4">
+        <p>14. In the velocity–time graph below, what does the shaded area represent?</p>
+        <svg width="260" height="160">
+          <line x1="30" y1="130" x2="230" y2="130" stroke="black" stroke-width="2"/>
+          <line x1="30" y1="130" x2="30" y2="30" stroke="black" stroke-width="2"/>
+          <line x1="40" y1="70" x2="220" y2="70" stroke="blue" stroke-width="4"/>
+          <polygon points="80,130 80,70 190,70 190,130" fill="rgba(0,0,255,0.2)" stroke="none"/>
+        </svg>
+        <label><input type="radio" name="s2q4" value="B"> Displacement</label><br>
+        <label><input type="radio" name="s2q4" value="A"> Acceleration</label><br>
+        <label><input type="radio" name="s2q4" value="C"> Final velocity</label><br>
+        <label><input type="radio" name="s2q4" value="D"> Average speed</label>
+      </div>
+
+      <div class="question" data-q="s2q5">
+        <p>15. The velocity–time graph below is a horizontal line below the time axis. What does it mean?</p>
+        <svg width="260" height="160">
+          <line x1="30" y1="100" x2="230" y2="100" stroke="black" stroke-width="2"/>
+          <line x1="30" y1="130" x2="30" y2="30" stroke="black" stroke-width="2"/>
+          <line x1="40" y1="130" x2="220" y2="130" stroke="blue" stroke-width="4"/>
+        </svg>
+        <label><input type="radio" name="s2q5" value="C"> Constant negative velocity</label><br>
+        <label><input type="radio" name="s2q5" value="A"> Object is at rest</label><br>
+        <label><input type="radio" name="s2q5" value="B"> Constant positive velocity</label><br>
+        <label><input type="radio" name="s2q5" value="D"> Speed is increasing</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Section 3: Vertical Motion Plots</h2>
+      
+      <div class="question" data-q="s3q1">
+        <p>16. The position–time graph below shows an object thrown straight up and coming back down. What is the acceleration?</p>
+        <svg width="260" height="160">
+          <line x1="30" y1="130" x2="230" y2="130" stroke="black" stroke-width="2"/>
+          <line x1="30" y1="130" x2="30" y2="30" stroke="black" stroke-width="2"/>
+          <path d="M40 120 Q 130 40 220 120" fill="none" stroke="blue" stroke-width="4"/>
+        </svg>
+        <label><input type="radio" name="s3q1" value="C"> Acceleration is constant and negative</label><br>
+        <label><input type="radio" name="s3q1" value="A"> Acceleration is zero</label><br>
+        <label><input type="radio" name="s3q1" value="B"> Acceleration is constant and positive</label><br>
+        <label><input type="radio" name="s3q1" value="D"> Acceleration changes sign at the top</label>
+      </div>
+
+      <div class="question" data-q="s3q2">
+        <p>17. The velocity–time graph below crosses the time axis (v = 0). What does this correspond to?</p>
+        <svg width="260" height="160">
+          <line x1="30" y1="130" x2="230" y2="130" stroke="black" stroke-width="2"/>
+          <line x1="30" y1="130" x2="30" y2="30" stroke="black" stroke-width="2"/>
+          <line x1="40" y1="60" x2="220" y2="140" stroke="blue" stroke-width="4"/>
+        </svg>
+        <label><input type="radio" name="s3q2" value="B"> Object is at its highest point</label><br>
+        <label><input type="radio" name="s3q2" value="A"> Object is just released from rest</label><br>
+        <label><input type="radio" name="s3q2" value="C"> Object hits the ground</label><br>
+        <label><input type="radio" name="s3q2" value="D"> Acceleration becomes zero</label>
+      </div>
+
+      <div class="question" data-q="s3q3">
+        <p>18. The acceleration–time graph below shows a constant negative value. Which situation matches this?</p>
+        <svg width="260" height="160">
+          <line x1="30" y1="100" x2="230" y2="100" stroke="black" stroke-width="2"/>
+          <line x1="30" y1="130" x2="30" y2="30" stroke="black" stroke-width="2"/>
+          <line x1="40" y1="130" x2="220" y2="130" stroke="blue" stroke-width="4"/>
+        </svg>
+        <label><input type="radio" name="s3q3" value="B"> Object in free fall under gravity</label><br>
+        <label><input type="radio" name="s3q3" value="A"> Object moving upward at constant speed</label><br>
+        <label><input type="radio" name="s3q3" value="C"> Object at rest</label><br>
+        <label><input type="radio" name="s3q3" value="D"> Object moving with increasing upward acceleration</label>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button type="button" class="btn-submit" onclick="gradeQuiz()">Submit All Answers</button>
+      <button type="button" class="btn-reset" onclick="resetQuiz()">Reset Quiz</button>
+    </div>
+  </form>
+
+  <div id="resultBox"></div>
+
+  <script>
+    const answerKey = {
+      // Section 1
+      s1q1: "b", s1q2: "b", s1q3: "b", s1q4: "b", s1q5: "c",
+      s1q6: "a", s1q7: "c", s1q8: "b", s1q9: "d", s1q10: "a",
+      // Section 2
+      s2q1: "B", s2q2: "C", s2q3: "B", s2q4: "B", s2q5: "C",
+      // Section 3
+      s3q1: "C", s3q2: "B", s3q3: "B"
+    };
+
+    function gradeQuiz() {
+      let score = 0;
+      let total = Object.keys(answerKey).length;
+
+      // Reset styles and remove old feedback
+      document.querySelectorAll(".question").forEach(div => {
+        div.style.borderColor = "#ccc";
+        const oldFeedback = div.querySelector(".feedback");
+        if (oldFeedback) oldFeedback.remove();
+      });
+
+      for (let key in answerKey) {
+        const questionDiv = document.querySelector(`.question[data-q="${key}"]`);
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        const feedback = document.createElement("div");
+        feedback.className = "feedback";
+
+        if (selected && selected.value === answerKey[key]) {
+          score++;
+          questionDiv.style.borderColor = "#27ae60";
+          feedback.textContent = "Correct!";
+          feedback.classList.add("correct-msg");
+        } else {
+          questionDiv.style.borderColor = "#e74c3c";
+          const correctLabel = answerKey[key].toUpperCase();
+          feedback.textContent = `Incorrect. Correct: ${correctLabel}`;
+          feedback.classList.add("incorrect-msg");
+        }
+        questionDiv.appendChild(feedback);
+      }
+
+      const resultBox = document.getElementById("resultBox");
+      resultBox.innerHTML = `Final Score: ${score} / ${total} (${Math.round(score/total*100)}%)`;
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function resetQuiz() {
+      document.getElementById("masterQuizForm").reset();
+      document.querySelectorAll(".question").forEach(div => {
+        div.style.borderColor = "#ccc";
+        const oldFeedback = div.querySelector(".feedback");
+        if (oldFeedback) oldFeedback.remove();
+      });
+      document.getElementById("resultBox").innerHTML = "";
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>

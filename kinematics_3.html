@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Kinematics & Projectile Motion Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f4f8;
+            color: #2c3e50;
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #1a365d;
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        p.subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+        .question-card {
+            background: #ffffff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid #3182ce;
+        }
+        .question-text {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-left: 10px;
+        }
+        @media(min-width: 600px) {
+            .options {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        label {
+            background: #f7fafc;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        label:hover {
+            background: #ebf8ff;
+            border-color: #bee3f8;
+        }
+        input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.1);
+        }
+        .note {
+            font-size: 0.9em;
+            color: #718096;
+            background: #edf2f7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Advanced Kinematics Quiz</h1>
+    <p class="subtitle">Challenge your understanding of complex 2D motion and projectiles. (Use g = 9.8 m/s² unless stated otherwise)</p>
+
+    <!-- Question 1 -->
+    <div class="question-card">
+        <div class="question-text">
+            1. A 20 kg rock is thrown horizontally from the top of a cliff of height 20 m from the ground. What must be the minimum speed of the rock so that it falls in a 10 m deep well which is located at 50 m away from the cliff?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q1"> A) 20.2 m/s</label>
+            <label><input type="radio" name="q1"> B) 24.7 m/s</label>
+            <label><input type="radio" name="q1"> C) 17.5 m/s</label>
+            <label><input type="radio" name="q1"> D) 31.3 m/s</label>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-card">
+        <div class="question-text">
+            2. A ball kicked at an angle of 60° hits the window of a building 15 m away. If the window is at a height of 2 m above the ground, find the time taken by the ball to hit it.
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q2"> A) 0.63 s</label>
+            <label><input type="radio" name="q2"> B) 1.15 s</label>
+            <label><input type="radio" name="q2"> C) 1.84 s</label>
+            <label><input type="radio" name="q2"> D) 2.21 s</label>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-card">
+        <div class="question-text">
+            3. A rescue plane flying horizontally at an altitude of 160 m with a speed of 40 m/s wants to drop a supply package to a stranded hiker on the ground. At what horizontal distance before passing over the hiker must the pilot release the package? (Assume g = 10 m/s²)
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q3"> A) 160 m</label>
+            <label><input type="radio" name="q3"> B) 226 m</label>
+            <label><input type="radio" name="q3"> C) 320 m</label>
+            <label><input type="radio" name="q3"> D) 400 m</label>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-card">
+        <div class="question-text">
+            4. A projectile is launched from ground level with an initial velocity vector v = (6i + 8j) m/s, where i and j are unit vectors along the horizontal and vertical axes respectively. What is the maximum height achieved by this projectile? (Assume g = 10 m/s²)
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q4"> A) 1.8 m</label>
+            <label><input type="radio" name="q4"> B) 3.2 m</label>
+            <label><input type="radio" name="q4"> C) 5.0 m</label>
+            <label><input type="radio" name="q4"> D) 6.4 m</label>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question-card">
+        <div class="question-text">
+            5. A stunt motorcycle driver jumps over a canyon by launching off a 15° ramp at a speed of 30 m/s. If the canyon walls on both sides are at the exact same elevation, what is the maximum width of the canyon the motorcycle can safely clear?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q5"> A) 45.9 m</label>
+            <label><input type="radio" name="q5"> B) 79.5 m</label>
+            <label><input type="radio" name="q5"> C) 91.8 m</label>
+            <label><input type="radio" name="q5"> D) 38.2 m</label>
+        </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question-card">
+        <div class="question-text">
+            6. A projectile is fired from the edge of a 50 m high cliff at an angle of 30° above the horizontal with an initial speed of 40 m/s. Find the total time the projectile remains in the air before hitting the ground below.
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q6"> A) 2.00 s</label>
+            <label><input type="radio" name="q6"> B) 4.31 s</label>
+            <label><input type="radio" name="q6"> C) 5.44 s</label>
+            <label><input type="radio" name="q6"> D) 7.12 s</label>
+        </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question-card">
+        <div class="question-text">
+            7. An archer shoots an arrow at a target located 60 m away on level ground. If the arrow is shot at an angle of 20° above the horizontal and hits the exact center of the target at the same height it was released, what was its initial launch speed?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q7"> A) 14.1 m/s</label>
+            <label><input type="radio" name="q7"> B) 30.2 m/s</label>
+            <label><input type="radio" name="q7"> C) 42.6 m/s</label>
+            <label><input type="radio" name="q7"> D) 53.7 m/s</label>
+        </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question-card">
+        <div class="question-text">
+            8. A target is moving vertically upward along a wall with a constant speed of 5 m/s. A boy fires a stone horizontally from a distance of 20 m away, aiming directly at the target's position at the moment of firing. If the stone is fired at 40 m/s, how far below the moving target will the stone hit the wall?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q8"> A) 1.23 m</label>
+            <label><input type="radio" name="q8"> B) 2.50 m</label>
+            <label><input type="radio" name="q8"> C) 3.73 m</label>
+            <label><input type="radio" name="q8"> D) 4.90 m</label>
+        </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question-card">
+        <div class="question-text">
+            9. A particle moves along a circular path of radius 4.0 m. If its speed is increasing at a constant tangential acceleration rate of 3.0 m/s², what is the magnitude of the particle's total acceleration vector at the exact instant its linear speed reaches 4.0 m/s?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q9"> A) 3.0 m/s²</label>
+            <label><input type="radio" name="q9"> B) 4.0 m/s²</label>
+            <label><input type="radio" name="q9"> C) 5.0 m/s²</label>
+            <label><input type="radio" name="q9"> D) 7.0 m/s²</label>
+        </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question-card">
+        <div class="question-text">
+            10. A fighter jet pulls out of a dive by traveling along a vertical circular arc of radius 800 m. At the lowest point of the trajectory, the pilot experiences an upward centripetal acceleration equal to 4g. What is the linear speed of the jet at this specific moment? (Assume g = 10 m/s²)
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q10"> A) 126.5 m/s</label>
+            <label><input type="radio" name="q10"> B) 178.9 m/s</label>
+            <label><input type="radio" name="q10"> C) 210.2 m/s</label>
+            <label><input type="radio" name="q10"> D) 320.0 m/s</label>
+        </div>
+    </div>
+
+</body>
+</html>
