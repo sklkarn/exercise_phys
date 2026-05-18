@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Dynamics Quiz</title>
+    <!-- MathJax for rendering beautiful LaTeX equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 10px;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .options {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .options li:hover {
+            background-color: #e2e6ea;
+        }
+        .options input {
+            margin-right: 10px;
+        }
+        #submit-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #submit-btn:hover {
+            background-color: #0056b3;
+        }
+        #results {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .correct { background-color: #d4edda !important; border-color: #c3e6cb !important; }
+        .incorrect { background-color: #f8d7da !important; border-color: #f5c6cb !important; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Advanced Dynamics Quiz: Calculus-Based Physics</h1>
+    <p>Complete the following 10 problems. Show your work on a separate sheet where integration or differentiation is required.</p>
+    <hr>
+
+    <form id="quiz-form">
+        <!-- Question 1 -->
+        <div class="question" data-correct="A">
+            <p class="question-text">1. A particle of mass \( m \) moves along the x-axis under the influence of a time-dependent force \( F(t) = F_0 e^{-\alpha t} \), where \( F_0 \) and \( \alpha \) are positive constants. If the particle starts from rest at \( t = 0 \), what is its velocity \( v(t) \) as a function of time?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1" value="A"> \( v(t) = \frac{F_0}{m\alpha} \left(1 - e^{-\alpha t}\right) \)</label></li>
+                <li><label><input type="radio" name="q1" value="B"> \( v(t) = \frac{F_0}{m\alpha} e^{-\alpha t} \)</label></li>
+                <li><label><input type="radio" name="q1" value="C"> \( v(t) = \frac{F_0 \alpha}{m} \left(1 - e^{-\alpha t}\right) \)</label></li>
+                <li><label><input type="radio" name="q1" value="D"> \( v(t) = \frac{F_0 t}{m} e^{-\alpha t} \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question" data-correct="C">
+            <p class="question-text">2. An object of mass \( m \) experiences a position-dependent force given by \( F(x) = -kx + 3bx^2 \). Find the work done by this force as the object moves from \( x = 0 \) to \( x = d \).</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2" value="A"> \( W = -kd + 6bd \)</label></li>
+                <li><label><input type="radio" name="q2" value="B"> \( W = -\frac{1}{2}kd^2 + 3bd^3 \)</label></li>
+                <li><label><input type="radio" name="q2" value="C"> \( W = -\frac{1}{2}kd^2 + bd^3 \)</label></li>
+                <li><label><input type="radio" name="q2" value="D"> \( W = -k + 6bd \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question" data-correct="B">
+            <p class="question-text">3. A mass \( m \) experiences a velocity-dependent drag force \( F_d = -bv^2 \). If the mass has an initial velocity \( v_0 \) at \( t = 0 \) and no other forces act on it, find the velocity \( v(t) \) as a function of time.</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3" value="A"> \( v(t) = v_0 e^{-\frac{b}{m}t} \)</label></li>
+                <li><label><input type="radio" name="q3" value="B"> \( v(t) = \frac{v_0}{1 + \frac{bv_0}{m}t} \)</label></li>
+                <li><label><input type="radio" name="q3" value="C"> \( v(t) = v_0 - \frac{b}{m}t^2 \)</label></li>
+                <li><label><input type="radio" name="q3" value="D"> \( v(t) = \frac{v_0}{\sqrt{1 + \frac{2bv_0}{m}t}} \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question" data-correct="A">
+            <p class="question-text">4. A conservative force field is described by the potential energy function \( U(x, y) = 3x^2y - 5y^3 \). What is the \( y \)-component of the force, \( F_y \), acting on a particle in this field?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4" value="A"> \( F_y = -3x^2 + 15y^2 \)</label></li>
+                <li><label><input type="radio" name="q4" value="B"> \( F_y = 3x^2 - 15y^2 \)</label></li>
+                <li><label><input type="radio" name="q4" value="C"> \( F_y = -6xy \)</label></li>
+                <li><label><input type="radio" name="q4" value="D"> \( F_y = -3x^2y + 5y^3 \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question" data-correct="D">
+            <p class="question-text">5. A rocket of initial mass \( M_0 \) ejects exhaust gases at a constant relative speed \( u \) and at a constant mass burn rate \( R = -\frac{dM}{dt} \). Ignoring gravity, if the rocket starts from rest, what is its velocity \( v \) when its mass has decreased to \( M \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5" value="A"> \( v = u \left( 1 - \frac{M}{M_0} \right) \)</label></li>
+                <li><label><input type="radio" name="q5" value="B"> \( v = u \frac{M_0}{M} \)</label></li>
+                <li><label><input type="radio" name="q5" value="C"> \( v = \frac{R u}{M} \)</label></li>
+                <li><label><input type="radio" name="q5" value="D"> \( v = u \ln\left(\frac{M_0}{M}\right) \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question" data-correct="C">
+            <p class="question-text">6. The position of a \( 2.0\text{ kg} \) object is given by \( r(t) = (2t^3)\hat{i} + (5t)\hat{j} \) (in SI units). Find the magnitude of the net force acting on the object at \( t = 2.0\text{ s} \).</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q6" value="A"> \( 12\text{ N} \)</label></li>
+                <li><label><input type="radio" name="q6" value="B"> \( 24\text{ N} \)</label></li>
+                <li><label><input type="radio" name="q6" value="C"> \( 48\text{ N} \)</label></li>
+                <li><label><input type="radio" name="q6" value="D"> \( 50\text{ N} \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question" data-correct="B">
+            <p class="question-text">7. A mass \( m \) moves along a straight line with an acceleration proportional to its displacement from the origin, given by \( a(x) = -\omega^2 x \). If its velocity at \( x = 0 \) is \( v_0 \), use the calculus identity \( a = v\frac{dv}{dx} \) to find its velocity as a function of position \( x \).</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q7" value="A"> \( v(x) = v_0 - \omega x \)</label></li>
+                <li><label><input type="radio" name="q7" value="B"> \( v(x) = \sqrt{v_0^2 - \omega^2 x^2} \)</label></li>
+                <li><label><input type="radio" name="q7" value="C"> \( v(x) = v_0 \cos(\omega x) \)</label></li>
+                <li><label><input type="radio" name="q7" value="D"> \( v(x) = \sqrt{v_0^2 + \omega^2 x^2} \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question" data-correct="A">
+            <p class="question-text">8. A time-varying net force \( F(t) = \beta t^2 \) acts on a mass \( m \) initially at rest. What is the total impulse delivered to the mass from \( t = 0 \) to \( t = T \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q8" value="A"> \( J = \frac{1}{3}\beta T^3 \)</label></li>
+                <li><label><input type="radio" name="q8" value="B"> \( J = 2\beta T \)</label></li>
+                <li><label><input type="radio" name="q8" value="C"> \( J = \beta T^2 \)</label></li>
+                <li><label><input type="radio" name="q8" value="D"> \( J = \frac{1}{2m}\beta T^3 \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question" data-correct="D">
+            <p class="question-text">9. A chain of uniform mass density \( \lambda \) and total length \( L \) hangs vertically over the edge of a smooth, frictionless table. If a length \( x \) of the chain is already hanging over the edge, what is the net downward force acting on the hanging segment due to gravity?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q9" value="A"> \( F = \lambda L g \)</label></li>
+                <li><label><input type="radio" name="q9" value="B"> \( F = \frac{1}{2}\lambda x^2 g \)</label></li>
+                <li><label><input type="radio" name="q9" value="C"> \( F = \lambda (L - x) g \)</label></li>
+                <li><label><input type="radio" name="q9" value="D"> \( F = \lambda x g \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question" data-correct="C">
+            <p class="question-text">10. A particle moves along a path such that its angular momentum about the origin is given by \( L(t) = \gamma t^3 \hat{k} \). What is the net torque \( \tau(t) \) acting on the particle as a function of time?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q10" value="A"> \( \tau(t) = \frac{1}{4}\gamma t^4 \hat{k} \)</label></li>
+                <li><label><input type="radio" name="q10" value="B"> \( \tau(t) = \gamma t^3 \hat{k} \)</label></li>
+                <li><label><input type="radio" name="q10" value="C"> \( \tau(t) = 3\gamma t^2 \hat{k} \)</label></li>
+                <li><label><input type="radio" name="q10" value="D"> \( \tau(t) = 6\gamma t \hat{k} \)</label></li>
+            </ul>
+        </div>
+
+        <button type="button" id="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
+    </form>
+
+    <div id="results"></div>
+</div>
+
+<script>
+function checkAnswers() {
+    const questions = document.querySelectorAll('.question');
+    let score = 0;
+
+    questions.forEach((q) => {
+        const correctValue = q.getAttribute('data-correct');
+        const selectedInput = q.querySelector('input[type="radio"]:checked');
+        const optionsList = q.querySelectorAll('.options li');
+
+        // Reset styles
+        optionsList.forEach(li => {
+            li.classList.remove('correct', 'incorrect');
+        });
+
+        if (selectedInput) {
+            const userValue = selectedInput.value;
+            
+            if (userValue === correctValue) {
+                score++;
+                selectedInput.closest('li').classList.add('correct');
+            } else {
+                selectedInput.closest('li').classList.add('incorrect');
+                // Highlight the correct one
+                optionsList.forEach(li => {
+                    if (li.querySelector('input').value === correctValue) {
+                        li.classList.add('correct');
+                    }
+                });
+            }
+        } else {
+            // If missed, highlight the correct option
+            optionsList.forEach(li => {
+                if (li.querySelector('input').value === correctValue) {
+                    li.classList.add('correct');
+                }
+            });
+        }
+    });
+
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = `You scored ${score} out of ${questions.length}.`;
+    resultsDiv.style.color = score >= 7 ? '#28a745' : '#dc3545';
+    
+    // Scroll down to results
+    resultsDiv.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

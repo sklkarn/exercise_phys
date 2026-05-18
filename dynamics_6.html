@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Rotational Equilibrium Quiz</title>
+    <!-- MathJax for rendering beautiful LaTeX equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f6f8;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .question {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .options {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .options li:hover {
+            background-color: #edf2f7;
+            border-color: #cbd5e0;
+        }
+        .options input {
+            margin-right: 12px;
+            transform: scale(1.1);
+        }
+        #submit-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        #submit-btn:hover {
+            background-color: #1f618d;
+        }
+        #results {
+            margin-top: 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .correct { background-color: #c6f6d5 !important; border-color: #9ae6b4 !important; color: #22543d; }
+        .incorrect { background-color: #fed7d7 !important; border-color: #feb2b2 !important; color: #742a2a; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Rotational Equilibrium Quiz (Calculus-Based)</h1>
+    <p>Test your understanding of rotational equilibrium, torque integration, and center of mass distributions. Choose the best answer for each of the 10 problems.</p>
+    <hr>
+
+    <form id="quiz-form">
+        <!-- Question 1 -->
+        <div class="question" data-correct="B">
+            <p class="question-text">1. A non-uniform rod of length \( L \) lies along the x-axis from \( x = 0 \) to \( x = L \). Its linear mass density is given by \( \lambda(x) = \alpha x \), where \( \alpha \) is a constant. At what distance from \( x = 0 \) should a single pivot be placed so that the rod balances horizontally in static equilibrium?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1" value="A"> \( \frac{1}{2}L \)</label></li>
+                <li><label><input type="radio" name="q1" value="B"> \( \frac{2}{3}L \)</label></li>
+                <li><label><input type="radio" name="q1" value="C"> \( \frac{3}{4}L \)</label></li>
+                <li><label><input type="radio" name="q1" value="D"> \( \frac{3}{5}L \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question" data-correct="A">
+            <p class="question-text">2. A uniform beam of length \( L \) and mass \( M \) is held horizontally. A distributed vertical load acts on the beam such that the downward force per unit length is \( q(x) = kx \), where \( x \) is measured from the left support. What is the total clockwise torque exerted by this distributed load about the left end \( (x=0) \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2" value="A"> \( \frac{1}{3}kL^3 \)</label></li>
+                <li><label><input type="radio" name="q2" value="B"> \( \frac{1}{2}kL^2 \)</label></li>
+                <li><label><input type="radio" name="q2" value="C"> \( \frac{1}{4}kL^4 \)</label></li>
+                <li><label><input type="radio" name="q2" value="D"> \( \frac{2}{3}kL^3 \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question" data-correct="D">
+            <p class="question-text">3. A heavy, non-uniform horizontal plank of length \( L \) has a linear weight density given by \( w(x) = w_0 \left(1 + \frac{x^2}{L^2}\right) \), where \( x = 0 \) is the left end. If the plank is supported symmetrically by two tressels located at its ends, find the upward vertical force exerted by the right support to maintain equilibrium.</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3" value="A"> \( \frac{1}{2} w_0 L \)</label></li>
+                <li><label><input type="radio" name="q3" value="B"> \( \frac{2}{3} w_0 L \)</label></li>
+                <li><label><input type="radio" name="q3" value="C"> \( \frac{5}{8} w_0 L \)</label></li>
+                <li><label><input type="radio" name="q3" value="D"> \( \frac{7}{12} w_0 L \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question" data-correct="C">
+            <p class="question-text">4. A circular plate of radius \( R \) has a non-uniform surface mass density that varies with the radial distance from the center, given by \( \sigma(r) = \sigma_0 \left(1 - \frac{r}{R}\right) \). To find where the center of mass lies, you calculate total mass. What is the total mass \( M \) of this plate?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4" value="A"> \( \pi \sigma_0 R^2 \)</label></li>
+                <li><label><input type="radio" name="q4" value="B"> \( \frac{1}{2} \pi \sigma_0 R^2 \)</label></li>
+                <li><label><input type="radio" name="q4" value="C"> \( \frac{1}{3} \pi \sigma_0 R^2 \)</label></li>
+                <li><label><input type="radio" name="q4" value="D"> \( \frac{2}{3} \pi \sigma_0 R^2 \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question" data-correct="B">
+            <p class="question-text">5. A rod of length \( L \) is pivoting freely about its left end \( x = 0 \). A variable upward force per unit length, \( f(x) = \beta x(L - x) \), is applied along the rod. What total concentrated downward force \( F_0 \) must be applied at the far right end \( x = L \) to prevent the rod from rotating?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5" value="A"> \( \frac{1}{6}\beta L^3 \)</label></li>
+                <li><label><input type="radio" name="q5" value="B"> \( \frac{1}{12}\beta L^3 \)</label></li>
+                <li><label><input type="radio" name="q5" value="C"> \( \frac{1}{4}\beta L^3 \)</label></li>
+                <li><label><input type="radio" name="q5" value="D"> \( \frac{1}{3}\beta L^2 \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question" data-correct="A">
+            <p class="question-text">6. A structural beam extending from \( x=0 \) to \( x=L \) is subject to a wind-induced torque density given by \( \frac{d\tau}{dx} = \gamma \sin\left(\frac{\pi x}{2L}\right) \). What is the magnitude of the total torque acting on the beam about the origin \( x=0 \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q6" value="A"> \( \frac{4\gamma L^2}{\pi^2} \)</label></li>
+                <li><label><input type="radio" name="q6" value="B"> \( \frac{2\gamma L}{\pi} \)</label></li>
+                <li><label><input type="radio" name="q6" value="C"> \( \frac{\gamma L^2}{\pi} \)</label></li>
+                <li><label><input type="radio" name="q6" value="D"> \( \frac{8\gamma L^2}{\pi^3} \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question" data-correct="C">
+            <p class="question-text">7. A non-uniform rod of length \( L \) is balanced on a razor edge placed exactly at its midpoint, \( x = \frac{L}{2} \). If the density for the left half \( (0 \le x \le \frac{L}{2}) \) is \( \lambda(x) = \lambda_0 \), what must be the linear density function for the right half \( (\frac{L}{2} \le x \le L) \) to maintain perfect rotational balance if it follows a linear form \( \lambda(x) = C \cdot (L - x) \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q7" value="A"> \( \lambda(x) = \frac{\lambda_0}{L}(L-x) \)</label></li>
+                <li><label><input type="radio" name="q7" value="B"> \( \lambda(x) = \frac{2\lambda_0}{L}(L-x) \)</label></li>
+                <li><label><input type="radio" name="q7" value="C"> \( \lambda(x) = \frac{3\lambda_0}{L}(L-x) \)</label></li>
+                <li><label><input type="radio" name="q7" value="D"> \( \lambda(x) = \frac{4\lambda_0}{L}(L-x) \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question" data-correct="A">
+            <p class="question-text">8. A uniform thin sheet of metal is cut into the shape of a parabola bounded by \( y = kx^2 \), the x-axis, and the line \( x = b \). To determine its rotational balancing characteristics about the y-axis, find the x-coordinate of its center of mass \( (X_{cm}) \).</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q8" value="A"> \( X_{cm} = \frac{3}{4}b \)</label></li>
+                <li><label><input type="radio" name="q8" value="B"> \( X_{cm} = \frac{2}{3}b \)</label></li>
+                <li><label><input type="radio" name="q8" value="C"> \( X_{cm} = \frac{4}{5}b \)</label></li>
+                <li><label><input type="radio" name="q8" value="D"> \( X_{cm} = \frac{1}{2}b \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question" data-correct="D">
+            <p class="question-text">9. An engineer designs a wedge-shaped support arm whose width increases exponentially: \( w(x) = w_0 e^{x/L} \) from \( x = 0 \) to \( x = L \). Assuming uniform thickness and material density, what is the distance from the narrow end \( (x=0) \) to its center of gravity?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q9" value="A"> \( L e \)</label></li>
+                <li><label><input type="radio" name="q9" value="B"> \( \frac{L}{2} \)</label></li>
+                <li><label><input type="radio" name="q9" value="C"> \( L(e - 1) \)</label></li>
+                <li><label><input type="radio" name="q9" value="D"> \( L \left( \frac{1}{e - 1} \right) \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question" data-correct="C">
+            <p class="question-text">10. A sign of mass \( M \) is suspended horizontally from a wall using a hinge at the left end and a cable at the right end. A variable torque is introduced due to a localized pile of snow accumulating on the sign with a weight density of \( w(x) = \alpha x^3 \) (where \( x=0 \) is the hinge). What is the tension force vector's contribution to torque balance if the cable makes an angle of \( 90^\circ \) to the sign at \( x=L \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q10" value="A"> \( \tau_{cable} = \frac{1}{3}\alpha L^4 \)</label></li>
+                <li><label><input type="radio" name="q10" value="B"> \( \tau_{cable} = \frac{1}{4}\alpha L^5 \)</label></li>
+                <li><label><input type="radio" name="q10" value="C"> \( \tau_{cable} = \frac{1}{5}\alpha L^5 \)</label></li>
+                <li><label><input type="radio" name="q10" value="D"> \( \tau_{cable} = \alpha L^4 \)</label></li>
+            </ul>
+        </div>
+
+        <button type="button" id="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
+    </form>
+
+    <div id="results"></div>
+</div>
+
+<script>
+function checkAnswers() {
+    const questions = document.querySelectorAll('.question');
+    let score = 0;
+
+    questions.forEach((q) => {
+        const correctValue = q.getAttribute('data-correct');
+        const selectedInput = q.querySelector('input[type="radio"]:checked');
+        const optionsList = q.querySelectorAll('.options li');
+
+        // Reset styles
+        optionsList.forEach(li => {
+            li.classList.remove('correct', 'incorrect');
+        });
+
+        if (selectedInput) {
+            const userValue = selectedInput.value;
+            
+            if (userValue === correctValue) {
+                score++;
+                selectedInput.closest('li').classList.add('correct');
+            } else {
+                selectedInput.closest('li').classList.add('incorrect');
+                // Highlight the correct option
+                optionsList.forEach(li => {
+                    if (li.querySelector('input').value === correctValue) {
+                        li.classList.add('correct');
+                    }
+                });
+            }
+        } else {
+            // If missed entirely, highlight the correct option
+            optionsList.forEach(li => {
+                if (li.querySelector('input').value === correctValue) {
+                    li.classList.add('correct');
+                }
+            });
+        }
+    });
+
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = `You scored ${score} out of ${questions.length}.`;
+    
+    if (score >= 8) {
+        resultsDiv.className = 'correct';
+    } else if (score >= 5) {
+        resultsDiv.style.backgroundColor = '#feebc8';
+        resultsDiv.style.borderColor = '#fbd38d';
+        resultsDiv.style.color = '#c05621';
+    } else {
+        resultsDiv.className = 'incorrect';
+    }
+    
+    // Smooth scroll down to results view
+    resultsDiv.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

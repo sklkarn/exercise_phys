@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Rotational Dynamics Quiz</title>
+    <!-- MathJax for rendering beautiful LaTeX equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7fafc;
+        }
+        h1 {
+            color: #2d3748;
+            border-bottom: 2px solid #4a5568;
+            padding-bottom: 10px;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .question {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .options {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .options li:hover {
+            background-color: #edf2f7;
+        }
+        .options input {
+            margin-right: 12px;
+        }
+        #submit-btn {
+            background-color: #4a5568;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #submit-btn:hover {
+            background-color: #2d3748;
+        }
+        #results {
+            margin-top: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .correct { background-color: #c6f6d5 !important; border-color: #9ae6b4 !important; color: #22543d; }
+        .incorrect { background-color: #fed7d7 !important; border-color: #feb2b2 !important; color: #742a2a; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Rotational Dynamics & Torque Quiz (Calculus-Based)</h1>
+    <p>This assessment evaluates core concepts in rotational dynamics, including \(\tau = I\alpha\), integration for moments of inertia, time-dependent torques, and angular momentum changes.</p>
+    <hr>
+
+    <form id="quiz-form">
+        <!-- Question 1 -->
+        <div class="question" data-correct="B">
+            <p class="question-text">1. A thin rod of length \( L \) and total mass \( M \) has a non-uniform linear mass density given by \( \lambda(x) = \gamma x^2 \), where \( x \) is the distance from the left end. What is the moment of inertia \( I \) of the rod when rotated about an axis passing through its left end \( (x=0) \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1" value="A"> \( \frac{1}{3}ML^2 \)</label></li>
+                <li><label><input type="radio" name="q1" value="B"> \( \frac{3}{5}ML^2 \)</label></li>
+                <li><label><input type="radio" name="q1" value="C"> \( \frac{1}{5}ML^2 \)</label></li>
+                <li><label><input type="radio" name="q1" value="D"> \( \frac{2}{5}ML^2 \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question" data-correct="C">
+            <p class="question-text">2. A flywheel with a fixed moment of inertia \( I \) is subjected to a time-varying net torque \( \tau(t) = \tau_0 e^{-bt} \). If the flywheel starts from rest at \( t = 0 \), what is its angular velocity \( \omega(t) \) as a function of time?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2" value="A"> \( \omega(t) = \frac{\tau_0}{Ib} e^{-bt} \)</label></li>
+                <li><label><input type="radio" name="q2" value="B"> \( \omega(t) = \frac{\tau_0 t}{I} e^{-bt} \)</label></li>
+                <li><label><input type="radio" name="q2" value="C"> \( \omega(t) = \frac{\tau_0}{Ib} \left(1 - e^{-b t}\right) \)</label></li>
+                <li><label><input type="radio" name="q2" value="D"> \( \omega(t) = \frac{\tau_0 b}{I} \left(1 - e^{-b t}\right) \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question" data-correct="A">
+            <p class="question-text">3. The angular position of a rotating rigid body of moment of inertia \( I \) is described by \( \theta(t) = a t^3 - b t^2 \). What is the net torque \( \tau(t) \) acting on the body as a function of time?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3" value="A"> \( \tau(t) = I(6at - 2b) \)</label></li>
+                <li><label><input type="radio" name="q3" value="B"> \( \tau(t) = I(3at^2 - 2bt) \)</label></li>
+                <li><label><input type="radio" name="q3" value="C"> \( \tau(t) = 6at - 2b \)</label></li>
+                <li><label><input type="radio" name="q3" value="D"> \( \tau(t) = I(a t^3 - b t^2) \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question" data-correct="D">
+            <p class="question-text">4. A particle of mass \( m \) moves in the xy-plane with a position vector \( \vec{r}(t) = (ct^2)\hat{i} + (dt)\hat{j} \). If a net force \( \vec{F} \) acts on the particle, what is the net torque \( \vec{\tau} \) acting on the particle about the origin at any time \( t \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4" value="A"> \( \vec{\tau} = 2mdc \hat{k} \)</label></li>
+                <li><label><input type="radio" name="q4" value="B"> \( \vec{\tau} = -2mct \hat{k} \)</label></li>
+                <li><label><input type="radio" name="q4" value="C"> \( \vec{\tau} = 2mcd t \hat{k} \)</label></li>
+                <li><label><input type="radio" name="q4" value="D"> \( \vec{\tau} = -2mcd t \hat{k} \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question" data-correct="A">
+            <p class="question-text">5. A uniform solid cylinder of mass \( M \) and radius \( R \) \( (I = \frac{1}{2}MR^2) \) is free to rotate about its central axis. A cord wrapped around it is pulled with a time-dependent force \( F(t) = kt^2 \). Find the angular acceleration \( \alpha(t) \) of the cylinder.</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5" value="A"> \( \alpha(t) = \frac{2kt^2}{MR} \)</label></li>
+                <li><label><input type="radio" name="q5" value="B"> \( \alpha(t) = \frac{kt^2}{MR} \)</label></li>
+                <li><label><input type="radio" name="q5" value="C"> \( \alpha(t) = \frac{2kt^3}{3MR} \)</label></li>
+                <li><label><input type="radio" name="q5" value="D"> \( \alpha(t) = \frac{4kt^2}{MR^2} \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question" data-correct="B">
+            <p class="question-text">6. A rigid wheel with moment of inertia \( I \) experiences an angular velocity-dependent resisting torque due to fluid friction given by \( \tau_{drag} = -k\omega \). If the wheel has an initial angular velocity \( \omega_0 \), how much time does it take for its angular velocity to drop to \( \frac{1}{2}\omega_0 \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q6" value="A"> \( t = \frac{I}{2k} \)</label></li>
+                <li><label><input type="radio" name="q6" value="B"> \( t = \frac{I \ln(2)}{k} \)</label></li>
+                <li><label><input type="radio" name="q6" value="C"> \( t = \frac{k \ln(2)}{I} \)</label></li>
+                <li><label><input type="radio" name="q6" value="D"> \( t = \frac{I}{k} \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question" data-correct="A">
+            <p class="question-text">7. A non-uniform flat disk of radius \( R \) has a surface mass density that depends on radial distance: \( \sigma(r) = \alpha r \). What is the total moment of inertia \( I \) of this disk for rotation about a perpendicular axis through its center?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q7" value="A"> \( I = \frac{2}{5}MR^2 \)</label></li>
+                <li><label><input type="radio" name="q7" value="B"> \( I = \frac{1}{2}MR^2 \)</label></li>
+                <li><label><input type="radio" name="q7" value="C"> \( I = \frac{3}{5}MR^2 \)</label></li>
+                <li><label><input type="radio" name="q7" value="D"> \( I = \frac{1}{3}MR^2 \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question" data-correct="C">
+            <p class="question-text">8. A constant net torque \( \tau_0 \) acts on a system whose moment of inertia is changing with time such that \( I(t) = I_0 + \beta t \). Assuming the system starts from rest, find the expression for its angular momentum \( L(t) \) at time \( t \).</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q8" value="A"> \( L(t) = \tau_0 (I_0 + \beta t) \)</label></li>
+                <li><label><input type="radio" name="q8" value="B"> \( L(t) = \frac{1}{2}\tau_0 t^2 \)</label></li>
+                <li><label><input type="radio" name="q8" value="C"> \( L(t) = \tau_0 t \)</label></li>
+                <li><label><input type="radio" name="q8" value="D"> \( L(t) = \frac{\tau_0 t}{I_0 + \beta t} \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question" data-correct="D">
+            <p class="question-text">9. A thin plate extends along the x-axis from \( x=0 \) to \( x=L \). It experiences a force per unit length acting perpendicular to the plate given by \( f(x) = F_0 \cos\left(\frac{\pi x}{2L}\right) \). What is the total torque \( \tau \) exerted by this force about the pivot at \( x=0 \)?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q9" value="A"> \( \tau = \frac{2F_0 L^2}{\pi} \)</label></li>
+                <li><label><input type="radio" name="q9" value="B"> \( \tau = F_0 L^2 \left(1 - \frac{2}{\pi}\right) \)</label></li>
+                <li><label><input type="radio" name="q9" value="C"> \( \tau = \frac{4F_0 L^2}{\pi^2} \)</label></li>
+                <li><label><input type="radio" name="q9" value="D"> \( \tau = F_0 L^2 \left(\frac{2}{\pi} - \frac{4}{\pi^2}\right) \)</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question" data-correct="B">
+            <p class="question-text">10. An object with a moment of inertia \( I \) accelerates from an initial angular velocity \( \omega = 0 \) to a final angular velocity \( \omega = \Omega \) under a torque that depends on the angular position, \( \tau(\theta) = \kappa \theta \). Through what total angle \( \theta_f \) must the object rotate to reach this speed?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q10" value="A"> \( \theta_f = \frac{I\Omega}{\kappa} \)</label></li>
+                <li><label><input type="radio" name="q10" value="B"> \( \theta_f = \Omega \sqrt{\frac{I}{\kappa}} \)</label></li>
+                <li><label><input type="radio" name="q10" value="C"> \( \theta_f = \frac{I\Omega^2}{2\kappa} \)</label></li>
+                <li><label><input type="radio" name="q10" value="D"> \( \theta_f = \Omega \frac{I}{\kappa} \)</label></li>
+            </ul>
+        </div>
+
+        <button type="button" id="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
+    </form>
+
+    <div id="results"></div>
+</div>
+
+<script>
+function checkAnswers() {
+    const questions = document.querySelectorAll('.question');
+    let score = 0;
+
+    questions.forEach((q) => {
+        const correctValue = q.getAttribute('data-correct');
+        const selectedInput = q.querySelector('input[type="radio"]:checked');
+        const optionsList = q.querySelectorAll('.options li');
+
+        optionsList.forEach(li => {
+            li.classList.remove('correct', 'incorrect');
+        });
+
+        if (selectedInput) {
+            const userValue = selectedInput.value;
+            
+            if (userValue === correctValue) {
+                score++;
+                selectedInput.closest('li').classList.add('correct');
+            } else {
+                selectedInput.closest('li').classList.add('incorrect');
+                optionsList.forEach(li => {
+                    if (li.querySelector('input').value === correctValue) {
+                        li.classList.add('correct');
+                    }
+                });
+            }
+        } else {
+            optionsList.forEach(li => {
+                if (li.querySelector('input').value === correctValue) {
+                    li.classList.add('correct');
+                }
+            });
+        }
+    });
+
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = `You scored ${score} out of ${questions.length}.`;
+    
+    if (score >= 8) {
+        resultsDiv.className = 'correct';
+    } else if (score >= 5) {
+        resultsDiv.style.backgroundColor = '#fffaf0';
+        resultsDiv.style.borderColor = '#feebc8';
+        resultsDiv.style.color = '#dd6b20';
+    } else {
+        resultsDiv.className = 'incorrect';
+    }
+    
+    resultsDiv.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

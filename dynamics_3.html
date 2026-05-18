@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Force & Equilibrium Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .option:hover {
+            background-color: #e9ecef;
+        }
+        .option input {
+            margin-right: 15px;
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f1f2f6;
+            border-left: 4px solid #57606f;
+            font-size: 0.95em;
+            display: none;
+        }
+        .correct-answer {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+        }
+        .wrong-answer {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculus: Force & Equilibrium Quiz</h1>
+    
+    <div class="quiz-container">
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question" id="q1">
+                <p class="question-text">1. A particle moves along the x-axis under the influence of a conservative force field. Its potential energy function is given by U(x) = x³ - 3x² - 9x + 5. At what value of x > 0 is the particle in a state of stable equilibrium?</p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="A"> x = 1</label>
+                    <label class="option"><input type="radio" name="q1" value="B"> x = 3</label>
+                    <label class="option"><input type="radio" name="q1" value="C"> x = -1</label>
+                    <label class="option"><input type="radio" name="q1" value="D"> x = 0</label>
+                </div>
+                <div class="explanation" id="exp1">
+                    <strong>Explanation:</strong> Equilibrium occurs where F = -dU/dx = 0. <br>
+                    dU/dx = 3x² - 6x - 9 = 0 &rarr; x² - 2x - 3 = 0 &rarr; (x - 3)(x + 1) = 0. Thus, x = 3 or x = -1. <br>
+                    For <em>stable</em> equilibrium, the potential energy must be at a local minimum, meaning d²U/dx² > 0. <br>
+                    d²U/dx² = 6x - 6. At x = 3, d²U/dx² = 18 - 6 = 12 > 0. Since the question asks for x > 0, <strong>x = 3</strong> is the correct answer.
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question" id="q2">
+                <p class="question-text">2. A variable force F(x) = 4x³ - 2x acts on an object. What is the total work done by this force to move the object from x = 1 meter to x = 2 meters?</p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="A"> 12 Joules</label>
+                    <label class="option"><input type="radio" name="q2" value="B"> 15 Joules</label>
+                    <label class="option"><input type="radio" name="q2" value="C"> 16 Joules</label>
+                    <label class="option"><input type="radio" name="q2" value="D"> 18 Joules</label>
+                </div>
+                <div class="explanation" id="exp2">
+                    <strong>Explanation:</strong> Work done is the integral of force with respect to position: W = &int; F(x) dx from x=1 to x=2.<br>
+                    W = &int; (4x³ - 2x) dx = [x⁴ - x²] from 1 to 2.<br>
+                    W = (2⁴ - 2²) - (1⁴ - 1²) = (16 - 4) - (1 - 1) = 12 - 0 = <strong>12 Joules</strong>.
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question" id="q3">
+                <p class="question-text">3. The force required to stretch a non-linear spring is given by F(x) = kx + bx², where k = 10 N/m and b = 3 N/m². If the spring is in equilibrium under an external load after being stretched 2 meters from its natural length, what is the magnitude of the external force?</p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="A"> 20 N</label>
+                    <label class="option"><input type="radio" name="q3" value="B"> 26 N</label>
+                    <label class="option"><input type="radio" name="q3" value="C"> 32 N</label>
+                    <label class="option"><input type="radio" name="q3" value="D"> 44 N</label>
+                </div>
+                <div class="explanation" id="exp3">
+                    <strong>Explanation:</strong> In static equilibrium, the sum of forces equals zero, so the external force must exactly balance the restoring force of the spring at x = 2 m.<br>
+                    Evaluate F(2) = 10(2) + 3(2)² = 20 + 3(4) = 20 + 12 = <strong>32 N</strong>.
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question" id="q4">
+                <p class="question-text">4. A heavy rope of length L and total mass M hangs vertically from a ceiling. Using calculus, determine the tension T(y) in the rope as a function of the distance y measured upward from the bottom free end of the rope.</p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="A"> T(y) = Mg</label>
+                    <label class="option"><input type="radio" name="q4" value="B"> T(y) = (M/L) * g * y</label>
+                    <label class="option"><input type="radio" name="q4" value="C"> T(y) = (M/L) * g * (L - y)</label>
+                    <label class="option"><input type="radio" name="q4" value="D"> T(y) = 0.5 * (M/L) * g * y²</label>
+                </div>
+                <div class="explanation" id="exp4">
+                    <strong>Explanation:</strong> Consider a small segment of rope dy at a distance y from the bottom. The linear mass density is &lambda; = M/L. <br>
+                    The tension T(y) at a distance y must support the weight of the entire section of rope below it (from 0 to y). <br>
+                    Mass of the segment below y is m(y) = &int; &lambda; dy [from 0 to y] = &lambda;y = (M/L)y. <br>
+                    Therefore, the balancing tension force is T(y) = m(y)g = <strong>(M/L) * g * y</strong>.
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question" id="q5">
+                <p class="question-text">5. The potential energy of a two-atom system is modeled by the Lennard-Jones style relation U(r) = a/r² - b/r, where a and b are positive constants and r is the distance between atoms. Find the equilibrium separation distance r₀ where the net force between the atoms is zero.</p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="A"> r₀ = a / b</label>
+                    <label class="option"><input type="radio" name="q5" value="B"> r₀ = 2a / b</label>
+                    <label class="option"><input type="radio" name="q5" value="C"> r₀ = b / (2a)</label>
+                    <label class="option"><input type="radio" name="q5" value="D"> r₀ = &radic;(a / b)</label>
+                </div>
+                <div class="explanation" id="exp5">
+                    <strong>Explanation:</strong> Force is related to potential energy by F = -dU/dr. Net force is zero at equilibrium.<br>
+                    U(r) = a * r⁻² - b * r⁻¹ <br>
+                    dU/dr = -2a * r⁻³ + b * r⁻² = -2a/r³ + b/r² <br>
+                    Set dU/dr = 0 &rarr; 2a/r³ = b/r² <br>
+                    Multiply both sides by r³ &rarr; 2a = b * r &rarr; <strong>r₀ = 2a / b</strong>.
+                </div>
+            </div>
+
+            <button type="button" class="btn-submit" onclick="checkAnswers()">Submit Quiz</button>
+        </form>
+
+        <div id="resultsBox" class="results success">
+            <h2>Your Score: <span id="score">0</span>/5</h2>
+            <p id="feedback-text"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: "B",
+                q2: "A",
+                q3: "C",
+                q4: "B",
+                q5: "B"
+            };
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+
+            for (let i = 1; i <= 5; i++) {
+                const questionDiv = document.getElementById(`q${i}`);
+                const explanationDiv = document.getElementById(`exp${i}`);
+                const selectedOption = form.elements[`q${i}`].value;
+                
+                // Show explanations
+                explanationDiv.style.display = "block";
+
+                // Highlight correct/incorrect options
+                const options = questionDiv.querySelectorAll('.option');
+                options.forEach(option => {
+                    const input = option.querySelector('input');
+                    if (input.value === answers[`q${i}`]) {
+                        option.classList.add('correct-answer');
+                    } else if (input.checked && input.value !== answers[`q${i}`]) {
+                        option.classList.add('wrong-answer');
+                    }
+                });
+
+                if (selectedOption === answers[`q${i}`]) {
+                    score++;
+                }
+            }
+
+            // Display overall results
+            const resultsBox = document.getElementById('resultsBox');
+            const scoreSpan = document.getElementById('score');
+            const feedbackText = document.getElementById('feedback-text');
+            
+            scoreSpan.innerText = score;
+            resultsBox.style.display = "block";
+            
+            if (score === 5) {
+                feedbackText.innerText = "Excellent! You have a strong grasp of calculus applications in forces and equilibrium.";
+            } else if (score >= 3) {
+                feedbackText.innerText = "Good job! Review the step-by-step explanations below to fix any minor misunderstandings.";
+            } else {
+                feedbackText.innerText = "Keep practicing! Review the calculus relationships between work, force, and potential energy details below.";
+            }
+
+            // Scroll to results
+            resultsBox.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

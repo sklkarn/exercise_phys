@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Dynamics Explorer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        h1, h2, h3 {
+            color: #1e3799;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid #1e3799;
+            padding-bottom: 10px;
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .math-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #38ada9;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .interactive-box {
+            background-color: #ebf3f9;
+            border: 1px solid #a5b1c2;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: inline-block;
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+        button {
+            background-color: #1e3799;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0c2461;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #079992;
+            font-weight: bold;
+        }
+        canvas {
+            background: #fff;
+            border: 1px solid #ccc;
+            display: block;
+            margin: 15px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dynamics & Variable Forces via Calculus</h1>
+    <p>In classical mechanics, when forces change with respect to <strong>time</strong>, <strong>position</strong>, or <strong>velocity</strong>, standard algebraic formulas break down. We must apply Newton's Second Law dynamically using differential equations: <code>F = m * (dv/dt)</code>.</p>
+
+    <!-- SECTION 1: FORCE AS A FUNCTION OF TIME -->
+    <div class="section">
+        <h2>1. Force as a Function of Time: F(t)</h2>
+        <p>When force changes over time, we use integration to find the net change in linear momentum (Impulse).</p>
+        
+        <div class="math-block">
+            F(t) = m * (dv/dt) <br>
+            &int; dv = &int; (F(t) / m) dt <br><br>
+            <strong>Example Problem:</strong> A mass (m) starts from rest. A time-dependent force <strong>F(t) = k * t²</strong> is applied. Find its velocity at time (t).
+        </div>
+
+        <div class="interactive-box">
+            <h3>Interactive F(t) Solver</h3>
+            <label for="t_mass">Mass (m) [kg]:</label>
+            <input type="number" id="t_mass" value="2" step="0.5">
+            
+            <label for="t_k">Constant (k):</label>
+            <input type="number" id="t_k" value="6" step="0.5"><br>
+            
+            <label for="t_time">End Time (t) [s]:</label>
+            <input type="number" id="t_time" value="3" step="0.5">
+            
+            <button onclick="solveTimeForce()">Calculate Velocity</button>
+            <div class="result" id="t_result">Result will appear here...</div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: FORCE AS A FUNCTION OF POSITION -->
+    <div class="section">
+        <h2>2. Force as a Function of Position: F(x)</h2>
+        <p>When force depends on location (like springs or gravity), acceleration is rewritten using the calculus chain rule trick: <code>a = v * (dv/dx)</code>.</p>
+        
+        <div class="math-block">
+            F(x) = m * v * (dv/dx) <br>
+            &int; F(x) dx = &int; m * v dv &nbsp;&nbsp;&rArr;&nbsp;&nbsp; Work = &Delta;KE <br><br>
+            <strong>Example Problem:</strong> A force field <strong>F(x) = 3x²</strong> acts on an object. Find the velocity at position x, assuming it starts from rest at x = 0.
+        </div>
+
+        <div class="interactive-box">
+            <h3>Interactive F(x) Solver</h3>
+            <label for="x_mass">Mass (m) [kg]:</label>
+            <input type="number" id="x_mass" value="2" step="0.5">
+            
+            <label for="x_pos">Position (x) [m]:</label>
+            <input type="number" id="x_pos" value="4" step="0.5"><br>
+            
+            <button onclick="solvePositionForce()">Calculate Final Velocity</button>
+            <div class="result" id="x_result">Result will appear here...</div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: FORCE AS A FUNCTION OF VELOCITY -->
+    <div class="section">
+        <h2>3. Force as a Function of Velocity: F(v) [Air Resistance]</h2>
+        <p>Objects traveling through fluids experience drag forces proportional to their velocity (<code>F_drag = -k * v</code>). This sets up a first-order separable differential equation.</p>
+        
+        <div class="math-block">
+            m * (dv/dt) = m*g - k*v <br>
+            &int; [1 / (g - (k/m)v)] dv = &int; dt <br>
+            v(t) = (m*g / k) * (1 - e^(-kt/m)) <br><br>
+            As t approaches infinity, <strong>Terminal Velocity (v_terminal) = m*g / k</strong>.
+        </div>
+
+        <div class="interactive-box">
+            <h3>Interactive Terminal Velocity Grapher</h3>
+            <label for="v_mass">Mass (m) [kg]:</label>
+            <input type="number" id="v_mass" value="70" step="1">
+            
+            <label for="v_k">Drag Coeff (k):</label>
+            <input type="number" id="v_k" value="12" step="0.5"><br>
+            
+            <button onclick="graphDrag()">Simulate Drop</button>
+            
+            <div class="result" id="v_result">Terminal Velocity: Calculate to view</div>
+            <canvas id="dragCanvas" width="500" height="200"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // 1. Time Dependent Force Calculation
+        function solveTimeForce() {
+            const m = parseFloat(document.getElementById('t_mass').value);
+            const k = parseFloat(document.getElementById('t_k').value);
+            const t = parseFloat(document.getElementById('t_time').value);
+            
+            if(m <= 0) { alert("Mass must be greater than 0"); return; }
+            
+            // Integral of k*t^2 dt from 0 to t is (k * t^3) / 3
+            // v = Impulse / m
+            const velocity = (k * Math.pow(t, 3)) / (3 * m);
+            
+            document.getElementById('t_result').innerHTML = 
+                `Calculated Velocity: v(${t}s) = <strong>${velocity.toFixed(2)} m/s</strong><br>` +
+                `<small>Step: &int;(${k}t²/2)dt = [(${k}/3)t³]/2 evaluated from 0 to ${t}</small>`;
+        }
+
+        // 2. Position Dependent Force Calculation
+        function solvePositionForce() {
+            const m = parseFloat(document.getElementById('x_mass').value);
+            const x = parseFloat(document.getElementById('x_pos').value);
+            
+            if(m <= 0) { alert("Mass must be greater than 0"); return; }
+            
+            // Work done by F(x) = 3x^2 is integral(3x^2 dx) = x^3
+            const work = Math.pow(x, 3);
+            // Work = 0.5 * m * v^2  ->  v = sqrt(2 * Work / m)
+            const velocity = Math.sqrt((2 * work) / m);
+            
+            document.getElementById('x_result').innerHTML = 
+                `Work Done: ${work} J | Final Velocity: <strong>${velocity.toFixed(2)} m/s</strong>`;
+        }
+
+        // 3. Velocity Dependent Drag Simulation and Graphing
+        function graphDrag() {
+            const m = parseFloat(document.getElementById('v_mass').value);
+            const k = parseFloat(document.getElementById('v_k').value);
+            const g = 9.81; // standard gravity
+            
+            if(m <= 0 || k <= 0) { alert("Inputs must be positive values"); return; }
+            
+            const v_terminal = (m * g) / k;
+            document.getElementById('v_result').innerHTML = `Terminal Velocity (v_t) = <strong>${v_terminal.toFixed(2)} m/s</strong>`;
+            
+            // Canvas Drawing Elements
+            const canvas = document.getElementById('dragCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw Axis
+            ctx.beginPath();
+            ctx.strokeStyle = '#2c3e50';
+            ctx.lineWidth = 2;
+            ctx.moveTo(40, 10);
+            ctx.lineTo(40, 170); // Y axis
+            ctx.lineTo(480, 170); // X axis
+            ctx.stroke();
+            
+            // Labels
+            ctx.font = "12px Arial";
+            ctx.fillStyle = "#2c3e50";
+            ctx.fillText("Velocity (m/s)", 45, 25);
+            ctx.fillText("Time (s)", 430, 165);
+
+            // Draw Curve v(t) = v_terminal * (1 - e^(-kt/m))
+            ctx.beginPath();
+            ctx.strokeStyle = '#e74c3c';
+            ctx.lineWidth = 3;
+            
+            let scaleX = 400 / 10; // 10 seconds fits across graph space
+            let scaleY = 140 / v_terminal; // scale terminal velocity into graph height
+            
+            ctx.moveTo(40, 170);
+            for (let t = 0; t <= 10; t += 0.1) {
+                let v = v_terminal * (1 - Math.exp(- (k * t) / m));
+                let canvasX = 40 + (t * scaleX);
+                let canvasY = 170 - (v * scaleY);
+                ctx.lineTo(canvasX, canvasY);
+            }
+            ctx.stroke();
+            
+            // Draw Terminal Velocity Asymptote line
+            ctx.beginPath();
+            ctx.strokeStyle = '#3498db';
+            ctx.setLineDash([5, 5]);
+            ctx.moveTo(40, 170 - (v_terminal * scaleY));
+            ctx.lineTo(480, 170 - (v_terminal * scaleY));
+            ctx.stroke();
+            ctx.setLineDash([]); // reset line style
+        }
+
+        // Initialize simulations on screen load
+        window.onload = function() {
+            solveTimeForce();
+            solvePositionForce();
+            graphDrag();
+        }
+    </script>
+</body>
+</html>
