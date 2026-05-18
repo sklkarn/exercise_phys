@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Fluid Dynamics Quiz</title>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.7;
+            background-color: #f4f7f9;
+            color: #2c3e50;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .quiz-container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+        .question {
+            margin-bottom: 35px;
+            padding: 20px;
+            background: #fafafa;
+            border-left: 5px solid #0056b3;
+            border-radius: 4px;
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+        }
+        label {
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 1rem;
+        }
+        input[type="radio"] {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Advanced Fluid Dynamics (Calculus-Based)</h1>
+    
+    <form id="advancedFluidQuiz">
+        <div class="question">
+            <p class="question-text">1. The general Continuity Equation for a fluid with variable density $\rho$ and velocity field $\vec{u}$ is derived from the conservation of mass. What is its differential form?</p>
+            <ul class="options">
+                <li><input type="radio" name="q1" id="q1a"> <label for="q1a"> $\nabla \cdot \vec{u} = 0$</label></li>
+                <li><input type="radio" name="q1" id="q1b"> <label for="q1b"> $\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{u}) = 0$</label></li>
+                <li><input type="radio" name="q1" id="q1c"> <label for="q1c"> $\frac{D\rho}{Dt} = 0$</label></li>
+                <li><input type="radio" name="q1" id="q1d"> <label for="q1d"> $\int \rho \vec{u} \cdot d\vec{A} = 0$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">2. In the Navier-Stokes equation, the term $\rho (\vec{u} \cdot \nabla) \vec{u}$ represents which of the following?</p>
+            <ul class="options">
+                <li><input type="radio" name="q2" id="q2a"> <label for="q2a"> Local acceleration (time-dependent change)</label></li>
+                <li><input type="radio" name="q2" id="q2b"> <label for="q2b"> Viscous dissipation of energy</label></li>
+                <li><input type="radio" name="q2" id="q2c"> <label for="q2c"> Convective acceleration (spatial change)</label></li>
+                <li><input type="radio" name="q2" id="q2d"> <label for="q2d"> Hydrostatic pressure gradient</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">3. For an incompressible Newtonian fluid, the viscous force per unit volume in the momentum equation is given by which Laplacian expression?</p>
+            <ul class="options">
+                <li><input type="radio" name="q3" id="q3a"> <label for="q3a"> $\mu \nabla \vec{u}$</label></li>
+                <li><input type="radio" name="q3" id="q3b"> <label for="q3b"> $\mu \nabla^2 \vec{u}$</label></li>
+                <li><input type="radio" name="q3" id="q3c"> <label for="q3c"> $\nabla (\mu \nabla \cdot \vec{u})$</label></li>
+                <li><input type="radio" name="q3" id="q3d"> <label for="q3d"> $-\nabla P$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">4. The 'Material Derivative' (or Substantial Derivative) $\frac{D}{Dt}$ of a scalar field $\phi$ is mathematically defined as:</p>
+            <ul class="options">
+                <li><input type="radio" name="q4" id="q4a"> <label for="q4a"> $\frac{\partial \phi}{\partial t} + (\vec{u} \cdot \nabla)\phi$</label></li>
+                <li><input type="radio" name="q4" id="q4b"> <label for="q4b"> $\frac{\partial \phi}{\partial t} + \nabla \phi$</label></li>
+                <li><input type="radio" name="q4" id="q4c"> <label for="q4c"> $\int \phi \, dV$</label></li>
+                <li><input type="radio" name="q4" id="q4d"> <label for="q4d"> $\nabla \times (\phi \vec{u})$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">5. If a flow field is described as 'Irrotational', what is the necessary condition for the velocity field $\vec{u}$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q5" id="q5a"> <label for="q5a"> $\nabla \cdot \vec{u} = 0$</label></li>
+                <li><input type="radio" name="q5" id="q5b"> <label for="q5b"> $\nabla \times \vec{u} = 0$</label></li>
+                <li><input type="radio" name="q5" id="q5c"> <label for="q5c"> $\frac{\partial \vec{u}}{\partial t} = 0$</label></li>
+                <li><input type="radio" name="q5" id="q5d"> <label for="q5d"> $\vec{u} = \text{constant}$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">6. The stream function $\psi$ for a 2D incompressible flow is defined such that $u = \frac{\partial \psi}{\partial y}$ and $v = -\frac{\partial \psi}{\partial x}$. What does the condition $\nabla^2 \psi = 0$ imply?</p>
+            <ul class="options">
+                <li><input type="radio" name="q6" id="q6a"> <label for="q6a"> The flow is compressible.</label></li>
+                <li><input type="radio" name="q6" id="q6b"> <label for="q6b"> The flow is irrotational.</label></li>
+                <li><input type="radio" name="q6" id="q6c"> <label for="q6c"> The flow is unsteady.</label></li>
+                <li><input type="radio" name="q6" id="q6d"> <label for="q6d"> The flow is turbulent.</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">7. To find the total force on a submerged surface using calculus, one must evaluate the integral $F = \iint_A P \, d\vec{A}$. If pressure $P$ varies with depth $z$ as $P = \rho g z$, what is the result for a vertical rectangular plate of width $w$ from depth $0$ to $H$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q7" id="q7a"> <label for="q7a"> $\rho g w H$</label></li>
+                <li><input type="radio" name="q7" id="q7b"> <label for="q7b"> $\frac{1}{2} \rho g w H^2$</label></li>
+                <li><input type="radio" name="q7" id="q7c"> <label for="q7c"> $\frac{1}{3} \rho g w H^3$</label></li>
+                <li><input type="radio" name="q7" id="q7d"> <label for="q7d"> $\rho g H^2$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">8. In Kelvin's Circulation Theorem, the rate of change of circulation $\Gamma = \oint \vec{u} \cdot d\vec{l}$ is zero for which type of fluid?</p>
+            <ul class="options">
+                <li><input type="radio" name="q8" id="q8a"> <label for="q8a"> Viscous, compressible fluid</label></li>
+                <li><input type="radio" name="q8" id="q8b"> <label for="q8b"> Inviscid, barotropic fluid with conservative body forces</label></li>
+                <li><input type="radio" name="q8" id="q8c"> <label for="q8c"> Turbulent, high-Reynolds number fluid</label></li>
+                <li><input type="radio" name="q8" id="q8d"> <label for="q8d"> Non-Newtonian fluid</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">9. The Circulation $\Gamma$ around a closed loop is related to the vorticity $\vec{\omega} = \nabla \times \vec{u}$ via which fundamental theorem of calculus?</p>
+            <ul class="options">
+                <li><input type="radio" name="q9" id="q9a"> <label for="q9a"> Divergence Theorem</label></li>
+                <li><input type="radio" name="q9" id="q9b"> <label for="q9b"> Stokes' Theorem: $\oint \vec{u} \cdot d\vec{l} = \iint (\nabla \times \vec{u}) \cdot d\vec{A}$</label></li>
+                <li><input type="radio" name="q9" id="q9c"> <label for="q9c"> Green's Theorem in the first identity</label></li>
+                <li><input type="radio" name="q9" id="q9d"> <label for="q9d"> Fundamental Theorem of Line Integrals</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">10. For steady laminar flow in a pipe (Hagen-Poiseuille flow), the velocity profile $u(r)$ is derived by solving a second-order ODE. What is the functional form of $u(r)$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q10" id="q10a"> <label for="q10a"> $u(r) = u_{max} \ln(r/R)$</label></li>
+                <li><input type="radio" name="q10" id="q10b"> <label for="q10b"> $u(r) = u_{max} (1 - r/R)$</label></li>
+                <li><input type="radio" name="q10" id="q10c"> <label for="q10c"> $u(r) = u_{max} [1 - (r/R)^2]$</label></li>
+                <li><input type="radio" name="q10" id="q10d"> <label for="q10d"> $u(r) = u_{max} e^{-r/R}$</label></li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

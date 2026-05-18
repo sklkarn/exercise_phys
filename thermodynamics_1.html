@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Thermodynamics Quiz</title>
+    
+    <!-- MathJax v3 Configuration for Mathematical Typography -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f6f8;
+            color: #2d3748;
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c5282;
+            text-align: center;
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+        }
+        .quiz-container {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        .question {
+            margin-bottom: 35px;
+            padding: 20px;
+            background: #fff;
+            border-left: 5px solid #3182ce;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+        .options {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        .options li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        label {
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 1rem;
+        }
+        input[type="radio"] {
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Thermodynamics Quiz (Calculus-Based)</h1>
+    
+    <form id="thermoQuiz">
+        <!-- Question 1 -->
+        <div class="question">
+            <p class="question-text">1. The fundamental thermodynamic relation for internal energy is $dU = TdS - PdV$. Because $dU$ is an exact differential, applying Clairaut's theorem (equality of mixed partial derivatives) yields which Maxwell relation?</p>
+            <ul class="options">
+                <li><input type="radio" name="q1" id="q1a"> <label for="q1a"> $\left(\frac{\partial T}{\partial V}\right)_S = -\left(\frac{\partial P}{\partial S}\right)_V$</label></li>
+                <li><input type="radio" name="q1" id="q1b"> <label for="q1b"> $\left(\frac{\partial T}{\partial P}\right)_S = \left(\frac{\partial V}{\partial S}\right)_P$</label></li>
+                <li><input type="radio" name="q1" id="q1c"> <label for="q1c"> $\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial P}{\partial T}\right)_V$</label></li>
+                <li><input type="radio" name="q1" id="q1d"> <label for="q1d"> $\left(\frac{\partial T}{\partial V}\right)_S = \left(\frac{\partial P}{\partial S}\right)_V$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p class="question-text">2. Using the cyclic chain rule of partial differentiation for state variables pressure $P$, volume $V$, and temperature $T$, what is the exact product of $\left(\frac{\partial P}{\partial V}\right)_T \left(\frac{\partial V}{\partial T}\right)_P \left(\frac{\partial T}{\partial P}\right)_V$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q2" id="q2a"> <label for="q2a"> $1$</label></li>
+                <li><input type="radio" name="q2" id="q2b"> <label for="q2b"> $-1$</label></li>
+                <li><input type="radio" name="q2" id="q2c"> <label for="q2c"> $0$</label></li>
+                <li><input type="radio" name="q2" id="q2d"> <label for="q2d"> $C_P / C_V$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p class="question-text">3. The Helmholtz free energy is defined by the Legendre transform $A = U - TS$. What is its total differential expression $dA$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q3" id="q3a"> <label for="q3a"> $dA = -SdT - PdV$</label></li>
+                <li><input type="radio" name="q3" id="q3b"> <label for="q3b"> $dA = TdS + VdP$</label></li>
+                <li><input type="radio" name="q3" id="q3c"> <label for="q3c"> $dA = -SdT + VdP$</label></li>
+                <li><input type="radio" name="q3" id="q3d"> <label for="q3d"> $dA = TdS - PdV$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <p class="question-text">4. An ideal gas undergoes a reversible isothermal expansion from volume $V_1$ to $V_2$. By integrating the work differential $\delta W = PdV$, which expression evaluates the total work done by $n$ moles of the gas?</p>
+            <ul class="options">
+                <li><input type="radio" name="q4" id="q4a"> <label for="q4a"> $W = nRT(V_2 - V_1)$</label></li>
+                <li><input type="radio" name="q4" id="q4b"> <label for="q4b"> $W = nRT \ln\left(\frac{V_2}{V_1}\right)$</label></li>
+                <li><input type="radio" name="q4" id="q4c"> <label for="q4c"> $W = nRT \ln\left(\frac{V_1}{V_2}\right)$</label></li>
+                <li><input type="radio" name="q4" id="q4d"> <label for="q4d"> $W = 0$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <p class="question-text">5. The heat capacity at constant volume is defined mathematically as $C_V = \left(\frac{\partial U}{\partial T}\right)_V$. How can $C_V$ be expressed in terms of entropy $S$ using the first law for a reversible process?</p>
+            <ul class="options">
+                <li><input type="radio" name="q5" id="q5a"> <label for="q5a"> $C_V = \left(\frac{\partial S}{\partial T}\right)_V$</label></li>
+                <li><input type="radio" name="q5" id="q5b"> <label for="q5b"> $C_V = T \left(\frac{\partial S}{\partial T}\right)_V$</label></li>
+                <li><input type="radio" name="q5" id="q5c"> <label for="q5c"> $C_V = \frac{1}{T} \left(\frac{\partial S}{\partial T}\right)_V$</label></li>
+                <li><input type="radio" name="q5" id="q5d"> <label for="q5d"> $C_V = T \left(\frac{\partial^2 S}{\partial T^2}\right)_V$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question">
+            <p class="question-text">6. Given the internal energy differential expression, the partial derivative $\left(\frac{\partial U}{\partial V}\right)_T$ (known as the internal pressure) can be written via Maxwell relations as:</p>
+            <ul class="options">
+                <li><input type="radio" name="q6" id="q6a"> <label for="q6a"> $\left(\frac{\partial U}{\partial V}\right)_T = T\left(\frac{\partial P}{\partial T}\right)_V - P$</label></li>
+                <li><input type="radio" name="q6" id="q6b"> <label for="q6b"> $\left(\frac{\partial U}{\partial V}\right)_T = T\left(\frac{\partial S}{\partial V}\right)_P + P$</label></li>
+                <li><input type="radio" name="q6" id="q6c"> <label for="q6c"> $\left(\frac{\partial U}{\partial V}\right)_T = P\left(\frac{\partial T}{\partial P}\right)_V - T$</label></li>
+                <li><input type="radio" name="q6" id="q6d"> <label for="q6d"> $\left(\frac{\partial U}{\partial V}\right)_T = 0$ for all real gases</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question">
+            <p class="question-text">7. For a van der Waals gas, the internal pressure is given by $\left(\frac{\partial U}{\partial V}\right)_T = \frac{an^2}{V^2}$. What is the total change in internal energy $\Delta U$ when $n$ moles of this gas expand isothermally from $V_1$ to $V_2$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q7" id="q7a"> <label for="q7a"> $\Delta U = an^2 \ln\left(\frac{V_2}{V_1}\right)$</label></li>
+                <li><input type="radio" name="q7" id="q7b"> <label for="q7b"> $\Delta U = -an^2 \left(\frac{1}{V_2} - \frac{1}{V_1}\right)$</label></li>
+                <li><input type="radio" name="q7" id="q7c"> <label for="q7c"> $\Delta U = 0$</label></li>
+                <li><input type="radio" name="q7" id="q7d"> <label for="q7d"> $\Delta U = \frac{an^2}{V_2 - V_1}$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question">
+            <p class="question-text">8. Because entropy $S$ is a state function, the line integral of $dS$ around any closed, reversible path in thermodynamic coordinate space evaluates to:</p>
+            <ul class="options">
+                <li><input type="radio" name="q8" id="q8a"> <label for="q8a"> $\oint \frac{\delta Q_{\text{rev}}}{T} > 0$</label></li>
+                <li><input type="radio" name="q8" id="q8b"> <label for="q8b"> $\oint dS = 0$</label></li>
+                <li><input type="radio" name="q8" id="q8c"> <label for="q8c"> $\oint dS = \Delta S_{\text{universe}}$</label></li>
+                <li><input type="radio" name="q8" id="q8d"> <label for="q8d"> $\oint dS = \frac{W}{T}$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question">
+            <p class="question-text">9. The difference between the heat capacity at constant pressure and constant volume is given by the calculus relation $C_P - C_V = \left[P + \left(\frac{\partial U}{\partial V}\right)_T\right]\left(\frac{\partial V}{\partial T}\right)_P$. For an ideal gas, how does this expression simplify?</p>
+            <ul class="options">
+                <li><input type="radio" name="q9" id="q9a"> <label for="q9a"> $C_P - C_V = 0$</label></li>
+                <li><input type="radio" name="q9" id="q9b"> <label for="q9b"> $C_P - C_V = nR$</label></li>
+                <li><input type="radio" name="q9" id="q9c"> <label for="q9c"> $C_P - C_V = R/T$</label></li>
+                <li><input type="radio" name="q9" id="q9d"> <label for="q9d"> $C_P - C_V = P V$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question">
+            <p class="question-text">10. The Gibbs-Helmholtz equation relates the temperature dependence of the Gibbs free energy $G$ to the enthalpy $H$. Which derivative expression represents this relationship?</p>
+            <ul class="options">
+                <li><input type="radio" name="q10" id="q10a"> <label for="q10a"> $\left(\frac{\partial(G/T)}{\partial T}\right)_P = -\frac{H}{T^2}$</label></li>
+                <li><input type="radio" name="q10" id="q10b"> <label for="q10b"> $\left(\frac{\partial G}{\partial T}\right)_P = H$</label></li>
+                <li><input type="radio" name="q10" id="q10c"> <label for="q10c"> $\left(\frac{\partial(G/T)}{\partial T}\right)_P = \frac{H}{T}$</label></li>
+                <li><input type="radio" name="q10" id="q10d"> <label for="q10d"> $\left(\frac{\partial G}{\partial T}\right)_V = -S$</label></li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

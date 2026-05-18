@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluid Dynamics Calculus Quiz</title>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #2c3e50;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .quiz-card {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #1a73e8;
+            text-align: center;
+            border-bottom: 2px solid #e8eaed;
+            padding-bottom: 15px;
+        }
+        .question {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-left: 4px solid #1a73e8;
+            background: #f8f9fa;
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 10px 0;
+        }
+        label {
+            cursor: pointer;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-card">
+    <h1>Fluid Dynamics Quiz</h1>
+    
+    <form id="fluidQuiz">
+        <div class="question">
+            <p class="question-text">1. For a steady, incompressible, and irrotational flow, the Continuity Equation in differential form is expressed as:</p>
+            <ul class="options">
+                <li><input type="radio" name="q1" id="q1a"> <label for="q1a"> $\nabla \cdot \vec{v} = 0$</label></li>
+                <li><input type="radio" name="q1" id="q1b"> <label for="q1b"> $\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) = 0$</label></li>
+                <li><input type="radio" name="q1" id="q1c"> <label for="q1c"> $\nabla \times \vec{v} = 0$</label></li>
+                <li><input type="radio" name="q1" id="q1d"> <label for="q1d"> $\frac{dv}{dt} = 0$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">2. Which dimensionless number represents the ratio of inertial forces to viscous forces in a fluid flow?</p>
+            <ul class="options">
+                <li><input type="radio" name="q2" id="q2a"> <label for="q2a"> Nusselt Number ($Nu$)</label></li>
+                <li><input type="radio" name="q2" id="q2b"> <label for="q2b"> Froude Number ($Fr$)</label></li>
+                <li><input type="radio" name="q2" id="q2c"> <label for="q2c"> Reynolds Number ($Re = \frac{\rho v L}{\mu}$)</label></li>
+                <li><input type="radio" name="q2" id="q2d"> <label for="q2d"> Mach Number ($M$)</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">3. According to Bernoulli’s Equation for a streamline, which of the following remains constant (neglecting height changes)?</p>
+            <ul class="options">
+                <li><input type="radio" name="q3" id="q3a"> <label for="q3a"> $P + \rho v^2 = \text{const}$</label></li>
+                <li><input type="radio" name="q3" id="q3b"> <label for="q3b"> $P + \frac{1}{2}\rho v^2 = \text{const}$</label></li>
+                <li><input type="radio" name="q3" id="q3c"> <label for="q3c"> $P + \frac{1}{2}\rho v = \text{const}$</label></li>
+                <li><input type="radio" name="q3" id="q3d"> <label for="q3d"> $P \cdot v = \text{const}$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">4. The Navier-Stokes equations are essentially a statement of which physical law applied to fluid elements?</p>
+            <ul class="options">
+                <li><input type="radio" name="q4" id="q4a"> <label for="q4a"> Conservation of Energy</label></li>
+                <li><input type="radio" name="q4" id="q4b"> <label for="q4b"> Newton's Second Law (Conservation of Momentum)</label></li>
+                <li><input type="radio" name="q4" id="q4c"> <label for="q4c"> Second Law of Thermodynamics</label></li>
+                <li><input type="radio" name="q4" id="q4d"> <label for="q4d"> Archimedes' Principle</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">5. What is the velocity $v$ of efflux from a small hole in an open tank at a depth $h$ below the water surface (Torricelli's Law)?</p>
+            <ul class="options">
+                <li><input type="radio" name="q5" id="q5a"> <label for="q5a"> $v = gh$</label></li>
+                <li><input type="radio" name="q5" id="q5b"> <label for="q5b"> $v = \sqrt{gh}$</label></li>
+                <li><input type="radio" name="q5" id="q5c"> <label for="q5c"> $v = \sqrt{2gh}$</label></li>
+                <li><input type="radio" name="q5" id="q5d"> <label for="q5d"> $v = 2gh$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">6. In fluid dynamics, 'Vorticity' ($\vec{\omega}$) is mathematically defined as:</p>
+            <ul class="options">
+                <li><input type="radio" name="q6" id="q6a"> <label for="q6a"> The divergence of velocity, $\nabla \cdot \vec{v}$</label></li>
+                <li><input type="radio" name="q6" id="q6b"> <label for="q6b"> The curl of velocity, $\nabla \times \vec{v}$</label></li>
+                <li><input type="radio" name="q6" id="q6c"> <label for="q6c"> The gradient of pressure, $\nabla P$</label></li>
+                <li><input type="radio" name="q6" id="q6d"> <label for="q6d"> The Laplacian of velocity, $\nabla^2 \vec{v}$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">7. For a Newtonian fluid, the shear stress $\tau$ is directly proportional to:</p>
+            <ul class="options">
+                <li><input type="radio" name="q7" id="q7a"> <label for="q7a"> The velocity $v$</label></li>
+                <li><input type="radio" name="q7" id="q7b"> <label for="q7b"> The square of the velocity gradient, $(\frac{dv}{dy})^2$</label></li>
+                <li><input type="radio" name="q7" id="q7c"> <label for="q7c"> The velocity gradient (strain rate), $\frac{dv}{dy}$</label></li>
+                <li><input type="radio" name="q7" id="q7d"> <label for="q7d"> The total volume of the fluid</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">8. Poiseuille's Law describes the volume flow rate $Q$ of a viscous fluid through a pipe of radius $R$. How does $Q$ scale with $R$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q8" id="q8a"> <label for="q8a"> $Q \propto R$</label></li>
+                <li><input type="radio" name="q8" id="q8b"> <label for="q8b"> $Q \propto R^2$</label></li>
+                <li><input type="radio" name="q8" id="q8c"> <label for="q8c"> $Q \propto R^3$</label></li>
+                <li><input type="radio" name="q8" id="q8d"> <label for="q8d"> $Q \propto R^4$</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">9. A flow is considered 'Laminar' when the Reynolds number is typically:</p>
+            <ul class="options">
+                <li><input type="radio" name="q9" id="q9a"> <label for="q9a"> Very high (e.g., $> 4000$)</label></li>
+                <li><input type="radio" name="q9" id="q9b"> <label for="q9b"> Low (e.g., $< 2300$ for pipe flow)</label></li>
+                <li><input type="radio" name="q9" id="q9c"> <label for="q9c"> Equal to the Mach number</label></li>
+                <li><input type="radio" name="q9" id="q9d"> <label for="q9d"> Zero</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-text">10. The 'Equation of State' for an ideal fluid relates which three variables?</p>
+            <ul class="options">
+                <li><input type="radio" name="q10" id="q10a"> <label for="q10a"> Velocity, Pressure, and Time</label></li>
+                <li><input type="radio" name="q10" id="q10b"> <label for="q10b"> Pressure, Density, and Temperature</label></li>
+                <li><input type="radio" name="q10" id="q10c"> <label for="q10c"> Viscosity, Area, and Force</label></li>
+                <li><input type="radio" name="q10" id="q10d"> <label for="q10d"> Height, Gravity, and Velocity</label></li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

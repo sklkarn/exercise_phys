@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Physics Quiz: Gravitation</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f0f2f5; }
+        h1 { color: #1a2a6c; text-align: center; border-bottom: 3px solid #1a2a6c; padding-bottom: 10px; }
+        .question { background: white; padding: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .question p { font-weight: 600; margin-bottom: 15px; }
+        .options { list-style-type: none; padding: 0; }
+        .options li { margin-bottom: 10px; padding: 12px; border: 1px solid #ced4da; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; }
+        .options li:hover { background-color: #f8f9fa; border-color: #1a2a6c; }
+        .correct { background-color: #d4edda !important; border-color: #c3e6cb !important; font-weight: bold; }
+        .incorrect { background-color: #f8d7da !important; border-color: #f5c6cb !important; }
+        button { display: block; width: 100%; padding: 15px; background-color: #1a2a6c; color: white; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: background 0.3s; }
+        button:hover { background-color: #2a3a7c; }
+        #results { margin-top: 30px; text-align: center; font-size: 1.6rem; font-weight: bold; display: none; color: #1a2a6c; }
+    </style>
+</head>
+<body>
+
+    <h1>Universal Gravitation Quiz</h1>
+
+    <div id="quiz-container"></div>
+
+    <button onclick="calculateScore()">Submit Quiz</button>
+    <div id="results"></div>
+
+    <script>
+        const quizData = [
+            {
+                q: "The gravitational force is conservative. Which of the following defines the relationship between the force \\( \\vec{F} \\) and the potential energy \\( U \\)?",
+                options: ["\\( \\vec{F} = \\nabla U \\)", "\\( \\vec{F} = -\\nabla U \\)", "\\( \\vec{F} = \\int U dr \\)", "\\( \\vec{F} = U^2 \\)"],
+                answer: 1
+            },
+            {
+                q: "What is the escape velocity \\( v_e \\) from a planet of mass \\( M \\) and radius \\( R \\)?",
+                options: ["\\( \\sqrt{\\frac{GM}{R}} \\)", "\\( \\sqrt{\\frac{2GM}{R}} \\)", "\\( \\frac{2GM}{R^2} \\)", "\\( \\sqrt{\\frac{GM}{2R}} \\)"],
+                answer: 1
+            },
+            {
+                q: "A shell of mass \\( M \\) has a radius \\( R \\). According to Gauss's Law for gravity, what is the gravitational field inside the shell (\\( r < R \\))?",
+                options: ["\\( \\frac{GM}{r^2} \\)", "\\( \\frac{GMr}{R^3} \\)", "Zero", "\\( \\frac{GM}{R^2} \\)"],
+                answer: 2
+            },
+            {
+                q: "Kepler's Second Law (the Law of Areas) is a direct consequence of the conservation of:",
+                options: ["Linear Momentum", "Kinetic Energy", "Angular Momentum", "Total Mechanical Energy"],
+                answer: 2
+            },
+            {
+                q: "The period \\( T \\) of a satellite in a circular orbit of radius \\( r \\) is proportional to:",
+                options: ["\\( r \\)", "\\( r^{1/2} \\)", "\\( r^2 \\)", "\\( r^{3/2} \\)"],
+                answer: 3
+            },
+            {
+                q: "If the density of a spherical planet is uniform, how does the gravitational acceleration \\( g \\) vary inside the planet (\\( r < R \\))?",
+                options: ["\\( g \\propto 1/r^2 \\)", "\\( g \\propto r \\)", "\\( g \\propto r^2 \\)", "\\( g \\) is constant"],
+                answer: 1
+            },
+            {
+                q: "The total mechanical energy of an object of mass \\( m \\) in a circular orbit of radius \\( r \\) around a planet of mass \\( M \\) is:",
+                options: ["\\( -\\frac{GMm}{r} \\)", "\\( -\\frac{GMm}{2r} \\)", "\\( \\frac{GMm}{2r} \\)", "\\( \\frac{1}{2}mv^2 \\)"],
+                answer: 1
+            },
+            {
+                q: "Which integral represents the work required to move a mass \\( m \\) from the surface of the Earth (radius \\( R \\)) to infinity?",
+                options: ["\\( \\int_{R}^{\\infty} \\frac{GMm}{r} dr \\)", "\\( \\int_{R}^{\\infty} \\frac{GMm}{r^2} dr \\)", "\\( \\int_{0}^{R} \\frac{GMm}{r^2} dr \\)", "\\( \\int_{R}^{\\infty} -GMr dr \\)"],
+                answer: 1
+            },
+            {
+                q: "For an elliptical orbit, the point of closest approach to the sun is called the:",
+                options: ["Aphelion", "Perigee", "Perihelion", "Focus"],
+                answer: 2
+            },
+            {
+                q: "The gravitational potential \\( V(r) \\) due to a point mass \\( M \\) is defined as:",
+                options: ["\\( -\\frac{GM}{r} \\)", "\\( \\frac{GM}{r^2} \\)", "\\( -\\frac{GM}{r^2} \\)", "\\( GMm \\)"],
+                answer: 0
+            }
+        ];
+
+        function loadQuiz() {
+            const container = document.getElementById('quiz-container');
+            quizData.forEach((item, index) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'question';
+                qDiv.innerHTML = `<p>${index + 1}. ${item.q}</p>
+                    <ul class="options" id="q${index}">
+                        ${item.options.map((opt, i) => `<li onclick="selectOption(${index}, ${i})">${opt}</li>`).join('')}
+                    </ul>`;
+                container.appendChild(qDiv);
+            });
+        }
+
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        window.selectOption = function(qIndex, oIndex) {
+            userAnswers[qIndex] = oIndex;
+            const options = document.querySelectorAll(`#q${qIndex} li`);
+            options.forEach((li, i) => {
+                li.style.backgroundColor = (i === oIndex) ? "#e3f2fd" : "white";
+                li.style.borderColor = (i === oIndex) ? "#1a2a6c" : "#ced4da";
+            });
+        }
+
+        window.calculateScore = function() {
+            let score = 0;
+            quizData.forEach((item, index) => {
+                const options = document.querySelectorAll(`#q${index} li`);
+                if (userAnswers[index] === item.answer) {
+                    score++;
+                    options[item.answer].classList.add('correct');
+                } else {
+                    if (userAnswers[index] !== null) {
+                        options[userAnswers[index]].classList.add('incorrect');
+                    }
+                    options[item.answer].classList.add('correct');
+                }
+            });
+            const results = document.getElementById('results');
+            results.style.display = 'block';
+            results.innerHTML = `Final Score: ${score} / ${quizData.length}`;
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+
+        loadQuiz();
+    </script>
+</body>
+</html>

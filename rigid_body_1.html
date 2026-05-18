@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rigid Body Dynamics & Angular Momentum Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        .quiz-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .question-text {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .options li {
+            margin-bottom: 8px;
+        }
+        label {
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Rigid Body Dynamics Quiz</h1>
+    
+    <form id="quizForm">
+        <!-- Question 1 -->
+        <div class="question">
+            <p class="question-text">1. What is the rotational analog of mass in rigid body dynamics?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q1" value="A"> Torque</label></li>
+                <li><label><input type="radio" name="q1" value="B"> Angular momentum</label></li>
+                <li><label><input type="radio" name="q1" value="C"> Moment of inertia</label></li>
+                <li><label><input type="radio" name="q1" value="D"> Angular velocity</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p class="question-text">2. According to the parallel axis theorem, if I_com is the moment of inertia about the center of mass, what is the moment of inertia I about a parallel axis at a distance 'd'?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q2" value="A"> I = I_com + md</label></li>
+                <li><label><input type="radio" name="q2" value="B"> I = I_com + md²</label></li>
+                <li><label><input type="radio" name="q2" value="C"> I = I_com - md²</label></li>
+                <li><label><input type="radio" name="q2" value="D"> I = I_com / md²</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p class="question-text">3. If no external torque acts on a system, which of the following quantities must remain constant?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q3" value="A"> Angular velocity</label></li>
+                <li><label><input type="radio" name="q3" value="B"> Kinetic energy</label></li>
+                <li><label><input type="radio" name="q3" value="C"> Moment of inertia</label></li>
+                <li><label><input type="radio" name="q3" value="D"> Angular momentum</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <p class="question-text">4. A solid sphere and a hollow sphere of the same mass and radius roll down an inclined plane without slipping. Which one reaches the bottom first?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q4" value="A"> The solid sphere</label></li>
+                <li><label><input type="radio" name="q4" value="B"> The hollow sphere</label></li>
+                <li><label><input type="radio" name="q4" value="C"> Both reach at the same time</label></li>
+                <li><label><input type="radio" name="q4" value="D"> It depends on the angle of the incline</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <p class="question-text">5. What happens to the rotational speed of a spinning figure skater when they pull their arms inward?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q5" value="A"> It decreases because moment of inertia increases</label></li>
+                <li><label><input type="radio" name="q5" value="B"> It increases because moment of inertia decreases</label></li>
+                <li><label><input type="radio" name="q5" value="C"> It remains unchanged</label></li>
+                <li><label><input type="radio" name="q5" value="D"> It decreases because angular momentum decreases</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question">
+            <p class="question-text">6. The rate of change of angular momentum of a rigid body is equal to which of the following?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q6" value="A"> Net external force</label></li>
+                <li><label><input type="radio" name="q6" value="B"> Net external torque</label></li>
+                <li><label><input type="radio" name="q6" value="C"> Rotational kinetic energy</label></li>
+                <li><label><input type="radio" name="q6" value="D"> Work done on the body</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question">
+            <p class="question-text">7. What is the unit of angular momentum in the SI system?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q7" value="A"> kg·m/s</label></li>
+                <li><label><input type="radio" name="q7" value="B"> kg·m²/s</label></li>
+                <li><label><input type="radio" name="q7" value="C"> kg·m²/s²</label></li>
+                <li><label><input type="radio" name="q7" value="D"> N·m</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question">
+            <p class="question-text">8. For a rigid body rotating about a fixed axis, its rotational kinetic energy is given by which formula?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q8" value="A"> (1/2) I ω</label></li>
+                <li><label><input type="radio" name="q8" value="B"> I ω²</label></li>
+                <li><label><input type="radio" name="q8" value="C"> (1/2) I ω²</label></li>
+                <li><label><input type="radio" name="q8" value="D"> (1/2) I² ω</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question">
+            <p class="question-text">9. Under what condition is a rigid body said to be in complete mechanical equilibrium?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q9" value="A"> Only when the net external force is zero</label></li>
+                <li><label><input type="radio" name="q9" value="B"> Only when the net external torque is zero</label></li>
+                <li><label><input type="radio" name="q9" value="C"> When both net external force and net external torque are zero</label></li>
+                <li><label><input type="radio" name="q9" value="D"> When its velocity is equal to the speed of light</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question">
+            <p class="question-text">10. The perpendicular axis theorem is applicable to which type of bodies?</p>
+            <ul class="options">
+                <li><label><input type="radio" name="q10" value="A"> Planar (2D) bodies only</label></li>
+                <li><label><input type="radio" name="q10" value="B"> 3D spherical bodies only</label></li>
+                <li><label><input type="radio" name="q10" value="C"> Any rigid body of any shape</label></li>
+                <li><label><input type="radio" name="q10" value="D"> Only cylindrical bodies</label></li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

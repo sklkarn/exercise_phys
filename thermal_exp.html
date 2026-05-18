@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus-Based Thermal Expansion Quiz</title>
+    
+    <!-- Robust MathJax v3 Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #111827;
+            text-align: center;
+            border-bottom: 3px solid #4f46e5;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+        }
+        .quiz-container {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .question {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #374151;
+        }
+        .options {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        .options li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        label {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        input[type="radio"] {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Thermal Expansion Quiz (Calculus-Based)</h1>
+    
+    <form id="thermalQuiz">
+        <!-- Question 1 -->
+        <div class="question">
+            <p class="question-text">1. The exact thermodynamic definition of the coefficient of linear thermal expansion $\alpha$ for a material of length $L$ under constant pressure is expressed as which partial derivative?</p>
+            <ul class="options">
+                <li><input type="radio" name="q1" id="q1a"> <label for="q1a"> $\alpha = \frac{\partial L}{\partial T}$</label></li>
+                <li><input type="radio" name="q1" id="q1b"> <label for="q1b"> $\alpha = L \left(\frac{\partial L}{\partial T}\right)_P$</label></li>
+                <li><input type="radio" name="q1" id="q1c"> <label for="q1c"> $\alpha = \frac{1}{L} \left(\frac{\partial L}{\partial T}\right)_P$</label></li>
+                <li><input type="radio" name="q1" id="q1d"> <label for="q1d"> $\alpha = \frac{1}{L^2} \left(\frac{\partial L}{\partial T}\right)_P$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p class="question-text">2. A rod has a temperature-dependent linear expansion coefficient given by $\alpha(T) = a + bT$, where $a$ and $b$ are constants. If the rod has an initial length $L_0$ at $T = 0$, what is its exact length $L(T)$ after being heated to temperature $T$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q2" id="q2a"> <label for="q2a"> $L(T) = L_0 [1 + aT + bT^2]$</label></li>
+                <li><input type="radio" name="q2" id="q2b"> <label for="q2b"> $L(T) = L_0 \exp\left(aT + \frac{1}{2}bT^2\right)$</label></li>
+                <li><input type="radio" name="q2" id="q2c"> <label for="q2c"> $L(T) = L_0 (1 + aT + \frac{1}{2}bT^2)$</label></li>
+                <li><input type="radio" name="q2" id="q2d"> <label for="q2d"> $L(T) = L_0 \ln(aT + bT^2)$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p class="question-text">3. For an isotropic solid body, the volume thermal expansion coefficient $\beta = \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P$ is related to the linear coefficient $\alpha$ via calculus differentials. Assuming small strains, how are $\beta$ and $\alpha$ related?</p>
+            <ul class="options">
+                <li><input type="radio" name="q3" id="q3a"> <label for="q3a"> $\beta = \alpha^3$</label></li>
+                <li><input type="radio" name="q3" id="q3b"> <label for="q3b"> $\beta = 3\alpha$</label></li>
+                <li><input type="radio" name="q3" id="q3c"> <label for="q3c"> $\beta = \alpha + 3$</label></li>
+                <li><input type="radio" name="q3" id="q3d"> <label for="q3d"> $\beta = \frac{1}{3}\alpha$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <p class="question-text">4. An anisotropic crystal has different linear coefficients of thermal expansion along its principal orthogonal axes: $\alpha_x$, $\alpha_y$, and $\alpha_z$. What is the exact total differential expression for the change in volume $dV$ as a function of temperature change $dT$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q4" id="q4a"> <label for="q4a"> $dV = V(\alpha_x \alpha_y \alpha_z) dT$</label></li>
+                <li><input type="radio" name="q4" id="q4b"> <label for="q4b"> $dV = V(\alpha_x + \alpha_y + \alpha_z) dT$</label></li>
+                <li><input type="radio" name="q4" id="q4c"> <label for="q4c"> $dV = 3V(\alpha_x + \alpha_y + \alpha_z) dT$</label></li>
+                <li><input type="radio" name="q4" id="q4d"> <label for="q4d"> $dV = (\alpha_x + \alpha_y + \alpha_z) dT$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <p class="question-text">5. A solid bar of length $L$, Young's modulus $Y$, and linear expansion coefficient $\alpha$ is rigidly clamped between two immovable walls. If the temperature is raised by $dT$, what is the differential thermal stress $d\sigma$ induced within the bar?</p>
+            <ul class="options">
+                <li><input type="radio" name="q5" id="q5a"> <label for="q5a"> $d\sigma = Y \alpha \, dT$</label></li>
+                <li><input type="radio" name="q5" id="q5b"> <label for="q5b"> $d\sigma = -Y \alpha \, dT$</label></li>
+                <li><input type="radio" name="q5" id="q5c"> <label for="q5c"> $d\sigma = -\frac{Y}{\alpha} \, dT$</label></li>
+                <li><input type="radio" name="q5" id="q5d"> <label for="q5d"> $d\sigma = -Y \alpha L \, dT$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question">
+            <p class="question-text">6. For an ideal gas at constant pressure $P$, the volume satisfies $V = \frac{nRT}{P}$. By evaluating the partial derivative $\left(\frac{\partial V}{\partial T}\right)_P$, what is the functional volume expansion coefficient $\beta$ of an ideal gas?</p>
+            <ul class="options">
+                <li><input type="radio" name="q6" id="q6a"> <label for="q6a"> $\beta = T$</label></li>
+                <li><input type="radio" name="q6" id="q6b"> <label for="q6b"> $\beta = \frac{1}{T}$</label></li>
+                <li><input type="radio" name="q6" id="q6c"> <label for="q6c"> $\beta = \frac{P}{T}$</label></li>
+                <li><input type="radio" name="q6" id="q6d"> <label for="q6d"> $\beta = \frac{nR}{P}$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question">
+            <p class="question-text">7. A non-uniform rod of length $L_0$ expands such that its linear expansion coefficient varies along its position coordinate $x$ as $\alpha(x) = \alpha_0 \frac{x}{L_0}$. If the entire rod experiences a uniform temperature increase $\Delta T$, what is the total integrated change in length $\Delta L$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q7" id="q7a"> <label for="q7a"> $\Delta L = \alpha_0 L_0 \Delta T$</label></li>
+                <li><input type="radio" name="q7" id="q7b"> <label for="q7b"> $\Delta L = \frac{1}{2} \alpha_0 L_0 \Delta T$</label></li>
+                <li><input type="radio" name="q7" id="q7c"> <label for="q7c"> $\Delta L = \frac{1}{3} \alpha_0 L_0 \Delta T$</label></li>
+                <li><input type="radio" name="q7" id="q7d"> <label for="q7d"> $\Delta L = \frac{1}{2} \alpha_0 L_0^2 \Delta T$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question">
+            <p class="question-text">8. If the density $\rho$ of a substance is given by $\rho = \frac{M}{V}$, which differential calculus expression relates the fractional change in density to the volume expansion coefficient $\beta$ during heating?</p>
+            <ul class="options">
+                <li><input type="radio" name="q8" id="q8a"> <label for="q8a"> $\frac{d\rho}{dT} = \beta \rho$</label></li>
+                <li><input type="radio" name="q8" id="q8b"> <label for="q8b"> $\frac{d\rho}{dT} = -\beta \rho$</label></li>
+                <li><input type="radio" name="q8" id="q8c"> <label for="q8c"> $\frac{d\rho}{dT} = -\frac{\beta}{\rho}$</label></li>
+                <li><input type="radio" name="q8" id="q8d"> <label for="q8d"> $\frac{d\rho}{dT} = -\beta \rho^2$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question">
+            <p class="question-text">9. A circular hoop of initial radius $R_0$ has a linear thermal expansion coefficient $\alpha$. If its temperature changes by a differential amount $dT$, the change in its circumference $C$ satisfies $dC = C \alpha \, dT$. What is the resulting differential change in its inner area $dA$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q9" id="q9a"> <label for="q9a"> $dA = A \alpha \, dT$</label></li>
+                <li><input type="radio" name="q9" id="q9b"> <label for="q9b"> $dA = 2A \alpha \, dT$</label></li>
+                <li><input type="radio" name="q9" id="q9c"> <label for="q9c"> $dA = A \alpha^2 \, dT$</label></li>
+                <li><input type="radio" name="q9" id="q9d"> <label for="q9d"> $dA = 2\pi R_0 \alpha \, dT$</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question">
+            <p class="question-text">10. The relation $\left(\frac{\partial V}{\partial T}\right)_P = -\left(\frac{\partial V}{\partial P}\right)_T \left(\frac{\partial P}{\partial T}\right)_V$ stems from the triple product rule of calculus. How can the volume expansion coefficient $\beta$ be expressed using isothermal compressibility $\kappa = -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T$?</p>
+            <ul class="options">
+                <li><input type="radio" name="q10" id="q10a"> <label for="q10a"> $\beta = \kappa \left(\frac{\partial P}{\partial T}\right)_V$</label></li>
+                <li><input type="radio" name="q10" id="q10b"> <label for="q10b"> $\beta = -\kappa \left(\frac{\partial P}{\partial T}\right)_V$</label></li>
+                <li><input type="radio" name="q10" id="q10c"> <label for="q10c"> $\beta = \frac{\kappa}{(\partial P / \partial T)_V}$</label></li>
+                <li><input type="radio" name="q10" id="q10d"> <label for="q10d"> $\beta = \kappa P T$</label></li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
