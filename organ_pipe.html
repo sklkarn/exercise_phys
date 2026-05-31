@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organ Pipes Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e2937, #9f1239);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #9f1239, #e11d48);
+            padding: 25px;
+            text-align: center;
+        }
+        h1 { margin: 0; color: white; }
+        .subtitle { color: #fda4af; margin: 8px 0 0; }
+        
+        .quiz-body { padding: 30px; }
+        .question {
+            margin-bottom: 38px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child { border-bottom: none; }
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 14px 18px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .option:hover { background: #475569; border-color: #fb7185; }
+        .option.selected {
+            background: #9f1239;
+            border-color: #fda4af;
+        }
+        button {
+            padding: 14px 40px;
+            font-size: 1.1em;
+            background: #e11d48;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        button:hover { background: #fb7185; }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #334155;
+            border-radius: 10px;
+            display: none;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Organ Pipes &amp; Air Column Resonance</h1>
+            <p class="subtitle">Sound Waves • Closed &amp; Open Pipes • 12 Questions</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+
+                <!-- Q1 -->
+                <div class="question">
+                    <div class="question-text"><strong>1.</strong> In a closed organ pipe (closed at one end), the fundamental frequency has a node at the closed end and an antinode at the open end. The length L of the pipe is equal to:</div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="λ/4">λ/4</div>
+                        <div class="option" data-value="λ/2">λ/2</div>
+                        <div class="option" data-value="λ">λ</div>
+                        <div class="option" data-value="3λ/4">3λ/4</div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question">
+                    <div class="question-text"><strong>2.</strong> The fundamental frequency of a closed organ pipe of length L is:</div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="v/(4L)">v/(4L)</div>
+                        <div class="option" data-value="v/(2L)">v/(2L)</div>
+                        <div class="option" data-value="2v/L">2v/L</div>
+                        <div class="option" data-value="v/L">v/L</div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question">
+                    <div class="question-text"><strong>3.</strong> For an open organ pipe (open at both ends), the fundamental mode has:</div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="Antinodes at both ends">Antinodes at both ends</div>
+                        <div class="option" data-value="Nodes at both ends">Nodes at both ends</div>
+                        <div class="option" data-value="Node at one end only">Node at one end only</div>
+                        <div class="option" data-value="No nodes">No nodes</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question">
+                    <div class="question-text"><strong>4.</strong> The fundamental frequency of an open organ pipe is:</div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="v/(2L)">v/(2L)</div>
+                        <div class="option" data-value="v/(4L)">v/(4L)</div>
+                        <div class="option" data-value="2v/L">2v/L</div>
+                        <div class="option" data-value="4v/L">4v/L</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question">
+                    <div class="question-text"><strong>5.</strong> The first overtone in a closed organ pipe corresponds to:</div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="3rd harmonic">3rd harmonic</div>
+                        <div class="option" data-value="2nd harmonic">2nd harmonic</div>
+                        <div class="option" data-value="4th harmonic">4th harmonic</div>
+                        <div class="option" data-value="Fundamental">Fundamental</div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question">
+                    <div class="question-text"><strong>6.</strong> An open organ pipe produces:</div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="Both even and odd harmonics">Both even and odd harmonics</div>
+                        <div class="option" data-value="Only odd harmonics">Only odd harmonics</div>
+                        <div class="option" data-value="Only even harmonics">Only even harmonics</div>
+                        <div class="option" data-value="No harmonics">No overtones</div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question">
+                    <div class="question-text"><strong>7.</strong> End correction (e) for an open pipe is approximately:</div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="0.3d (d = diameter)">0.3d</div>
+                        <div class="option" data-value="0.6d">0.6d</div>
+                        <div class="option" data-value="d">d</div>
+                        <div class="option" data-value="Zero">Zero</div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question">
+                    <div class="question-text"><strong>8.</strong> In a closed pipe, the wavelength of the fundamental note is:</div>
+                    <div class="options" id="q8">
+                        <div class="option" data-value="4L">4L</div>
+                        <div class="option" data-value="2L">2L</div>
+                        <div class="option" data-value="L">L</div>
+                        <div class="option" data-value="L/2">L/2</div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question">
+                    <div class="question-text"><strong>9.</strong> Two organ pipes of same length: one closed and one open. The ratio of their fundamental frequencies (closed : open) is:</div>
+                    <div class="options" id="q9">
+                        <div class="option" data-value="1 : 2">1 : 2</div>
+                        <div class="option" data-value="2 : 1">2 : 1</div>
+                        <div class="option" data-value="1 : 1">1 : 1</div>
+                        <div class="option" data-value="3 : 4">3 : 4</div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question">
+                    <div class="question-text"><strong>10.</strong> If the length of a closed pipe is doubled, its fundamental frequency becomes:</div>
+                    <div class="options" id="q10">
+                        <div class="option" data-value="Half">Half</div>
+                        <div class="option" data-value="Double">Double</div>
+                        <div class="option" data-value="Four times">Four times</div>
+                        <div class="option" data-value="Unchanged">Unchanged</div>
+                    </div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="question">
+                    <div class="question-text"><strong>11.</strong> Resonance tube experiment is used to determine:</div>
+                    <div class="options" id="q11">
+                        <div class="option" data-value="Speed of sound">Speed of sound</div>
+                        <div class="option" data-value="Wavelength only">Wavelength only</div>
+                        <div class="option" data-value="Frequency only">Frequency only</div>
+                        <div class="option" data-value="Amplitude">Amplitude</div>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="question">
+                    <div class="question-text"><strong>12.</strong> In a closed pipe, the third overtone corresponds to which harmonic?</div>
+                    <div class="options" id="q12">
+                        <div class="option" data-value="7th harmonic">7th harmonic</div>
+                        <div class="option" data-value="5th harmonic">5th harmonic</div>
+                        <div class="option" data-value="4th harmonic">4th harmonic</div>
+                        <div class="option" data-value="3rd harmonic">3rd harmonic</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score">0</span>/12</h2>
+                <p id="percentage"></p>
+                <div id="details"></div>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: "λ/4",
+            2: "v/(4L)",
+            3: "Antinodes at both ends",
+            4: "v/(2L)",
+            5: "3rd harmonic",
+            6: "Both even and odd harmonics",
+            7: "0.3d",
+            8: "4L",
+            9: "1 : 2",
+            10: "Half",
+            11: "Speed of sound",
+            12: "7th harmonic"
+        };
+
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let html = "<h3>Detailed Results:</h3>";
+
+            for (let i = 1; i <= 12; i++) {
+                const selected = document.querySelector(`#q${i} .option.selected`);
+                const userAns = selected ? selected.getAttribute('data-value') : "No answer selected";
+                const correct = correctAnswers[i];
+
+                html += `<p><strong>Question ${i}:</strong> `;
+                if (userAns === correct) {
+                    score++;
+                    html += `<span class="correct">✓ Correct</span>`;
+                } else {
+                    html += `<span class="incorrect">✗ Incorrect</span><br>`;
+                    html += `Your answer: ${userAns}<br>`;
+                    html += `Correct: <strong>${correct}</strong>`;
+                }
+                html += `</p>`;
+            }
+
+            const percent = Math.round((score / 12) * 100);
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `<strong>${percent}%</strong>`;
+            document.getElementById('details').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

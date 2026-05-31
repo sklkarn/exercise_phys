@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optics Quiz: Reflection, Refraction, Mirrors & Lenses</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e2937, #334155);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            padding: 25px;
+            text-align: center;
+        }
+        h1 { margin: 0; color: white; }
+        .subtitle { color: #bae6fd; margin: 8px 0 0; }
+        
+        .quiz-body { padding: 30px; }
+        .question {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child { border-bottom: none; }
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 14px 18px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .option:hover { background: #475569; border-color: #60a5fa; }
+        .option.selected {
+            background: #1e40af;
+            border-color: #93c5fd;
+        }
+        button {
+            padding: 14px 40px;
+            font-size: 1.1em;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        button:hover { background: #2563eb; }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #334155;
+            border-radius: 10px;
+            display: none;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Optics Quiz</h1>
+            <p class="subtitle">Reflection • Refraction • TIR • Mirrors • Lenses • 20 Questions</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+
+                <!-- Q1 -->
+                <div class="question">
+                    <div class="question-text"><strong>1.</strong> According to the law of reflection, the angle of incidence is always:</div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="Equal to the angle of reflection">Equal to the angle of reflection</div>
+                        <div class="option" data-value="Greater than the angle of reflection">Greater than the angle of reflection</div>
+                        <div class="option" data-value="Less than the angle of reflection">Less than the angle of reflection</div>
+                        <div class="option" data-value="90 degrees">90 degrees</div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question">
+                    <div class="question-text"><strong>2.</strong> Snell's law is mathematically expressed as:</div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="n₁ sinθ₁ = n₂ sinθ₂">n₁ sinθ₁ = n₂ sinθ₂</div>
+                        <div class="option" data-value="n₁ / n₂ = sinθ₂ / sinθ₁">n₁ / n₂ = sinθ₂ / sinθ₁</div>
+                        <div class="option" data-value="sinθ₁ / sinθ₂ = n₂ / n₁">sinθ₁ / sinθ₂ = n₂ / n₁</div>
+                        <div class="option" data-value="n₁ cosθ₁ = n₂ cosθ₂">n₁ cosθ₁ = n₂ cosθ₂</div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question">
+                    <div class="question-text"><strong>3.</strong> Total Internal Reflection occurs when light travels from:</div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="Denser to rarer medium and angle > critical angle">Denser to rarer medium and i > i_c</div>
+                        <div class="option" data-value="Rarer to denser medium">Rarer to denser medium</div>
+                        <div class="option" data-value="Any medium at 45°">Any medium at 45°</div>
+                        <div class="option" data-value="Air to glass only">Air to glass only</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question">
+                    <div class="question-text"><strong>4.</strong> The critical angle for a glass-air interface (n_glass = 1.5) is approximately:</div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="42°">42°</div>
+                        <div class="option" data-value="30°">30°</div>
+                        <div class="option" data-value="60°">60°</div>
+                        <div class="option" data-value="90°">90°</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question">
+                    <div class="question-text"><strong>5.</strong> For a plane mirror, the image formed is always:</div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="Virtual, erect, and same size">Virtual, erect, and same size</div>
+                        <div class="option" data-value="Real and inverted">Real and inverted</div>
+                        <div class="option" data-value="Virtual and magnified">Virtual and magnified</div>
+                        <div class="option" data-value="Real and diminished">Real and diminished</div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question">
+                    <div class="question-text"><strong>6.</strong> The mirror formula is:</div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="1/f = 1/v + 1/u">1/f = 1/v + 1/u</div>
+                        <div class="option" data-value="1/f = 1/v - 1/u">1/f = 1/v - 1/u</div>
+                        <div class="option" data-value="f = (u + v)/2">f = (u + v)/2</div>
+                        <div class="option" data-value="m = -v/u">m = -v/u (only)</div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question">
+                    <div class="question-text"><strong>7.</strong> A concave mirror forms a real image when the object is placed:</div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="Beyond the focal point">Beyond the focal point (u > f)</div>
+                        <div class="option" data-value="Between focal point and mirror">Between focal point and mirror</div>
+                        <div class="option" data-value="At infinity only">At infinity only</div>
+                        <div class="option" data-value="Never">Never</div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question">
+                    <div class="question-text"><strong>8.</strong> The focal length of a convex mirror is:</div>
+                    <div class="options" id="q8">
+                        <div class="option" data-value="Positive">Positive (by sign convention)</div>
+                        <div class="option" data-value="Negative">Negative</div>
+                        <div class="option" data-value="Zero">Zero</div>
+                        <div class="option" data-value="Infinite">Infinite</div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question">
+                    <div class="question-text"><strong>9.</strong> The lens maker's formula for a thin lens in air is:</div>
+                    <div class="options" id="q9">
+                        <div class="option" data-value="(n-1)(1/R₁ - 1/R₂)"> (n−1)(1/R₁ − 1/R₂) </div>
+                        <div class="option" data-value="1/f = 1/v - 1/u">(only thin lens equation)</div>
+                        <div class="option" data-value="n = sin i / sin r">Snell's law</div>
+                        <div class="option" data-value="f = R/2">f = R/2</div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question">
+                    <div class="question-text"><strong>10.</strong> A convex lens forms a virtual image when the object is placed:</div>
+                    <div class="options" id="q10">
+                        <div class="option" data-value="Between the lens and focal point">Between lens and focal point</div>
+                        <div class="option" data-value="Beyond 2F">Beyond 2F</div>
+                        <div class="option" data-value="At 2F">At 2F</div>
+                        <div class="option" data-value="At infinity">At infinity</div>
+                    </div>
+                </div>
+
+                <!-- Q11 to Q20 continue... -->
+                <!-- Q11 -->
+                <div class="question">
+                    <div class="question-text"><strong>11.</strong> The power of a lens (in diopters) is:</div>
+                    <div class="options" id="q11">
+                        <div class="option" data-value="P = 1/f (f in meters)">P = 1/f (f in meters)</div>
+                        <div class="option" data-value="P = f">P = f</div>
+                        <div class="option" data-value="P = n-1">P = n-1</div>
+                        <div class="option" data-value="P = R₁ - R₂">P = R₁ - R₂</div>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="question">
+                    <div class="question-text"><strong>12.</strong> Lateral magnification m for mirrors and lenses is given by:</div>
+                    <div class="options" id="q12">
+                        <div class="option" data-value="m = -v/u">m = -v/u</div>
+                        <div class="option" data-value="m = v/u">m = v/u</div>
+                        <div class="option" data-value="m = f/u">m = f/u</div>
+                        <div class="option" data-value="m = u/v">m = u/v</div>
+                    </div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="question">
+                    <div class="question-text"><strong>13.</strong> When light goes from water (n=1.33) to air, the critical angle is:</div>
+                    <div class="options" id="q13">
+                        <div class="option" data-value="≈48.6°">≈48.6°</div>
+                        <div class="option" data-value="42°">42°</div>
+                        <div class="option" data-value="60°">60°</div>
+                        <div class="option" data-value="90°">90°</div>
+                    </div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="question">
+                    <div class="question-text"><strong>14.</strong> A concave lens always forms:</div>
+                    <div class="options" id="q14">
+                        <div class="option" data-value="Virtual, erect and diminished image">Virtual, erect and diminished image</div>
+                        <div class="option" data-value="Real and inverted image">Real and inverted image</div>
+                        <div class="option" data-value="Real and magnified image">Real and magnified image</div>
+                        <div class="option" data-value="No image">No image</div>
+                    </div>
+                </div>
+
+                <!-- Q15 -->
+                <div class="question">
+                    <div class="question-text"><strong>15.</strong> The phenomenon responsible for the brilliance of a diamond is:</div>
+                    <div class="options" id="q15">
+                        <div class="option" data-value="Total Internal Reflection">Total Internal Reflection</div>
+                        <div class="option" data-value="Refraction only">Refraction only</div>
+                        <div class="option" data-value="Dispersion">Dispersion</div>
+                        <div class="option" data-value="Diffraction">Diffraction</div>
+                    </div>
+                </div>
+
+                <!-- Q16 -->
+                <div class="question">
+                    <div class="question-text"><strong>16.</strong> For a convex mirror, the image is always:</div>
+                    <div class="options" id="q16">
+                        <div class="option" data-value="Virtual, erect and diminished">Virtual, erect and diminished</div>
+                        <div class="option" data-value="Real and inverted">Real and inverted</div>
+                        <div class="option" data-value="Real and magnified">Real and magnified</div>
+                        <div class="option" data-value="Virtual and inverted">Virtual and inverted</div>
+                    </div>
+                </div>
+
+                <!-- Q17 -->
+                <div class="question">
+                    <div class="question-text"><strong>17.</strong> If an object is placed at the center of curvature of a concave mirror, the image is:</div>
+                    <div class="options" id="q17">
+                        <div class="option" data-value="Real, inverted and same size">Real, inverted and same size</div>
+                        <div class="option" data-value="Virtual and magnified">Virtual and magnified</div>
+                        <div class="option" data-value="Real and diminished">Real and diminished</div>
+                        <div class="option" data-value="At infinity">At infinity</div>
+                    </div>
+                </div>
+
+                <!-- Q18 -->
+                <div class="question">
+                    <div class="question-text"><strong>18.</strong> Apparent depth of an object in water is due to:</div>
+                    <div class="options" id="q18">
+                        <div class="option" data-value="Refraction">Refraction</div>
+                        <div class="option" data-value="Reflection">Reflection</div>
+                        <div class="option" data-value="Total Internal Reflection">Total Internal Reflection</div>
+                        <div class="option" data-value="Dispersion">Dispersion</div>
+                    </div>
+                </div>
+
+                <!-- Q19 -->
+                <div class="question">
+                    <div class="question-text"><strong>19.</strong> The focal length of a lens depends on:</div>
+                    <div class="options" id="q19">
+                        <div class="option" data-value="Radius of curvature and refractive index">Radius of curvature and refractive index</div>
+                        <div class="option" data-value="Only object distance">Only object distance</div>
+                        <div class="option" data-value="Only image distance">Only image distance</div>
+                        <div class="option" data-value="Color of light only">Color of light only</div>
+                    </div>
+                </div>
+
+                <!-- Q20 -->
+                <div class="question">
+                    <div class="question-text"><strong>20.</strong> In optical fibers, light is transmitted by repeated:</div>
+                    <div class="options" id="q20">
+                        <div class="option" data-value="Total Internal Reflection">Total Internal Reflection</div>
+                        <div class="option" data-value="Refraction">Refraction</div>
+                        <div class="option" data-value="Reflection from outer surface">Ordinary reflection</div>
+                        <div class="option" data-value="Diffraction">Diffraction</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score">0</span>/20</h2>
+                <p id="percentage"></p>
+                <div id="details"></div>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: "Equal to the angle of reflection",
+            2: "n₁ sinθ₁ = n₂ sinθ₂",
+            3: "Denser to rarer medium and i > i_c",
+            4: "42°",
+            5: "Virtual, erect, and same size",
+            6: "1/f = 1/v + 1/u",
+            7: "Beyond the focal point (u > f)",
+            8: "Positive (by sign convention)",
+            9: "(n−1)(1/R₁ − 1/R₂)",
+            10: "Between lens and focal point",
+            11: "P = 1/f (f in meters)",
+            12: "m = -v/u",
+            13: "≈48.6°",
+            14: "Virtual, erect and diminished image",
+            15: "Total Internal Reflection",
+            16: "Virtual, erect and diminished",
+            17: "Real, inverted and same size",
+            18: "Refraction",
+            19: "Radius of curvature and refractive index",
+            20: "Total Internal Reflection"
+        };
+
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let html = "<h3>Detailed Results:</h3>";
+
+            for (let i = 1; i <= 20; i++) {
+                const selected = document.querySelector(`#q${i} .option.selected`);
+                const userAns = selected ? selected.getAttribute('data-value') : "No answer selected";
+                const correct = correctAnswers[i];
+
+                html += `<p><strong>Question ${i}:</strong> `;
+                if (userAns === correct) {
+                    score++;
+                    html += `<span class="correct">✓ Correct</span>`;
+                } else {
+                    html += `<span class="incorrect">✗ Incorrect</span><br>`;
+                    html += `Your answer: ${userAns}<br>`;
+                    html += `Correct: <strong>${correct}</strong>`;
+                }
+                html += `</p>`;
+            }
+
+            const percent = Math.round((score / 20) * 100);
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `<strong>${percent}%</strong>`;
+            document.getElementById('details').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

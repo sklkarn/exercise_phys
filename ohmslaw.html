@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current, Current Density & Ohm's Law Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e2937);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #166534, #4ade80);
+            padding: 25px;
+            text-align: center;
+        }
+        h1 { margin: 0; color: white; }
+        .subtitle { color: #bbf7d0; margin: 8px 0 0; }
+        
+        .quiz-body { padding: 30px; }
+        .question {
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child { border-bottom: none; }
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 14px 18px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .option:hover { background: #475569; border-color: #4ade80; }
+        .option.selected {
+            background: #166534;
+            border-color: #86efac;
+        }
+        button {
+            padding: 14px 40px;
+            font-size: 1.1em;
+            background: #4ade80;
+            color: #052e16;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        button:hover { background: #86efac; }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #334155;
+            border-radius: 10px;
+            display: none;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Current, Current Density &amp; Ohm's Law</h1>
+            <p class="subtitle">Calculus-Based Introductory Physics</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+
+                <!-- Q1 -->
+                <div class="question">
+                    <div class="question-text"><strong>1.</strong> In the microscopic model of conduction in metals, the current is due to the motion of:</div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="Free electrons drifting under electric field">Free electrons drifting under electric field</div>
+                        <div class="option" data-value="Positive ions">Positive ions</div>
+                        <div class="option" data-value="Protons">Protons</div>
+                        <div class="option" data-value="Both electrons and ions">Both electrons and ions equally</div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question">
+                    <div class="question-text"><strong>2.</strong> Current density <strong>J</strong> is related to the drift velocity <strong>v_d</strong> by:</div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="J = n e v_d">J = n e v_d (vector form)</div>
+                        <div class="option" data-value="J = n e / v_d">J = n e / v_d</div>
+                        <div class="option" data-value="J = I / v_d">J = I / v_d</div>
+                        <div class="option" data-value="J = e / (n v_d)">J = e / (n v_d)</div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question">
+                    <div class="question-text"><strong>3.</strong> The macroscopic current I through a wire of cross-sectional area A is:</div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="I = J A">I = J ⋅ A (or I = J A for uniform J)</div>
+                        <div class="option" data-value="I = J / A">I = J / A</div>
+                        <div class="option" data-value="I = n e v_d">I = n e v_d</div>
+                        <div class="option" data-value="I = n e v_d A">I = n e v_d A</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question">
+                    <div class="question-text"><strong>4.</strong> Microscopic form of Ohm’s law (relation between current density and electric field) is:</div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="J = σ E">J = σ E</div>
+                        <div class="option" data-value="J = E / σ">J = E / σ</div>
+                        <div class="option" data-value="J = ρ E">J = ρ E</div>
+                        <div class="option" data-value="J = E / ρ">J = E / ρ</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question">
+                    <div class="question-text"><strong>5.</strong> Drift velocity v_d of electrons in a conductor is given by:</div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="v_d = (e E τ) / m">v_d = (e E τ) / m</div>
+                        <div class="option" data-value="v_d = e E / m">v_d = e E / m</div>
+                        <div class="option" data-value="v_d = m E / (e τ)">v_d = m E / (e τ)</div>
+                        <div class="option" data-value="v_d = I / (n e A)">v_d = I / (n e A)</div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question">
+                    <div class="question-text"><strong>6.</strong> Resistivity ρ and conductivity σ are related as:</div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="ρ = 1/σ">ρ = 1/σ</div>
+                        <div class="option" data-value="σ = 1/ρ">σ = 1/ρ</div>
+                        <div class="option" data-value="Both A and B are correct">Both statements are equivalent</div>
+                        <div class="option" data-value="ρ = σ">ρ = σ</div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question">
+                    <div class="question-text"><strong>7.</strong> The macroscopic Ohm’s law for a resistor is:</div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="V = I R">V = I R</div>
+                        <div class="option" data-value="I = V / R">I = V / R</div>
+                        <div class="option" data-value="Both are equivalent">V = IR and I = V/R are equivalent</div>
+                        <div class="option" data-value="V = I / R">V = I / R</div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question">
+                    <div class="question-text"><strong>8.</strong> If the electric field inside a conductor is doubled, the drift velocity and current density (assuming constant temperature):</div>
+                    <div class="options" id="q8">
+                        <div class="option" data-value="Both double">Both v_d and J double</div>
+                        <div class="option" data-value="Only v_d doubles">Only v_d doubles</div>
+                        <div class="option" data-value="Only J doubles">Only J doubles</div>
+                        <div class="option" data-value="Remain the same">Remain the same</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score">0</span>/8</h2>
+                <p id="percentage"></p>
+                <div id="details"></div>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: "Free electrons drifting under electric field",
+            2: "J = n e v_d (vector form)",
+            3: "I = n e v_d A",
+            4: "J = σ E",
+            5: "v_d = (e E τ) / m",
+            6: "Both statements are equivalent",
+            7: "V = IR and I = V/R are equivalent",
+            8: "Both v_d and J double"
+        };
+
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let html = "<h3>Detailed Results:</h3>";
+
+            for (let i = 1; i <= 8; i++) {
+                const selected = document.querySelector(`#q${i} .option.selected`);
+                const userAns = selected ? selected.getAttribute('data-value') : "No answer selected";
+                const correct = correctAnswers[i];
+
+                html += `<p><strong>Question ${i}:</strong> `;
+                if (userAns === correct) {
+                    score++;
+                    html += `<span class="correct">✓ Correct</span>`;
+                } else {
+                    html += `<span class="incorrect">✗ Incorrect</span><br>`;
+                    html += `Your answer: ${userAns}<br>`;
+                    html += `Correct: <strong>${correct}</strong>`;
+                }
+                html += `</p>`;
+            }
+
+            const percent = Math.round((score / 8) * 100);
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `<strong>${percent}%</strong>`;
+            document.getElementById('details').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

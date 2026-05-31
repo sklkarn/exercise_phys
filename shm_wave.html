@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHM & Waves Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e2937, #0f766e);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #0f766e, #14b8a6);
+            padding: 25px;
+            text-align: center;
+        }
+        h1 { margin: 0; color: white; }
+        .subtitle { color: #99f6e4; margin: 8px 0 0; }
+        
+        .quiz-body { padding: 30px; }
+        .question {
+            margin-bottom: 38px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child { border-bottom: none; }
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 14px 18px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .option:hover { background: #475569; border-color: #5eead4; }
+        .option.selected {
+            background: #0f766e;
+            border-color: #99f6e4;
+        }
+        button {
+            padding: 14px 40px;
+            font-size: 1.1em;
+            background: #14b8a6;
+            color: #042f2e;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        button:hover { background: #5eead4; }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #334155;
+            border-radius: 10px;
+            display: none;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simple Harmonic Motion & Waves</h1>
+            <p class="subtitle">Calculus-Based Physics • 10 Questions</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+
+                <!-- Q1 -->
+                <div class="question">
+                    <div class="question-text"><strong>1.</strong> The differential equation for Simple Harmonic Motion is:</div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="d²x/dt² + ω²x = 0">d²x/dt² + ω²x = 0</div>
+                        <div class="option" data-value="d²x/dt² - ω²x = 0">d²x/dt² - ω²x = 0</div>
+                        <div class="option" data-value="dx/dt + ωx = 0">dx/dt + ωx = 0</div>
+                        <div class="option" data-value="d²x/dt² = constant">d²x/dt² = constant</div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question">
+                    <div class="question-text"><strong>2.</strong> For a mass-spring system, the angular frequency ω is:</div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="ω = √(k/m)">ω = √(k/m)</div>
+                        <div class="option" data-value="ω = √(m/k)">ω = √(m/k)</div>
+                        <div class="option" data-value="ω = 2π √(k/m)">ω = 2π √(k/m)</div>
+                        <div class="option" data-value="ω = k/m">ω = k/m</div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question">
+                    <div class="question-text"><strong>3.</strong> The total mechanical energy in SHM is:</div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="E = (1/2) k A²">E = (1/2) k A² (constant)</div>
+                        <div class="option" data-value="E = (1/2) m v²">E = (1/2) m v²</div>
+                        <div class="option" data-value="E varies with time">E varies sinusoidally</div>
+                        <div class="option" data-value="E = m g h">E = m g h</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question">
+                    <div class="question-text"><strong>4.</strong> For a simple pendulum (small angle), the period T is approximately:</div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="T = 2π √(L/g)">T = 2π √(L/g)</div>
+                        <div class="option" data-value="T = 2π √(g/L)">T = 2π √(g/L)</div>
+                        <div class="option" data-value="T = 2π √(m/k)">T = 2π √(m/k)</div>
+                        <div class="option" data-value="T depends on amplitude">T depends strongly on amplitude</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question">
+                    <div class="question-text"><strong>5.</strong> The general form of a traveling wave is:</div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="y = A sin(kx - ωt)">y = A sin(kx − ωt) or cos(kx − ωt)</div>
+                        <div class="option" data-value="y = A sin(ωt)">y = A sin(ωt)</div>
+                        <div class="option" data-value="y = A cos(kx)">y = A cos(kx)</div>
+                        <div class="option" data-value="y = kx - ωt">y = kx - ωt</div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question">
+                    <div class="question-text"><strong>6.</strong> The wave speed v is related to frequency f and wavelength λ by:</div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="v = f λ">v = f λ</div>
+                        <div class="option" data-value="v = f / λ">v = f / λ</div>
+                        <div class="option" data-value="v = λ / f">v = λ / f</div>
+                        <div class="option" data-value="v = 2π f">v = 2π f</div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question">
+                    <div class="question-text"><strong>7.</strong> In a standing wave on a string fixed at both ends, the distance between two consecutive nodes is:</div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="λ/2">λ/2</div>
+                        <div class="option" data-value="λ">λ</div>
+                        <div class="option" data-value="λ/4">λ/4</div>
+                        <div class="option" data-value="2λ">2λ</div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question">
+                    <div class="question-text"><strong>8.</strong> The velocity of a particle in a wave y = A sin(kx - ωt) is:</div>
+                    <div class="options" id="q8">
+                        <div class="option" data-value="v = -A ω cos(kx - ωt)">v = −Aω cos(kx − ωt)</div>
+                        <div class="option" data-value="v = A ω sin(kx - ωt)">v = Aω sin(kx − ωt)</div>
+                        <div class="option" data-value="v = ω / k">v = ω / k</div>
+                        <div class="option" data-value="v = 0">v = 0 (at all times)</div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question">
+                    <div class="question-text"><strong>9.</strong> For two waves of same frequency interfering, the condition for constructive interference is:</div>
+                    <div class="options" id="q9">
+                        <div class="option" data-value="Path difference = mλ (m = 0,1,2...)">Path difference = mλ (integer multiple)</div>
+                        <div class="option" data-value="Path difference = (m+1/2)λ">Path difference = (odd multiple of λ/2)</div>
+                        <div class="option" data-value="Phase difference = 180°">Phase difference = 180°</div>
+                        <div class="option" data-value="Amplitude must be same">Amplitude must be zero</div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question">
+                    <div class="question-text"><strong>10.</strong> The intensity of a wave is proportional to:</div>
+                    <div class="options" id="q10">
+                        <div class="option" data-value="Square of amplitude">Square of the amplitude</div>
+                        <div class="option" data-value="Amplitude">Amplitude</div>
+                        <div class="option" data-value="Frequency">Frequency only</div>
+                        <div class="option" data-value="Wavelength">Wavelength</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score">0</span>/10</h2>
+                <p id="percentage"></p>
+                <div id="details"></div>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: "d²x/dt² + ω²x = 0",
+            2: "ω = √(k/m)",
+            3: "E = (1/2) k A² (constant)",
+            4: "T = 2π √(L/g)",
+            5: "y = A sin(kx − ωt) or cos(kx − ωt)",
+            6: "v = f λ",
+            7: "λ/2",
+            8: "v = −Aω cos(kx − ωt)",
+            9: "Path difference = mλ (integer multiple)",
+            10: "Square of the amplitude"
+        };
+
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let html = "<h3>Detailed Results:</h3>";
+
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`#q${i} .option.selected`);
+                const userAns = selected ? selected.getAttribute('data-value') : "No answer selected";
+                const correct = correctAnswers[i];
+
+                html += `<p><strong>Question ${i}:</strong> `;
+                if (userAns === correct) {
+                    score++;
+                    html += `<span class="correct">✓ Correct</span>`;
+                } else {
+                    html += `<span class="incorrect">✗ Incorrect</span><br>`;
+                    html += `Your answer: ${userAns}<br>`;
+                    html += `Correct: <strong>${correct}</strong>`;
+                }
+                html += `</p>`;
+            }
+
+            const percent = Math.round((score / 10) * 100);
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `<strong>${percent}%</strong>`;
+            document.getElementById('details').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrostatics Quiz | Calculus-Based Physics</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e2937);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        header {
+            background: #334155;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            color: #60a5fa;
+        }
+        .quiz-body {
+            padding: 30px;
+        }
+        .question {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child {
+            border-bottom: none;
+        }
+        .question-text {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            padding: 12px 16px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option:hover {
+            background: #475569;
+            border-color: #60a5fa;
+        }
+        .option.selected {
+            background: #1e40af;
+            border-color: #93c5fd;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 1.1em;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #334155;
+            border-radius: 8px;
+            display: none;
+        }
+        .explanation {
+            margin-top: 8px;
+            font-size: 0.95em;
+            color: #94a3b8;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Electrostatics Quiz</h1>
+            <p>Calculus-Based Introductory Physics</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+                <!-- Question 1 -->
+                <div class="question" data-q="1">
+                    <div class="question-text">
+                        <strong>1.</strong> Two point charges, +q and +4q, are separated by a distance d. The force between them is F. If the distance is doubled and the charge on the first is tripled, what is the new force?
+                    </div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="F/2">F/2</div>
+                        <div class="option" data-value="3F/2">3F/2</div>
+                        <div class="option" data-value="6F">6F</div>
+                        <div class="option" data-value="12F">12F</div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question" data-q="2">
+                    <div class="question-text">
+                        <strong>2.</strong> A point charge q is at the origin. What is the electric field at point (x, 0, 0) for x &gt; 0?
+                    </div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="k q / x² (in the +x direction)">k q / x² î</div>
+                        <div class="option" data-value="k q / x (in the +x direction)">k q / x î</div>
+                        <div class="option" data-value="k q / x³ (in the +x direction)">k q / x³ î</div>
+                        <div class="option" data-value="2 k q / x² î">2 k q / x² î</div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question" data-q="3">
+                    <div class="question-text">
+                        <strong>3.</strong> A thin ring of radius R with uniform charge Q lies in the xy-plane centered at the origin. Find the electric field along the z-axis at distance z from the center. (Choose the correct integral expression before evaluating)
+                    </div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="E_z = (1/(4πε₀)) ∫ (Q/(2πR)) R dθ z / (R² + z²)^{3/2}">E_z = (k Q z) / (R² + z²)^{3/2}</div>
+                        <div class="option" data-value="E_z = k Q / (R² + z²)">E_z = k Q / (R² + z²)</div>
+                        <div class="option" data-value="E_z = k Q / z²">E_z = k Q / z²</div>
+                        <div class="option" data-value="E = 0 by symmetry">E = 0</div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question" data-q="4">
+                    <div class="question-text">
+                        <strong>4.</strong> Use Gauss’s law to find the electric field inside a uniformly charged insulating sphere of radius R and total charge Q, at distance r &lt; R from the center.
+                    </div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="E = k Q / r²">E = k Q / r²</div>
+                        <div class="option" data-value="E = k Q r / R³">E = (k Q r) / R³</div>
+                        <div class="option" data-value="E = k Q / R²">E = k Q / R²</div>
+                        <div class="option" data-value="E = 0">E = 0</div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question" data-q="5">
+                    <div class="question-text">
+                        <strong>5.</strong> The electric potential due to a point charge q at distance r is V = kq/r. The work done by the electric field when a test charge q₀ moves from r₁ to r₂ (r₂ &gt; r₁) is:
+                    </div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="q₀ k q (1/r₁ - 1/r₂)">W = q₀ k q (1/r₁ − 1/r₂)</div>
+                        <div class="option" data-value="q₀ k q (1/r₂ - 1/r₁)">W = q₀ k q (1/r₂ − 1/r₁)</div>
+                        <div class="option" data-value="q₀ k q ln(r₂/r₁)">W = q₀ k q ln(r₂/r₁)</div>
+                        <div class="option" data-value="0">W = 0</div>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question" data-q="6">
+                    <div class="question-text">
+                        <strong>6.</strong> A line charge with linear density λ extends from x = −L to x = L along the x-axis. The electric potential at point (0, y, 0) is best found by:
+                    </div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="V = (λ/(4πε₀)) ∫_{-L}^L dx / √(x² + y²)">V = (λ/(4πε₀)) ln[(L + √(L² + y²)) / (−L + √(L² + y²))]</div>
+                        <div class="option" data-value="V = k λ / y">V = k λ / y</div>
+                        <div class="option" data-value="V = k λ L / y²">V = k λ L / y²</div>
+                        <div class="option" data-value="V = 0">V = 0</div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question" data-q="7">
+                    <div class="question-text">
+                        <strong>7.</strong> The capacitance of a parallel-plate capacitor with plate area A, separation d, filled with a dielectric of constant κ is:
+                    </div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="C = κ ε₀ A / d">C = κ ε₀ A / d</div>
+                        <div class="option" data-value="C = ε₀ A / d">C = ε₀ A / d</div>
+                        <div class="option" data-value="C = κ ε₀ A / d²">C = κ ε₀ A / d²</div>
+                        <div class="option" data-value="C = ε₀ A d / κ">C = ε₀ A d / κ</div>
+                    </div>
+                </div>
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score"></span>/<span id="total">7</span></h2>
+                <p id="percentage"></p>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store correct answers
+        const answers = {
+            1: "3F/2",
+            2: "k q / x² (in the +x direction)",
+            3: "E_z = (k Q z) / (R² + z²)^{3/2}",
+            4: "E = k Q r / R³",
+            5: "W = q₀ k q (1/r₁ − 1/r₂)",
+            6: "V = (λ/(4πε₀)) ∫_{-L}^L dx / √(x² + y²)",
+            7: "C = κ ε₀ A / d"
+        };
+
+        function selectOption(option) {
+            const options = option.parentElement.children;
+            for (let opt of options) {
+                opt.classList.remove('selected');
+            }
+            option.classList.add('selected');
+        }
+
+        // Add click listeners
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let total = 7;
+            let resultsHTML = "<h3>Detailed Results:</h3>";
+
+            for (let q = 1; q <= 7; q++) {
+                const selected = document.querySelector(`#q${q} .option.selected`);
+                const userAnswer = selected ? selected.getAttribute('data-value') : null;
+                const correctAnswer = answers[q];
+                
+                resultsHTML += `<p><strong>Question ${q}:</strong> `;
+                
+                if (userAnswer === correctAnswer) {
+                    score++;
+                    resultsHTML += `<span class="correct">Correct</span>`;
+                } else {
+                    resultsHTML += `<span class="incorrect">Incorrect</span>`;
+                    if (userAnswer) {
+                        resultsHTML += `<br>Your answer: ${userAnswer}`;
+                    } else {
+                        resultsHTML += `<br>No answer selected`;
+                    }
+                    resultsHTML += `<br>Correct: ${correctAnswer}`;
+                }
+                resultsHTML += `</p>`;
+            }
+
+            const percentage = Math.round((score / total) * 100);
+            
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `You scored <strong>${percentage}%</strong>`;
+            document.getElementById('result').innerHTML += resultsHTML;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

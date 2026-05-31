@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interference, Diffraction & Polarization Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e2937, #312e81);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #4338ca, #7c3aed);
+            padding: 25px;
+            text-align: center;
+        }
+        h1 { margin: 0; color: white; }
+        .subtitle { color: #c4d0ff; margin: 8px 0 0; }
+        
+        .quiz-body { padding: 30px; }
+        .question {
+            margin-bottom: 38px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child { border-bottom: none; }
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 14px 18px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .option:hover { background: #475569; border-color: #a5b4fc; }
+        .option.selected {
+            background: #4338ca;
+            border-color: #c4d0ff;
+        }
+        button {
+            padding: 14px 40px;
+            font-size: 1.1em;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        button:hover { background: #a78bfa; }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #334155;
+            border-radius: 10px;
+            display: none;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wave Optics Quiz</h1>
+            <p class="subtitle">Interference • Diffraction • Polarization • 12 Questions</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+
+                <!-- Q1 -->
+                <div class="question">
+                    <div class="question-text"><strong>1.</strong> In Young's double slit experiment, bright fringes occur when the path difference is:</div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="mλ (m = 0,1,2...)">mλ (integer multiple of wavelength)</div>
+                        <div class="option" data-value="(m + 1/2)λ">(odd multiple of λ/2)</div>
+                        <div class="option" data-value="λ/2 only">λ/2 only</div>
+                        <div class="option" data-value="Zero only">Zero only</div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question">
+                    <div class="question-text"><strong>2.</strong> The fringe width (β) in Young's double slit experiment is given by:</div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="β = λD / d">β = λD / d</div>
+                        <div class="option" data-value="β = λd / D">β = λd / D</div>
+                        <div class="option" data-value="β = λ / D">β = λ / D</div>
+                        <div class="option" data-value="β = d / λ">β = d / λ</div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question">
+                    <div class="question-text"><strong>3.</strong> For destructive interference, the phase difference between two waves should be:</div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="(2m+1)π">(2m+1)π radians</div>
+                        <div class="option" data-value="2mπ">2mπ radians</div>
+                        <div class="option" data-value="π/2">π/2 radians</div>
+                        <div class="option" data-value="0">0</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question">
+                    <div class="question-text"><strong>4.</strong> In single slit diffraction, the first minimum occurs at an angle θ where:</div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="sinθ = λ / a">sinθ = λ / a  (a = slit width)</div>
+                        <div class="option" data-value="sinθ = 2λ / a">sinθ = 2λ / a</div>
+                        <div class="option" data-value="sinθ = λ / 2a">sinθ = λ / 2a</div>
+                        <div class="option" data-value="θ = 0">θ = 0</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question">
+                    <div class="question-text"><strong>5.</strong> The resolving power of a diffraction grating is given by:</div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="R = λ / Δλ = mN">R = mN  (m = order, N = total slits)</div>
+                        <div class="option" data-value="R = N">R = N only</div>
+                        <div class="option" data-value="R = λ / a">R = λ / a</div>
+                        <div class="option" data-value="R = d / λ">R = d / λ</div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question">
+                    <div class="question-text"><strong>6.</strong> Polarization of light demonstrates that light is:</div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="Transverse wave">A transverse electromagnetic wave</div>
+                        <div class="option" data-value="Longitudinal wave">A longitudinal wave</div>
+                        <div class="option" data-value="Particle only">Particle only</div>
+                        <div class="option" data-value="Neither wave nor particle">Neither</div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question">
+                    <div class="question-text"><strong>7.</strong> According to Malus's law, intensity of polarized light after passing through an analyzer is:</div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="I = I₀ cos²θ">I = I₀ cos²θ</div>
+                        <div class="option" data-value="I = I₀ cosθ">I = I₀ cosθ</div>
+                        <div class="option" data-value="I = I₀ sin²θ">I = I₀ sin²θ</div>
+                        <div class="option" data-value="I = I₀">I = I₀</div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question">
+                    <div class="question-text"><strong>8.</strong> Brewster's law states that the tangent of polarizing angle is equal to:</div>
+                    <div class="options" id="q8">
+                        <div class="option" data-value="Refractive index of the medium">Refractive index (μ)</div>
+                        <div class="option" data-value="1/μ">1/μ</div>
+                        <div class="option" data-value="sin i_p">sin i_p</div>
+                        <div class="option" data-value="cos i_p">cos i_p</div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question">
+                    <div class="question-text"><strong>9.</strong> The central fringe in Young's double slit experiment with white light is:</div>
+                    <div class="options" id="q9">
+                        <div class="option" data-value="White">White</div>
+                        <div class="option" data-value="Red">Red</div>
+                        <div class="option" data-value="Black">Black</div>
+                        <div class="option" data-value="Yellow">Yellow</div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question">
+                    <div class="question-text"><strong>10.</strong> Diffraction is more pronounced when the size of the obstacle or aperture is:</div>
+                    <div class="options" id="q10">
+                        <div class="option" data-value="Comparable to the wavelength of light">Comparable to the wavelength</div>
+                        <div class="option" data-value="Much larger than wavelength">Much larger than wavelength</div>
+                        <div class="option" data-value="Much smaller than wavelength">Much smaller than wavelength</div>
+                        <div class="option" data-value="Infinite">Infinite</div>
+                    </div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="question">
+                    <div class="question-text"><strong>11.</strong> In a diffraction grating, the condition for principal maxima is:</div>
+                    <div class="options" id="q11">
+                        <div class="option" data-value="(a + b) sinθ = mλ">(a + b) sinθ = mλ</div>
+                        <div class="option" data-value="a sinθ = mλ">a sinθ = mλ</div>
+                        <div class="option" data-value="d sinθ = λ/2">d sinθ = λ/2</div>
+                        <div class="option" data-value="sinθ = mλ">sinθ = mλ</div>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="question">
+                    <div class="question-text"><strong>12.</strong> Circularly polarized light can be produced by:</div>
+                    <div class="options" id="q12">
+                        <div class="option" data-value="Using a quarter-wave plate">Using a quarter-wave plate with linearly polarized light</div>
+                        <div class="option" data-value="Using two polarizers only">Using two polarizers only</div>
+                        <div class="option" data-value="Reflection at Brewster's angle">Reflection at Brewster's angle</div>
+                        <div class="option" data-value="Single slit diffraction">Single slit diffraction</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score">0</span>/12</h2>
+                <p id="percentage"></p>
+                <div id="details"></div>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: "mλ (integer multiple of wavelength)",
+            2: "β = λD / d",
+            3: "(2m+1)π radians",
+            4: "sinθ = λ / a  (a = slit width)",
+            5: "R = mN  (m = order, N = total slits)",
+            6: "A transverse electromagnetic wave",
+            7: "I = I₀ cos²θ",
+            8: "Refractive index (μ)",
+            9: "White",
+            10: "Comparable to the wavelength",
+            11: "(a + b) sinθ = mλ",
+            12: "Using a quarter-wave plate with linearly polarized light"
+        };
+
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let html = "<h3>Detailed Results:</h3>";
+
+            for (let i = 1; i <= 12; i++) {
+                const selected = document.querySelector(`#q${i} .option.selected`);
+                const userAns = selected ? selected.getAttribute('data-value') : "No answer selected";
+                const correct = correctAnswers[i];
+
+                html += `<p><strong>Question ${i}:</strong> `;
+                if (userAns === correct) {
+                    score++;
+                    html += `<span class="correct">✓ Correct</span>`;
+                } else {
+                    html += `<span class="incorrect">✗ Incorrect</span><br>`;
+                    html += `Your answer: ${userAns}<br>`;
+                    html += `Correct: <strong>${correct}</strong>`;
+                }
+                html += `</p>`;
+            }
+
+            const percent = Math.round((score / 12) * 100);
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `<strong>${percent}%</strong>`;
+            document.getElementById('details').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

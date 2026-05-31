@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Flux & Gauss's Law Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e2937);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            padding: 25px;
+            text-align: center;
+        }
+        h1 { margin: 0; color: white; }
+        .subtitle { color: #bae6fd; margin: 8px 0 0; }
+        
+        .quiz-body { padding: 30px; }
+        .question {
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child { border-bottom: none; }
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 14px 18px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .option:hover { background: #475569; border-color: #60a5fa; }
+        .option.selected {
+            background: #1e40af;
+            border-color: #93c5fd;
+        }
+        button {
+            padding: 14px 40px;
+            font-size: 1.1em;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        button:hover { background: #2563eb; }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #334155;
+            border-radius: 10px;
+            display: none;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+        .explanation { 
+            margin-top: 8px; 
+            font-size: 0.95em; 
+            color: #94a3b8; 
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Electric Flux &amp; Gauss's Law</h1>
+            <p class="subtitle">Calculus-Based Physics Quiz</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+
+                <!-- Q1 -->
+                <div class="question">
+                    <div class="question-text"><strong>1.</strong> The electric flux through a closed surface is given by Gauss's law as:</div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="Φ = Q_encl / ε₀">Φ = Q_encl / ε₀</div>
+                        <div class="option" data-value="Φ = Q_encl">Φ = Q_encl</div>
+                        <div class="option" data-value="Φ = ε₀ E">Φ = ε₀ E</div>
+                        <div class="option" data-value="Φ = ∮ E dA">Φ = ∮ E dA (always)</div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question">
+                    <div class="question-text"><strong>2.</strong> For a point charge q outside a closed Gaussian surface, the net electric flux through the surface is:</div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="0">0</div>
+                        <div class="option" data-value="q/ε₀">q/ε₀</div>
+                        <div class="option" data-value="-q/ε₀">-q/ε₀</div>
+                        <div class="option" data-value="Depends on distance">Depends on distance</div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question">
+                    <div class="question-text"><strong>3.</strong> A uniformly charged insulating sphere of radius R and total charge Q. The electric flux through a Gaussian surface of radius r &lt; R is:</div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="(r³/R³)(Q/ε₀)"> (r³/R³)(Q/ε₀) </div>
+                        <div class="option" data-value="Q/ε₀">Q/ε₀</div>
+                        <div class="option" data-value="0">0</div>
+                        <div class="option" data-value="(r/R)(Q/ε₀)">(r/R)(Q/ε₀)</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question">
+                    <div class="question-text"><strong>4.</strong> For an infinite straight line charge with linear density λ, using a cylindrical Gaussian surface of radius r and length L, the electric field magnitude is:</div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="E = λ / (2πε₀ r)">E = λ / (2πε₀ r)</div>
+                        <div class="option" data-value="E = λ / (2π ε₀ L)">E = λ / (2π ε₀ L)</div>
+                        <div class="option" data-value="E = λ / (4πε₀ r)">E = λ / (4πε₀ r)</div>
+                        <div class="option" data-value="E = 2λ / (πε₀ r)">E = 2λ / (πε₀ r)</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question">
+                    <div class="question-text"><strong>5.</strong> Inside a conductor in electrostatic equilibrium, the electric field is zero. Therefore, the net flux through any Gaussian surface entirely within the conductor is:</div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="0">0</div>
+                        <div class="option" data-value="Q_encl/ε₀">Q_encl/ε₀</div>
+                        <div class="option" data-value="Depends on shape">Depends on shape</div>
+                        <div class="option" data-value="Non-zero">Non-zero</div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question">
+                    <div class="question-text"><strong>6.</strong> A thin spherical shell of radius R carries uniform charge Q. The electric field for r &gt; R (outside) is:</div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="E = kQ / r²">E = kQ / r²</div>
+                        <div class="option" data-value="E = 0">E = 0</div>
+                        <div class="option" data-value="E = kQ / R²">E = kQ / R²</div>
+                        <div class="option" data-value="E = kQ r / R³">E = kQ r / R³</div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question">
+                    <div class="question-text"><strong>7.</strong> An infinite non-conducting plane has uniform surface charge density σ. Using Gauss's law with a pillbox Gaussian surface, the electric field magnitude is:</div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="E = σ / (2ε₀)">E = σ / (2ε₀)</div>
+                        <div class="option" data-value="E = σ / ε₀">E = σ / ε₀</div>
+                        <div class="option" data-value="E = 2σ / ε₀">E = 2σ / ε₀</div>
+                        <div class="option" data-value="E = σ / (2πε₀)">E = σ / (2πε₀)</div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question">
+                    <div class="question-text"><strong>8.</strong> A Gaussian surface encloses a total charge of +3 μC and -1 μC. The net electric flux through the surface is:</div>
+                    <div class="options" id="q8">
+                        <div class="option" data-value="2μC / ε₀">+2μC / ε₀</div>
+                        <div class="option" data-value="3μC / ε₀">+3μC / ε₀</div>
+                        <div class="option" data-value="-1μC / ε₀">-1μC / ε₀</div>
+                        <div class="option" data-value="0">0</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score">0</span>/8</h2>
+                <p id="percentage"></p>
+                <div id="details"></div>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: "Φ = Q_encl / ε₀",
+            2: "0",
+            3: "(r³/R³)(Q/ε₀)",
+            4: "E = λ / (2πε₀ r)",
+            5: "0",
+            6: "E = kQ / r²",
+            7: "E = σ / (2ε₀)",
+            8: "+2μC / ε₀"
+        };
+
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let html = "<h3>Detailed Results:</h3>";
+
+            for (let i = 1; i <= 8; i++) {
+                const selected = document.querySelector(`#q${i} .option.selected`);
+                const userAns = selected ? selected.getAttribute('data-value') : "No answer selected";
+                const correct = correctAnswers[i];
+
+                html += `<p><strong>Question ${i}:</strong> `;
+                if (userAns === correct) {
+                    score++;
+                    html += `<span class="correct">✓ Correct</span>`;
+                } else {
+                    html += `<span class="incorrect">✗ Incorrect</span><br>`;
+                    html += `Your answer: ${userAns}<br>`;
+                    html += `Correct answer: <strong>${correct}</strong>`;
+                }
+                html += `</p>`;
+            }
+
+            const percent = Math.round((score / 8) * 100);
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `<strong>${percent}%</strong>`;
+            document.getElementById('details').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

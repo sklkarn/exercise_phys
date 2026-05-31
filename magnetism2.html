@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biot-Savart, Ampere's Law & Induction Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e2937, #312e81);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #312e81, #7c3aed);
+            padding: 25px;
+            text-align: center;
+        }
+        h1 { margin: 0; color: white; }
+        .subtitle { color: #c4d0ff; margin: 8px 0 0; }
+        
+        .quiz-body { padding: 30px; }
+        .question {
+            margin-bottom: 38px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child { border-bottom: none; }
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 14px 18px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .option:hover { background: #475569; border-color: #a5b4fc; }
+        .option.selected {
+            background: #4338ca;
+            border-color: #c4d0ff;
+        }
+        button {
+            padding: 14px 40px;
+            font-size: 1.1em;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        button:hover { background: #a78bfa; }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #334155;
+            border-radius: 10px;
+            display: none;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Biot-Savart • Ampere's Law • Induction</h1>
+            <p class="subtitle">Calculus-Based Physics Quiz • 10 Questions</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+
+                <!-- Q1 -->
+                <div class="question">
+                    <div class="question-text"><strong>1.</strong> The Biot-Savart law gives the magnetic field dB due to a small current element I dl at a point with position vector r as:</div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="dB = (μ₀/4π) (I dl × r̂)/r²">dB = (μ₀/4π) (I dl × r̂)/r²</div>
+                        <div class="option" data-value="dB = (μ₀/4π) I dl / r">dB = (μ₀/4π) I dl / r</div>
+                        <div class="option" data-value="dB = μ₀ I / (2π r)">dB = μ₀ I / (2π r)</div>
+                        <div class="option" data-value="dB = μ₀ I dl / r²">dB = μ₀ I dl / r²</div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question">
+                    <div class="question-text"><strong>2.</strong> Using Biot-Savart law, the magnetic field at the center of a circular current loop (radius R, current I) is:</div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="B = μ₀ I / (2R)">B = μ₀ I / (2R)</div>
+                        <div class="option" data-value="B = μ₀ I / R">B = μ₀ I / R</div>
+                        <div class="option" data-value="B = 2 μ₀ I / R">B = 2 μ₀ I / R</div>
+                        <div class="option" data-value="B = μ₀ I / (4R)">B = μ₀ I / (4R)</div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question">
+                    <div class="question-text"><strong>3.</strong> The Biot-Savart law is most analogous to which law in electrostatics?</div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="Coulomb's law">Coulomb's law</div>
+                        <div class="option" data-value="Gauss's law">Gauss's law</div>
+                        <div class="option" data-value="Faraday's law">Faraday's law</div>
+                        <div class="option" data-value="Ohm's law">Ohm's law</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question">
+                    <div class="question-text"><strong>4.</strong> Ampere's law in integral form is:</div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="∮ B · dl = μ₀ I_enc">∮ B · dl = μ₀ I_enc</div>
+                        <div class="option" data-value="∮ E · dl = -dΦ_B/dt">∮ E · dl = -dΦ_B/dt</div>
+                        <div class="option" data-value="∮ B · dA = 0">∮ B · dA = 0</div>
+                        <div class="option" data-value="∇ · B = μ₀ J">∇ · B = μ₀ J</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question">
+                    <div class="question-text"><strong>5.</strong> Using Ampere's law, the magnetic field inside a long solenoid (n turns per unit length, current I) is:</div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="B = μ₀ n I">B = μ₀ n I</div>
+                        <div class="option" data-value="B = μ₀ I / (2π r)">B = μ₀ I / (2π r)</div>
+                        <div class="option" data-value="B = μ₀ n I / 2">B = μ₀ n I / 2</div>
+                        <div class="option" data-value="B = 0">B = 0</div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question">
+                    <div class="question-text"><strong>6.</strong> Ampere's law is especially useful when the system has:</div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="High symmetry">High symmetry (cylindrical, spherical, planar)</div>
+                        <div class="option" data-value="No symmetry">No symmetry</div>
+                        <div class="option" data-value="Time-varying fields">Time-varying fields only</div>
+                        <div class="option" data-value="Moving charges only">Moving charges only</div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question">
+                    <div class="question-text"><strong>7.</strong> Faraday's law of electromagnetic induction states:</div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="ε = -dΦ_B / dt">ε = − dΦ_B / dt</div>
+                        <div class="option" data-value="ε = dΦ_B / dt">ε = dΦ_B / dt</div>
+                        <div class="option" data-value="Φ_B = B · A">Φ_B = B · A</div>
+                        <div class="option" data-value="I = ε / R">I = ε / R</div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question">
+                    <div class="question-text"><strong>8.</strong> Lenz's law says that the induced current flows in a direction such that it:</div>
+                    <div class="options" id="q8">
+                        <div class="option" data-value="Opposes the change in magnetic flux">Opposes the change in magnetic flux</div>
+                        <div class="option" data-value="Increases the change in magnetic flux">Increases the change in magnetic flux</div>
+                        <div class="option" data-value="Is always clockwise">Is always clockwise</div>
+                        <div class="option" data-value="Has no effect on flux">Has no effect on flux</div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question">
+                    <div class="question-text"><strong>9.</strong> A conducting rod of length L moving with velocity v perpendicular to a uniform magnetic field B has motional emf given by:</div>
+                    <div class="options" id="q9">
+                        <div class="option" data-value="ε = B L v">ε = B L v</div>
+                        <div class="option" data-value="ε = B L / v">ε = B L / v</div>
+                        <div class="option" data-value="ε = B v / L">ε = B v / L</div>
+                        <div class="option" data-value="ε = 0">ε = 0</div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question">
+                    <div class="question-text"><strong>10.</strong> The negative sign in Faraday's law (ε = −dΦ_B/dt) is a direct consequence of:</div>
+                    <div class="options" id="q10">
+                        <div class="option" data-value="Lenz's law">Lenz's law</div>
+                        <div class="option" data-value="Ampere's law">Ampere's law</div>
+                        <div class="option" data-value="Biot-Savart law">Biot-Savart law</div>
+                        <div class="option" data-value="Coulomb's law">Coulomb's law</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score">0</span>/10</h2>
+                <p id="percentage"></p>
+                <div id="details"></div>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: "dB = (μ₀/4π) (I dl × r̂)/r²",
+            2: "B = μ₀ I / (2R)",
+            3: "Coulomb's law",
+            4: "∮ B · dl = μ₀ I_enc",
+            5: "B = μ₀ n I",
+            6: "High symmetry (cylindrical, spherical, planar)",
+            7: "ε = − dΦ_B / dt",
+            8: "Opposes the change in magnetic flux",
+            9: "ε = B L v",
+            10: "Lenz's law"
+        };
+
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let html = "<h3>Detailed Results:</h3>";
+
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`#q${i} .option.selected`);
+                const userAns = selected ? selected.getAttribute('data-value') : "No answer selected";
+                const correct = correctAnswers[i];
+
+                html += `<p><strong>Question ${i}:</strong> `;
+                if (userAns === correct) {
+                    score++;
+                    html += `<span class="correct">✓ Correct</span>`;
+                } else {
+                    html += `<span class="incorrect">✗ Incorrect</span><br>`;
+                    html += `Your answer: ${userAns}<br>`;
+                    html += `Correct: <strong>${correct}</strong>`;
+                }
+                html += `</p>`;
+            }
+
+            const percent = Math.round((score / 10) * 100);
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `<strong>${percent}%</strong>`;
+            document.getElementById('details').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

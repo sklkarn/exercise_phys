@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Field & Potential Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e2937);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            padding: 25px;
+            text-align: center;
+        }
+        h1 { margin: 0; color: white; }
+        .subtitle { color: #bae6fd; margin: 8px 0 0; }
+        
+        .quiz-body { padding: 30px; }
+        .question {
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child { border-bottom: none; }
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 14px 18px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .option:hover { background: #475569; border-color: #60a5fa; }
+        .option.selected {
+            background: #1e40af;
+            border-color: #93c5fd;
+            font-weight: 500;
+        }
+        button {
+            padding: 14px 40px;
+            font-size: 1.1em;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        button:hover { background: #2563eb; }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #334155;
+            border-radius: 10px;
+            display: none;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.95em;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Electric Field &amp; Potential</h1>
+            <p class="subtitle">Calculus-Based Physics Quiz</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+
+                <!-- Q1 -->
+                <div class="question">
+                    <div class="question-text"><strong>1.</strong> The electric field due to a point charge q at distance r is <strong>E = kq/r²</strong>. The electric potential due to the same charge is:</div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="V = kq/r">V = kq/r</div>
+                        <div class="option" data-value="V = kq/r²">V = kq/r²</div>
+                        <div class="option" data-value="V = kq ln(r)">V = kq ln(r)</div>
+                        <div class="option" data-value="V = -kq/r">V = −kq/r</div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question">
+                    <div class="question-text"><strong>2.</strong> The relationship between electric field and electric potential is:</div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="E = -∇V">E = −∇V</div>
+                        <div class="option" data-value="E = ∇V">E = ∇V</div>
+                        <div class="option" data-value="V = -∫E·dl">V = −∫E·dl</div>
+                        <div class="option" data-value="Both A and C">Both A and C are correct</div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question">
+                    <div class="question-text"><strong>3.</strong> A uniform electric field E exists between two parallel plates. The potential difference ΔV between plates separated by distance d is:</div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="ΔV = E d">ΔV = E d</div>
+                        <div class="option" data-value="ΔV = E / d">ΔV = E / d</div>
+                        <div class="option" data-value="ΔV = E² d">ΔV = E² d</div>
+                        <div class="option" data-value="ΔV = E d²">ΔV = E d²</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question">
+                    <div class="question-text"><strong>4.</strong> An electric dipole consists of charges +q and −q separated by distance 2a. The electric potential at a point on the perpendicular bisector (equatorial line) is:</div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="V = 0">V = 0</div>
+                        <div class="option" data-value="V = k p / r²">V = k p / r²</div>
+                        <div class="option" data-value="V = k p / r³">V = k p / r³</div>
+                        <div class="option" data-value="V = k (2qa)/r">V = k (2qa)/r</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question">
+                    <div class="question-text"><strong>5.</strong> A charge Q is uniformly distributed along a thin rod of length L. The electric potential at a point on the axis of the rod at distance d from one end (d &gt; L) involves the integral:</div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="V = (kQ/L) ln[(d+L)/d]">V = (kQ/L) ln[(d+L)/d]</div>
+                        <div class="option" data-value="V = kQ / d">V = kQ / d</div>
+                        <div class="option" data-value="V = kQ / (d + L/2)">V = kQ / (d + L/2)</div>
+                        <div class="option" data-value="V = kQ / L">V = kQ / L</div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question">
+                    <div class="question-text"><strong>6.</strong> The work done by an external agent to move a charge q from point A to B slowly (without acceleration) in an electric field is equal to:</div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="q (V_A - V_B)">q (V_A − V_B)</div>
+                        <div class="option" data-value="q (V_B - V_A)">q (V_B − V_A)</div>
+                        <div class="option" data-value="-q (V_A - V_B)">−q (V_A − V_B)</div>
+                        <div class="option" data-value="0">0</div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question">
+                    <div class="question-text"><strong>7.</strong> For a point on the axis of a uniformly charged ring (charge Q, radius R) at distance x from center, the electric potential is:</div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="V = kQ / √(R² + x²)">V = kQ / √(R² + x²)</div>
+                        <div class="option" data-value="V = kQ x / (R² + x²)^{3/2}">V = kQ x / (R² + x²)^{3/2}</div>
+                        <div class="option" data-value="V = kQ / R">V = kQ / R</div>
+                        <div class="option" data-value="V = 0">V = 0</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score">0</span>/7</h2>
+                <p id="percentage"></p>
+                <div id="details"></div>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: "V = kq/r",
+            2: "Both A and C are correct",
+            3: "ΔV = E d",
+            4: "V = 0",
+            5: "V = (kQ/L) ln[(d+L)/d]",
+            6: "q (V_A − V_B)",
+            7: "V = kQ / √(R² + x²)"
+        };
+
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let html = "<h3>Detailed Results:</h3>";
+
+            for (let i = 1; i <= 7; i++) {
+                const selected = document.querySelector(`#q${i} .option.selected`);
+                const userAns = selected ? selected.getAttribute('data-value') : "No answer";
+                const correct = correctAnswers[i];
+
+                html += `<p><strong>Question ${i}:</strong> `;
+                if (userAns === correct) {
+                    score++;
+                    html += `<span class="correct">✓ Correct</span>`;
+                } else {
+                    html += `<span class="incorrect">✗ Incorrect</span><br>`;
+                    html += `Your answer: ${userAns}<br>`;
+                    html += `Correct: <strong>${correct}</strong>`;
+                }
+                html += `</p>`;
+            }
+
+            const percent = Math.round((score / 7) * 100);
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `<strong>${percent}%</strong>`;
+            document.getElementById('details').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Waves, Intensity & Doppler Effect Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e2937, #9f1239);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #1e2937;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #9f1239, #e11d48);
+            padding: 25px;
+            text-align: center;
+        }
+        h1 { margin: 0; color: white; }
+        .subtitle { color: #fda4af; margin: 8px 0 0; }
+        
+        .quiz-body { padding: 30px; }
+        .question {
+            margin-bottom: 38px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #475569;
+        }
+        .question:last-child { border-bottom: none; }
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            padding: 14px 18px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .option:hover { background: #475569; border-color: #fb7185; }
+        .option.selected {
+            background: #9f1239;
+            border-color: #fda4af;
+        }
+        button {
+            padding: 14px 40px;
+            font-size: 1.1em;
+            background: #e11d48;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        button:hover { background: #fb7185; }
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #334155;
+            border-radius: 10px;
+            display: none;
+        }
+        .correct { color: #4ade80; }
+        .incorrect { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sound Waves, Intensity & Doppler Effect</h1>
+            <p class="subtitle">Calculus-Based Physics • 10 Questions</p>
+        </header>
+        
+        <div class="quiz-body">
+            <form id="quizForm">
+
+                <!-- Q1 -->
+                <div class="question">
+                    <div class="question-text"><strong>1.</strong> The speed of sound in air at 20°C is approximately:</div>
+                    <div class="options" id="q1">
+                        <div class="option" data-value="343 m/s">343 m/s</div>
+                        <div class="option" data-value="300 m/s">300 m/s</div>
+                        <div class="option" data-value="1500 m/s">1500 m/s</div>
+                        <div class="option" data-value="1000 m/s">1000 m/s</div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question">
+                    <div class="question-text"><strong>2.</strong> Sound intensity I is defined as:</div>
+                    <div class="options" id="q2">
+                        <div class="option" data-value="Power per unit area">Power per unit area (W/m²)</div>
+                        <div class="option" data-value="Total power emitted">Total power emitted by source</div>
+                        <div class="option" data-value="Energy per unit volume">Energy per unit volume</div>
+                        <div class="option" data-value="Pressure amplitude">Pressure amplitude</div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question">
+                    <div class="question-text"><strong>3.</strong> The sound intensity level β in decibels is given by:</div>
+                    <div class="options" id="q3">
+                        <div class="option" data-value="β = 10 log₁₀(I / I₀)">β = 10 log₁₀(I / I₀)</div>
+                        <div class="option" data-value="β = 20 log₁₀(I / I₀)">β = 20 log₁₀(I / I₀)</div>
+                        <div class="option" data-value="β = 10 log₁₀(I)">β = 10 log₁₀(I)</div>
+                        <div class="option" data-value="β = I / I₀">β = I / I₀</div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question">
+                    <div class="question-text"><strong>4.</strong> For a point source emitting sound uniformly in all directions, intensity at distance r is:</div>
+                    <div class="options" id="q4">
+                        <div class="option" data-value="I = P / (4π r²)">I = P / (4π r²)</div>
+                        <div class="option" data-value="I = P / (2π r)">I = P / (2π r)</div>
+                        <div class="option" data-value="I = P r²">I = P r²</div>
+                        <div class="option" data-value="I = P / r">I = P / r</div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question">
+                    <div class="question-text"><strong>5.</strong> If the sound intensity increases by a factor of 100, the intensity level increases by:</div>
+                    <div class="options" id="q5">
+                        <div class="option" data-value="20 dB">20 dB</div>
+                        <div class="option" data-value="10 dB">10 dB</div>
+                        <div class="option" data-value="100 dB">100 dB</div>
+                        <div class="option" data-value="2 dB">2 dB</div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question">
+                    <div class="question-text"><strong>6.</strong> The Doppler effect formula when source is moving toward a stationary observer is:</div>
+                    <div class="options" id="q6">
+                        <div class="option" data-value="f' = f (v / (v - v_s))">f' = f (v / (v − v_s))</div>
+                        <div class="option" data-value="f' = f (v / (v + v_s))">f' = f (v / (v + v_s))</div>
+                        <div class="option" data-value="f' = f ( (v + v_o) / v )">f' = f ( (v + v_o) / v )</div>
+                        <div class="option" data-value="f' = f">f' = f (no change)</div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question">
+                    <div class="question-text"><strong>7.</strong> When a source moves faster than the speed of sound (v_s > v), it produces:</div>
+                    <div class="options" id="q7">
+                        <div class="option" data-value="Shock wave (sonic boom)">Shock wave (sonic boom)</div>
+                        <div class="option" data-value="Higher frequency only">Higher frequency only</div>
+                        <div class="option" data-value="Lower frequency only">Lower frequency only</div>
+                        <div class="option" data-value="No sound">No sound heard</div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question">
+                    <div class="question-text"><strong>8.</strong> Mach number is defined as:</div>
+                    <div class="options" id="q8">
+                        <div class="option" data-value="M = v_object / v_sound">M = v_object / v_sound</div>
+                        <div class="option" data-value="M = v_sound / v_object">M = v_sound / v_object</div>
+                        <div class="option" data-value="M = f λ">M = f λ</div>
+                        <div class="option" data-value="M = intensity ratio">M = intensity ratio</div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question">
+                    <div class="question-text"><strong>9.</strong> Loudness is primarily a sensation related to:</div>
+                    <div class="options" id="q9">
+                        <div class="option" data-value="Intensity and frequency (perceived)">Intensity (with frequency dependence)</div>
+                        <div class="option" data-value="Only frequency">Only frequency</div>
+                        <div class="option" data-value="Only wavelength">Only wavelength</div>
+                        <div class="option" data-value="Speed of sound">Speed of sound</div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question">
+                    <div class="question-text"><strong>10.</strong> When both source and observer are moving toward each other, the observed frequency:</div>
+                    <div class="options" id="q10">
+                        <div class="option" data-value="Increases">Increases (higher than original)</div>
+                        <div class="option" data-value="Decreases">Decreases</div>
+                        <div class="option" data-value="Remains same">Remains the same</div>
+                        <div class="option" data-value="Becomes zero">Becomes zero</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result" class="result">
+                <h2>Your Score: <span id="score">0</span>/10</h2>
+                <p id="percentage"></p>
+                <div id="details"></div>
+                <button onclick="location.reload()">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: "343 m/s",
+            2: "Power per unit area (W/m²)",
+            3: "β = 10 log₁₀(I / I₀)",
+            4: "I = P / (4π r²)",
+            5: "20 dB",
+            6: "f' = f (v / (v − v_s))",
+            7: "Shock wave (sonic boom)",
+            8: "M = v_object / v_sound",
+            9: "Intensity (with frequency dependence)",
+            10: "Increases (higher than original)"
+        };
+
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => selectOption(option));
+        });
+
+        function submitQuiz() {
+            let score = 0;
+            let html = "<h3>Detailed Results:</h3>";
+
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`#q${i} .option.selected`);
+                const userAns = selected ? selected.getAttribute('data-value') : "No answer selected";
+                const correct = correctAnswers[i];
+
+                html += `<p><strong>Question ${i}:</strong> `;
+                if (userAns === correct) {
+                    score++;
+                    html += `<span class="correct">✓ Correct</span>`;
+                } else {
+                    html += `<span class="incorrect">✗ Incorrect</span><br>`;
+                    html += `Your answer: ${userAns}<br>`;
+                    html += `Correct: <strong>${correct}</strong>`;
+                }
+                html += `</p>`;
+            }
+
+            const percent = Math.round((score / 10) * 100);
+            document.getElementById('score').textContent = score;
+            document.getElementById('percentage').innerHTML = `<strong>${percent}%</strong>`;
+            document.getElementById('details').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
