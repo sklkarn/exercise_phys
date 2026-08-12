@@ -1,277 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Units & Kinematics Quiz – Physical Science</title>
-<style>
-  :root {
-    --primary: #2563eb;
-    --correct: #16a34a;
-    --wrong: #dc2626;
-    --bg: #f8fafc;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: system-ui, -apple-system, sans-serif;
-    background: var(--bg);
-    color: #1e293b;
-    line-height: 1.5;
-    padding: 20px;
-  }
-  .container {
-    max-width: 720px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    overflow: hidden;
-  }
-  header {
-    background: var(--primary);
-    color: white;
-    padding: 24px 28px;
-  }
-  header h1 { font-size: 1.5rem; margin-bottom: 4px; }
-  header p { opacity: 0.9; font-size: 0.95rem; }
-  #quiz { padding: 28px; }
-  .question {
-    margin-bottom: 28px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e2e8f0;
-  }
-  .question:last-of-type { border-bottom: none; }
-  .q-number {
-    display: inline-block;
-    background: #e0e7ff;
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.85rem;
-    padding: 2px 10px;
-    border-radius: 999px;
-    margin-bottom: 8px;
-  }
-  .q-text { font-size: 1.1rem; font-weight: 500; margin-bottom: 14px; }
-  .options label {
-    display: block;
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .options label:hover { border-color: #93c5fd; background: #f0f9ff; }
-  .options input { margin-right: 10px; }
-  .options label.selected { border-color: var(--primary); background: #eff6ff; }
-  .options label.correct { border-color: var(--correct); background: #f0fdf4; }
-  .options label.wrong { border-color: var(--wrong); background: #fef2f2; }
-  .feedback {
-    margin-top: 10px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    display: none;
-  }
-  .feedback.show { display: block; }
-  .feedback.correct { background: #dcfce7; color: #166534; }
-  .feedback.wrong { background: #fee2e2; color: #991b1b; }
-  #results {
-    display: none;
-    text-align: center;
-    padding: 40px 28px;
-  }
-  #results h2 { font-size: 1.8rem; margin-bottom: 12px; }
-  .score { font-size: 3rem; font-weight: 700; color: var(--primary); }
-  .score-text { font-size: 1.2rem; margin: 8px 0 24px; }
-  button {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 12px 28px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.15s;
-  }
-  button:hover { background: #1d4ed8; }
-  button:disabled { background: #94a3b8; cursor: not-allowed; }
-  .btn-row { text-align: center; margin-top: 20px; }
-  .explanation { font-size: 0.9rem; margin-top: 6px; opacity: 0.9; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Force & Newton's Laws</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f0f4f8;
+      color: #1a202c;
+      line-height: 1.5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 32px;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+      color: #2b6cb0;
+    }
+    .subtitle {
+      color: #4a5568;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+    .question {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .question:last-of-type { border-bottom: none; }
+    .q-number {
+      font-weight: 700;
+      color: #2b6cb0;
+      margin-bottom: 6px;
+    }
+    .q-text {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      padding: 8px 12px;
+      margin: 4px 0;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    label:hover { background: #edf2f7; }
+    input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.1);
+    }
+    button {
+      background: #2b6cb0;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    button:hover { background: #2c5282; }
+    #results {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background: #ebf8ff;
+      border-radius: 8px;
+      border-left: 5px solid #2b6cb0;
+    }
+    .score {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .explanation {
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+    .correct { color: #276749; font-weight: 600; }
+    .incorrect { color: #c53030; }
+    .footer-note {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #718096;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <h1>Units & Kinematics Quiz</h1>
-    <p>Physical Science • Non-Science Majors • 10 Questions</p>
-  </header>
+  <div class="container">
+    <h1>Force & Newton’s Laws</h1>
+    <p class="subtitle">Physical Science for Non-Science Majors • 10 Questions</p>
 
-  <div id="quiz">
-    <!-- Questions will be inserted here by JavaScript -->
-  </div>
-
-  <div id="results">
-    <h2>Quiz Complete!</h2>
-    <div class="score" id="score-display">0/10</div>
-    <div class="score-text" id="score-message"></div>
-    <button onclick="location.reload()">Try Again</button>
-  </div>
-</div>
-
-<script>
-const questions = [
-  {
-    q: "What is the SI (metric) base unit of length?",
-    options: ["Foot", "Meter", "Yard", "Mile"],
-    answer: 1,
-    explain: "The meter is the SI base unit of length. Scientists worldwide use the metric system."
-  },
-  {
-    q: "How many meters are in 1 kilometer?",
-    options: ["10", "100", "1 000", "10 000"],
-    answer: 2,
-    explain: "1 kilometer = 1 000 meters. The prefix “kilo-” means 1 000."
-  },
-  {
-    q: "Which quantity is a vector (has both magnitude and direction)?",
-    options: ["Distance", "Speed", "Displacement", "Time"],
-    answer: 2,
-    explain: "Displacement is a vector because it includes direction. Distance is a scalar (magnitude only)."
-  },
-  {
-    q: "A car travels 120 km in 2 hours. What is its average speed?",
-    options: ["60 km/h", "240 km/h", "122 km/h", "30 km/h"],
-    answer: 0,
-    explain: "Average speed = total distance ÷ total time = 120 km ÷ 2 h = 60 km/h."
-  },
-  {
-    q: "What is the difference between speed and velocity?",
-    options: [
-      "They are exactly the same",
-      "Speed has direction; velocity does not",
-      "Velocity has direction; speed does not",
-      "Speed is measured in m/s²"
-    ],
-    answer: 2,
-    explain: "Velocity is a vector (speed + direction). Speed is a scalar (how fast only)."
-  },
-  {
-    q: "Acceleration is defined as the rate of change of:",
-    options: ["Distance", "Displacement", "Velocity", "Time"],
-    answer: 2,
-    explain: "Acceleration = change in velocity ÷ time. It tells how quickly velocity is changing."
-  },
-  {
-    q: "What is the SI unit of acceleration?",
-    options: ["m/s", "m/s²", "km/h", "N"],
-    answer: 1,
-    explain: "Acceleration is measured in meters per second squared (m/s²)."
-  },
-  {
-    q: "Near Earth’s surface, the acceleration due to gravity is approximately:",
-    options: ["9.8 m/s", "9.8 m/s²", "98 m/s²", "0.98 m/s²"],
-    answer: 1,
-    explain: "The acceleration due to gravity (g) is about 9.8 m/s² downward."
-  },
-  {
-    q: "A runner goes 400 m east, then 300 m west. What is the total distance traveled?",
-    options: ["100 m", "700 m", "500 m", "0 m"],
-    answer: 1,
-    explain: "Distance is the total path length: 400 m + 300 m = 700 m (direction does not matter for distance)."
-  },
-  {
-    q: "If an object starts from rest and accelerates at 2 m/s² for 5 seconds, its final velocity is:",
-    options: ["2 m/s", "5 m/s", "10 m/s", "25 m/s"],
-    answer: 2,
-    explain: "v = u + at → v = 0 + (2 m/s²)(5 s) = 10 m/s."
-  }
-];
-
-const quizEl = document.getElementById('quiz');
-let userAnswers = new Array(questions.length).fill(null);
-let submitted = false;
-
-function renderQuiz() {
-  let html = '';
-  questions.forEach((q, i) => {
-    html += `
-      <div class="question" id="q${i}">
-        <div class="q-number">Question ${i + 1} of ${questions.length}</div>
-        <div class="q-text">${q.q}</div>
-        <div class="options">
-          ${q.options.map((opt, j) => `
-            <label id="label-${i}-${j}">
-              <input type="radio" name="q${i}" value="${j}" onchange="selectAnswer(${i}, ${j})">
-              ${opt}
-            </label>
-          `).join('')}
-        </div>
-        <div class="feedback" id="feedback-${i}"></div>
+    <form id="quizForm">
+      <!-- Question 1 -->
+      <div class="question">
+        <div class="q-number">Question 1</div>
+        <div class="q-text">What is a force?</div>
+        <label><input type="radio" name="q1" value="a"> A type of energy that objects possess</label>
+        <label><input type="radio" name="q1" value="b"> A push or a pull that can change an object’s motion</label>
+        <label><input type="radio" name="q1" value="c"> The speed of an object in a certain direction</label>
+        <label><input type="radio" name="q1" value="d"> The amount of matter in an object</label>
       </div>
-    `;
-  });
-  html += `
-    <div class="btn-row">
-      <button id="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
-    </div>
-  `;
-  quizEl.innerHTML = html;
-}
 
-function selectAnswer(qIndex, optIndex) {
-  if (submitted) return;
-  userAnswers[qIndex] = optIndex;
-  // visual selection
-  const labels = document.querySelectorAll(`#q${qIndex} label`);
-  labels.forEach(l => l.classList.remove('selected'));
-  document.getElementById(`label-${qIndex}-${optIndex}`).classList.add('selected');
-}
+      <!-- Question 2 -->
+      <div class="question">
+        <div class="q-number">Question 2</div>
+        <div class="q-text">The standard unit of force in the metric system is the:</div>
+        <label><input type="radio" name="q2" value="a"> Joule</label>
+        <label><input type="radio" name="q2" value="b"> Watt</label>
+        <label><input type="radio" name="q2" value="c"> Newton</label>
+        <label><input type="radio" name="q2" value="d"> Kilogram</label>
+      </div>
 
-function submitQuiz() {
-  if (userAnswers.includes(null)) {
-    alert('Please answer all questions before submitting.');
-    return;
-  }
-  submitted = true;
-  document.getElementById('submit-btn').disabled = true;
+      <!-- Question 3 -->
+      <div class="question">
+        <div class="q-number">Question 3</div>
+        <div class="q-text">Newton’s First Law is also known as the law of:</div>
+        <label><input type="radio" name="q3" value="a"> Acceleration</label>
+        <label><input type="radio" name="q3" value="b"> Inertia</label>
+        <label><input type="radio" name="q3" value="c"> Action-reaction</label>
+        <label><input type="radio" name="q3" value="d"> Gravity</label>
+      </div>
 
-  let score = 0;
-  questions.forEach((q, i) => {
-    const feedback = document.getElementById(`feedback-${i}`);
-    const labels = document.querySelectorAll(`#q${i} label`);
-    
-    // disable further changes
-    document.querySelectorAll(`input[name="q${i}"]`).forEach(inp => inp.disabled = true);
+      <!-- Question 4 -->
+      <div class="question">
+        <div class="q-number">Question 4</div>
+        <div class="q-text">According to Newton’s First Law, an object at rest will stay at rest unless:</div>
+        <label><input type="radio" name="q4" value="a"> It is very heavy</label>
+        <label><input type="radio" name="q4" value="b"> A net force acts on it</label>
+        <label><input type="radio" name="q4" value="c"> Time passes</label>
+        <label><input type="radio" name="q4" value="d"> It is in outer space</label>
+      </div>
 
-    if (userAnswers[i] === q.answer) {
-      score++;
-      labels[q.answer].classList.add('correct');
-      feedback.className = 'feedback show correct';
-      feedback.innerHTML = `<strong>Correct!</strong><div class="explanation">${q.explain}</div>`;
-    } else {
-      labels[userAnswers[i]].classList.add('wrong');
-      labels[q.answer].classList.add('correct');
-      feedback.className = 'feedback show wrong';
-      feedback.innerHTML = `<strong>Incorrect.</strong> The correct answer is: <em>${q.options[q.answer]}</em><div class="explanation">${q.explain}</div>`;
-    }
-  });
+      <!-- Question 5 -->
+      <div class="question">
+        <div class="q-number">Question 5</div>
+        <div class="q-text">Newton’s Second Law says that the acceleration of an object depends on:</div>
+        <label><input type="radio" name="q5" value="a"> Only the object’s mass</label>
+        <label><input type="radio" name="q5" value="b"> The net force and the object’s mass</label>
+        <label><input type="radio" name="q5" value="c"> Only the net force</label>
+        <label><input type="radio" name="q5" value="d"> The object’s color and shape</label>
+      </div>
 
-  // show results
-  document.getElementById('quiz').style.display = 'none';
-  document.getElementById('results').style.display = 'block';
-  document.getElementById('score-display').textContent = `${score}/10`;
-  
-  let msg = '';
-  if (score === 10) msg = 'Perfect! Excellent work.';
-  else if (score >= 8) msg = 'Great job! You understand the material well.';
-  else if (score >= 6) msg = 'Good effort. Review the explanations above.';
-  else msg = 'Keep practicing — review the explanations and try again.';
-  document.getElementById('score-message').textContent = msg;
-}
+      <!-- Question 6 -->
+      <div class="question">
+        <div class="q-number">Question 6</div>
+        <div class="q-text">If you double the net force on an object (and mass stays the same), what happens to its acceleration?</div>
+        <label><input type="radio" name="q6" value="a"> It stays the same</label>
+        <label><input type="radio" name="q6" value="b"> It is cut in half</label>
+        <label><input type="radio" name="q6" value="c"> It doubles</label>
+        <label><input type="radio" name="q6" value="d"> It becomes zero</label>
+      </div>
 
-renderQuiz();
-</script>
+      <!-- Question 7 -->
+      <div class="question">
+        <div class="q-number">Question 7</div>
+        <div class="q-text">Newton’s Third Law states that for every action force there is:</div>
+        <label><input type="radio" name="q7" value="a"> A larger reaction force</label>
+        <label><input type="radio" name="q7" value="b"> An equal and opposite reaction force</label>
+        <label><input type="radio" name="q7" value="c"> No reaction force</label>
+        <label><input type="radio" name="q7" value="d"> A force in the same direction</label>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question">
+        <div class="q-number">Question 8</div>
+        <div class="q-text">When you walk forward, you push backward on the ground. The ground pushes forward on you. This is an example of:</div>
+        <label><input type="radio" name="q8" value="a"> Newton’s First Law</label>
+        <label><input type="radio" name="q8" value="b"> Newton’s Second Law</label>
+        <label><input type="radio" name="q8" value="c"> Newton’s Third Law</label>
+        <label><input type="radio" name="q8" value="d"> Friction only</label>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question">
+        <div class="q-number">Question 9</div>
+        <div class="q-text">If the forces on an object are balanced (net force = 0), the object will:</div>
+        <label><input type="radio" name="q9" value="a"> Always speed up</label>
+        <label><input type="radio" name="q9" value="b"> Always slow down</label>
+        <label><input type="radio" name="q9" value="c"> Keep moving at constant velocity (or stay at rest)</label>
+        <label><input type="radio" name="q9" value="d"> Immediately stop</label>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question">
+        <div class="q-number">Question 10</div>
+        <div class="q-text">Which statement correctly compares mass and weight?</div>
+        <label><input type="radio" name="q10" value="a"> Mass and weight are the same thing</label>
+        <label><input type="radio" name="q10" value="b"> Mass is the amount of matter; weight is the force of gravity on that matter</label>
+        <label><input type="radio" name="q10" value="c"> Weight is constant everywhere; mass changes with location</label>
+        <label><input type="radio" name="q10" value="d"> Mass is measured in newtons; weight is measured in kilograms</label>
+      </div>
+
+      <button type="submit">Check My Answers</button>
+    </form>
+
+    <div id="results"></div>
+
+    <p class="footer-note">
+      Designed for non-science major physical science courses • Focus on conceptual understanding
+    </p>
+  </div>
+
+  <script>
+    const answers = {
+      q1: "b",
+      q2: "c",
+      q3: "b",
+      q4: "b",
+      q5: "b",
+      q6: "c",
+      q7: "b",
+      q8: "c",
+      q9: "c",
+      q10: "b"
+    };
+
+    const explanations = {
+      q1: "A force is simply a push or a pull. It can start, stop, or change the direction of motion.",
+      q2: "Force is measured in newtons (N). One newton is roughly the weight of a small apple.",
+      q3: "Newton’s First Law is the law of inertia — objects resist changes in their motion.",
+      q4: "Only a net (unbalanced) force can change an object’s state of motion.",
+      q5: "Newton’s Second Law is often written F = ma. Acceleration depends on both force and mass.",
+      q6: "From F = ma, if force doubles and mass is constant, acceleration also doubles.",
+      q7: "Forces always come in pairs that are equal in size and opposite in direction.",
+      q8: "Your push on the ground and the ground’s push on you are an action-reaction pair (Third Law).",
+      q9: "When net force is zero, velocity does not change (First Law).",
+      q10: "Mass stays the same everywhere; weight (the force of gravity) changes with location."
+    };
+
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let score = 0;
+      let feedback = "";
+
+      for (let i = 1; i <= 10; i++) {
+        const q = "q" + i;
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const userAnswer = selected ? selected.value : null;
+
+        if (userAnswer === answers[q]) {
+          score++;
+          feedback += `<p class="correct">✓ Question ${i}: Correct</p>`;
+        } else {
+          feedback += `<p class="incorrect">✗ Question ${i}: Incorrect</p>`;
+        }
+        feedback += `<p class="explanation">${explanations[q]}</p>`;
+      }
+
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.style.display = "block";
+      resultsDiv.innerHTML = `
+        <div class="score">Your Score: ${score} / 10</div>
+        <p>${score >= 8 ? "Excellent work!" : score >= 6 ? "Good effort — review the explanations below." : "Keep studying — the explanations will help!"}</p>
+        <hr style="margin: 16px 0; border: none; border-top: 1px solid #bee3f8;">
+        ${feedback}
+      `;
+
+      // Scroll to results
+      resultsDiv.scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
