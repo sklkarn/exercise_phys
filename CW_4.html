@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heat, Temperature, Matter & Fluids – Physical Science</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f0f4f8;
+      color: #1a202c;
+      line-height: 1.5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 32px;
+    }
+    h1 {
+      font-size: 1.55rem;
+      margin-bottom: 6px;
+      color: #2b6cb0;
+    }
+    .subtitle {
+      color: #4a5568;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+    .question {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .question:last-of-type { border-bottom: none; }
+    .q-number {
+      font-weight: 700;
+      color: #2b6cb0;
+      margin-bottom: 6px;
+    }
+    .q-text {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      padding: 8px 12px;
+      margin: 4px 0;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    label:hover { background: #edf2f7; }
+    input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.1);
+    }
+    button {
+      background: #2b6cb0;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    button:hover { background: #2c5282; }
+    #results {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background: #ebf8ff;
+      border-radius: 8px;
+      border-left: 5px solid #2b6cb0;
+    }
+    .score {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .explanation {
+      margin-top: 8px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: #2d3748;
+    }
+    .correct { color: #276749; font-weight: 600; }
+    .incorrect { color: #c53030; }
+    .footer-note {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #718096;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Heat, Temperature, Matter & Fluids</h1>
+    <p class="subtitle">Physical Science</p>
+
+    <form id="quizForm">
+      <!-- Question 1 -->
+      <div class="question">
+        <div class="q-number">Question 1</div>
+        <div class="q-text">What is the main difference between temperature and heat?</div>
+        <label><input type="radio" name="q1" value="a"> They are the same thing</label>
+        <label><input type="radio" name="q1" value="b"> Temperature measures how hot or cold something is; heat is the energy that flows because of a temperature difference</label>
+        <label><input type="radio" name="q1" value="c"> Heat is measured in degrees; temperature is measured in joules</label>
+        <label><input type="radio" name="q1" value="d"> Temperature only exists in solids</label>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <div class="q-number">Question 2</div>
+        <div class="q-text">On the Celsius scale, water freezes at _____ and boils at _____ (at normal atmospheric pressure).</div>
+        <label><input type="radio" name="q2" value="a"> 0°C and 100°C</label>
+        <label><input type="radio" name="q2" value="b"> 32°C and 212°C</label>
+        <label><input type="radio" name="q2" value="c"> 0°C and 212°C</label>
+        <label><input type="radio" name="q2" value="d"> 100°C and 0°C</label>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <div class="q-number">Question 3</div>
+        <div class="q-text">Which state of matter has a definite volume but takes the shape of its container?</div>
+        <label><input type="radio" name="q3" value="a"> Solid</label>
+        <label><input type="radio" name="q3" value="b"> Liquid</label>
+        <label><input type="radio" name="q3" value="c"> Gas</label>
+        <label><input type="radio" name="q3" value="d"> Plasma</label>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <div class="q-number">Question 4</div>
+        <div class="q-text">When ice melts into water, the temperature of the mixture stays at 0°C until all the ice is gone. Why?</div>
+        <label><input type="radio" name="q4" value="a"> The energy is used to break the bonds between molecules (phase change) rather than raise the temperature</label>
+        <label><input type="radio" name="q4" value="b"> Ice cannot absorb heat</label>
+        <label><input type="radio" name="q4" value="c"> The thermometer is broken</label>
+        <label><input type="radio" name="q4" value="d"> Water has no temperature</label>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question">
+        <div class="q-number">Question 5</div>
+        <div class="q-text">Heat transfer by direct contact (molecules bumping into neighboring molecules) is called:</div>
+        <label><input type="radio" name="q5" value="a"> Convection</label>
+        <label><input type="radio" name="q5" value="b"> Radiation</label>
+        <label><input type="radio" name="q5" value="c"> Conduction</label>
+        <label><input type="radio" name="q5" value="d"> Evaporation</label>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question">
+        <div class="q-number">Question 6</div>
+        <div class="q-text">Warm air rising and cool air sinking in a room is an example of heat transfer by:</div>
+        <label><input type="radio" name="q6" value="a"> Conduction</label>
+        <label><input type="radio" name="q6" value="b"> Convection</label>
+        <label><input type="radio" name="q6" value="c"> Radiation</label>
+        <label><input type="radio" name="q6" value="d"> Reflection</label>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question">
+        <div class="q-number">Question 7</div>
+        <div class="q-text">You feel the warmth of the Sun on your face. This heat reaches you mainly by:</div>
+        <label><input type="radio" name="q7" value="a"> Conduction</label>
+        <label><input type="radio" name="q7" value="b"> Convection</label>
+        <label><input type="radio" name="q7" value="c"> Radiation</label>
+        <label><input type="radio" name="q7" value="d"> Conduction through the air</label>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question">
+        <div class="q-number">Question 8</div>
+        <div class="q-text">Most materials expand when heated. This is called:</div>
+        <label><input type="radio" name="q8" value="a"> Thermal contraction</label>
+        <label><input type="radio" name="q8" value="b"> Thermal expansion</label>
+        <label><input type="radio" name="q8" value="c"> Freezing</label>
+        <label><input type="radio" name="q8" value="d"> Condensation</label>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question">
+        <div class="q-number">Question 9</div>
+        <div class="q-text">Density is defined as:</div>
+        <label><input type="radio" name="q9" value="a"> Mass divided by volume</label>
+        <label><input type="radio" name="q9" value="b"> Volume divided by mass</label>
+        <label><input type="radio" name="q9" value="c"> Weight divided by height</label>
+        <label><input type="radio" name="q9" value="d"> Force divided by area</label>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question">
+        <div class="q-number">Question 10</div>
+        <div class="q-text">Why does a steel ship float on water even though steel is denser than water?</div>
+        <label><input type="radio" name="q10" value="a"> Steel becomes less dense in water</label>
+        <label><input type="radio" name="q10" value="b"> The ship’s overall average density (including the air inside) is less than the density of water</label>
+        <label><input type="radio" name="q10" value="c"> Water pushes harder on steel than on wood</label>
+        <label><input type="radio" name="q10" value="d"> Ships are painted with a special floating paint</label>
+      </div>
+
+      <button type="submit">Check My Answers</button>
+    </form>
+
+    <div id="results"></div>
+
+    <p class="footer-note">
+      Designed for non-science major physical science courses • Focus on conceptual understanding
+    </p>
+  </div>
+
+  <script>
+    const answers = {
+      q1: "b",
+      q2: "a",
+      q3: "b",
+      q4: "a",
+      q5: "c",
+      q6: "b",
+      q7: "c",
+      q8: "b",
+      q9: "a",
+      q10: "b"
+    };
+
+    const explanations = {
+      q1: "Temperature tells us the average kinetic energy of the particles (how hot or cold). Heat is the energy that transfers from a warmer object to a cooler one.",
+      q2: "The Celsius scale is based on water: 0°C is the freezing point and 100°C is the boiling point under normal conditions.",
+      q3: "Liquids have a fixed volume but no fixed shape — they take the shape of their container. Solids keep both shape and volume; gases fill the entire container.",
+      q4: "During a phase change (melting, boiling, etc.), the added energy goes into changing the arrangement of molecules rather than increasing their speed (temperature).",
+      q5: "Conduction is heat flow through direct contact. Metals are good conductors; wood and plastic are poor conductors (insulators).",
+      q6: "Convection is heat transfer by the actual movement of a fluid (liquid or gas). Warm fluid rises, cool fluid sinks, creating currents.",
+      q7: "Radiation is the transfer of energy by electromagnetic waves. It does not need a medium and can travel through empty space (as from the Sun).",
+      q8: "Most substances expand when their temperature rises because the particles move faster and take up more space. This is thermal expansion.",
+      q9: "Density = mass / volume. It tells us how tightly matter is packed. Objects denser than water sink; less dense objects float.",
+      q10: "A ship encloses a large volume of air. The average density of the whole ship (steel + air) is less than the density of water, so it floats."
+    };
+
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let score = 0;
+      let feedback = "";
+
+      for (let i = 1; i <= 10; i++) {
+        const q = "q" + i;
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const userAnswer = selected ? selected.value : null;
+
+        if (userAnswer === answers[q]) {
+          score++;
+          feedback += `<p class="correct">✓ Question ${i}: Correct</p>`;
+        } else {
+          feedback += `<p class="incorrect">✗ Question ${i}: Incorrect</p>`;
+        }
+        feedback += `<p class="explanation">${explanations[q]}</p>`;
+      }
+
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.style.display = "block";
+      resultsDiv.innerHTML = `
+        <div class="score">Your Score: ${score} / 10</div>
+        <p>${score >= 8 ? "Excellent work!" : score >= 6 ? "Good effort — review the explanations below." : "Keep studying — the explanations will help!"}</p>
+        <hr style="margin: 16px 0; border: none; border-top: 1px solid #bee3f8;">
+        ${feedback}
+      `;
+
+      resultsDiv.scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
