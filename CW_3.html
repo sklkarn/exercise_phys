@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work, Energy & Power – Physical Science</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f0f4f8;
+      color: #1a202c;
+      line-height: 1.5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 32px;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+      color: #2b6cb0;
+    }
+    .subtitle {
+      color: #4a5568;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+    .question {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .question:last-of-type { border-bottom: none; }
+    .q-number {
+      font-weight: 700;
+      color: #2b6cb0;
+      margin-bottom: 6px;
+    }
+    .q-text {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      padding: 8px 12px;
+      margin: 4px 0;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    label:hover { background: #edf2f7; }
+    input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.1);
+    }
+    button {
+      background: #2b6cb0;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    button:hover { background: #2c5282; }
+    #results {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background: #ebf8ff;
+      border-radius: 8px;
+      border-left: 5px solid #2b6cb0;
+    }
+    .score {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .explanation {
+      margin-top: 8px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: #2d3748;
+    }
+    .correct { color: #276749; font-weight: 600; }
+    .incorrect { color: #c53030; }
+    .footer-note {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #718096;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Work, Energy & Power Quiz</h1>
+    <p class="subtitle">Physical Science</p>
+
+    <form id="quizForm">
+      <!-- Question 1 -->
+      <div class="question">
+        <div class="q-number">Question 1</div>
+        <div class="q-text">In physics, work is done when:</div>
+        <label><input type="radio" name="q1" value="a"> A force is applied to an object, even if it doesn’t move</label>
+        <label><input type="radio" name="q1" value="b"> A force causes an object to move in the direction of the force</label>
+        <label><input type="radio" name="q1" value="c"> An object simply has energy</label>
+        <label><input type="radio" name="q1" value="d"> You feel tired after thinking hard</label>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <div class="q-number">Question 2</div>
+        <div class="q-text">The unit of work and energy in the metric system is the:</div>
+        <label><input type="radio" name="q2" value="a"> Newton</label>
+        <label><input type="radio" name="q2" value="b"> Watt</label>
+        <label><input type="radio" name="q2" value="c"> Joule</label>
+        <label><input type="radio" name="q2" value="d"> Kilogram</label>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <div class="q-number">Question 3</div>
+        <div class="q-text">Which of the following is an example of doing work in the physics sense?</div>
+        <label><input type="radio" name="q3" value="a"> Holding a heavy box steady above your head</label>
+        <label><input type="radio" name="q3" value="b"> Pushing a grocery cart down the aisle</label>
+        <label><input type="radio" name="q3" value="c"> Sitting still and reading a book</label>
+        <label><input type="radio" name="q3" value="d"> Thinking about a difficult problem</label>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <div class="q-number">Question 4</div>
+        <div class="q-text">Kinetic energy is the energy an object has because of its:</div>
+        <label><input type="radio" name="q4" value="a"> Position or height</label>
+        <label><input type="radio" name="q4" value="b"> Motion (speed)</label>
+        <label><input type="radio" name="q4" value="c"> Temperature</label>
+        <label><input type="radio" name="q4" value="d"> Color</label>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question">
+        <div class="q-number">Question 5</div>
+        <div class="q-text">Gravitational potential energy depends mainly on an object’s:</div>
+        <label><input type="radio" name="q5" value="a"> Speed and mass</label>
+        <label><input type="radio" name="q5" value="b"> Mass and height above the ground</label>
+        <label><input type="radio" name="q5" value="c"> Color and shape</label>
+        <label><input type="radio" name="q5" value="d"> Temperature only</label>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question">
+        <div class="q-number">Question 6</div>
+        <div class="q-text">The law of conservation of energy says that energy:</div>
+        <label><input type="radio" name="q6" value="a"> Can be created but not destroyed</label>
+        <label><input type="radio" name="q6" value="b"> Can be destroyed but not created</label>
+        <label><input type="radio" name="q6" value="c"> Cannot be created or destroyed, only changed from one form to another</label>
+        <label><input type="radio" name="q6" value="d"> Disappears when an object stops moving</label>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question">
+        <div class="q-number">Question 7</div>
+        <div class="q-text">Power is defined as:</div>
+        <label><input type="radio" name="q7" value="a"> The total amount of work done</label>
+        <label><input type="radio" name="q7" value="b"> The rate at which work is done (work divided by time)</label>
+        <label><input type="radio" name="q7" value="c"> The force applied to an object</label>
+        <label><input type="radio" name="q7" value="d"> The energy stored in an object</label>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question">
+        <div class="q-number">Question 8</div>
+        <div class="q-text">The unit of power is the:</div>
+        <label><input type="radio" name="q8" value="a"> Joule</label>
+        <label><input type="radio" name="q8" value="b"> Newton</label>
+        <label><input type="radio" name="q8" value="c"> Watt</label>
+        <label><input type="radio" name="q8" value="d"> Meter</label>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question">
+        <div class="q-number">Question 9</div>
+        <div class="q-text">Two people lift the same box to the same height. Person A does it in 2 seconds; Person B does it in 6 seconds. Who used more power?</div>
+        <label><input type="radio" name="q9" value="a"> Person A (faster)</label>
+        <label><input type="radio" name="q9" value="b"> Person B (slower)</label>
+        <label><input type="radio" name="q9" value="c"> They used the same power</label>
+        <label><input type="radio" name="q9" value="d"> Neither used any power</label>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question">
+        <div class="q-number">Question 10</div>
+        <div class="q-text">A ball is thrown upward. At the highest point of its path, its kinetic energy is:</div>
+        <label><input type="radio" name="q10" value="a"> Maximum</label>
+        <label><input type="radio" name="q10" value="b"> Minimum (nearly zero)</label>
+        <label><input type="radio" name="q10" value="c"> The same as when it left the hand</label>
+        <label><input type="radio" name="q10" value="d"> Impossible to know</label>
+      </div>
+
+      <button type="submit">Check My Answers</button>
+    </form>
+
+    <div id="results"></div>
+
+    <p class="footer-note">
+      Designed for non-science major physical science courses • Focus on conceptual understanding
+    </p>
+  </div>
+
+  <script>
+    const answers = {
+      q1: "b",
+      q2: "c",
+      q3: "b",
+      q4: "b",
+      q5: "b",
+      q6: "c",
+      q7: "b",
+      q8: "c",
+      q9: "a",
+      q10: "b"
+    };
+
+    const explanations = {
+      q1: "Work requires both a force and movement in the direction of that force. No movement = no work (in physics).",
+      q2: "Work and energy are both measured in joules (J). One joule is a small amount of energy.",
+      q3: "Pushing the cart moves it in the direction of the force, so work is done. Holding something still does no work.",
+      q4: "Kinetic energy is energy of motion. The faster an object moves (and the more mass it has), the more kinetic energy it has.",
+      q5: "Gravitational potential energy increases with greater mass and greater height above the ground.",
+      q6: "Energy is never created or destroyed — it only changes form (e.g., potential ↔ kinetic, or chemical → heat).",
+      q7: "Power measures how quickly work is done. More work in less time means higher power.",
+      q8: "Power is measured in watts (W). One watt = one joule per second.",
+      q9: "Both do the same amount of work, but Person A does it faster, so Person A uses more power.",
+      q10: "At the top, the ball momentarily stops (speed ≈ 0), so its kinetic energy is minimum. The energy has become potential energy."
+    };
+
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let score = 0;
+      let feedback = "";
+
+      for (let i = 1; i <= 10; i++) {
+        const q = "q" + i;
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const userAnswer = selected ? selected.value : null;
+
+        if (userAnswer === answers[q]) {
+          score++;
+          feedback += `<p class="correct">✓ Question ${i}: Correct</p>`;
+        } else {
+          feedback += `<p class="incorrect">✗ Question ${i}: Incorrect</p>`;
+        }
+        feedback += `<p class="explanation">${explanations[q]}</p>`;
+      }
+
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.style.display = "block";
+      resultsDiv.innerHTML = `
+        <div class="score">Your Score: ${score} / 10</div>
+        <p>${score >= 8 ? "Excellent work!" : score >= 6 ? "Good effort — review the explanations below." : "Keep studying — the explanations will help!"}</p>
+        <hr style="margin: 16px 0; border: none; border-top: 1px solid #bee3f8;">
+        ${feedback}
+      `;
+
+      resultsDiv.scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
