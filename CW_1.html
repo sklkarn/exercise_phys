@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Units & Kinematics Quiz – Physical Science</title>
+<style>
+  :root {
+    --primary: #2563eb;
+    --correct: #16a34a;
+    --wrong: #dc2626;
+    --bg: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: #1e293b;
+    line-height: 1.5;
+    padding: 20px;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  header {
+    background: var(--primary);
+    color: white;
+    padding: 24px 28px;
+  }
+  header h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  header p { opacity: 0.9; font-size: 0.95rem; }
+  #quiz { padding: 28px; }
+  .question {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .question:last-of-type { border-bottom: none; }
+  .q-number {
+    display: inline-block;
+    background: #e0e7ff;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  .q-text { font-size: 1.1rem; font-weight: 500; margin-bottom: 14px; }
+  .options label {
+    display: block;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .options label:hover { border-color: #93c5fd; background: #f0f9ff; }
+  .options input { margin-right: 10px; }
+  .options label.selected { border-color: var(--primary); background: #eff6ff; }
+  .options label.correct { border-color: var(--correct); background: #f0fdf4; }
+  .options label.wrong { border-color: var(--wrong); background: #fef2f2; }
+  .feedback {
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.correct { background: #dcfce7; color: #166534; }
+  .feedback.wrong { background: #fee2e2; color: #991b1b; }
+  #results {
+    display: none;
+    text-align: center;
+    padding: 40px 28px;
+  }
+  #results h2 { font-size: 1.8rem; margin-bottom: 12px; }
+  .score { font-size: 3rem; font-weight: 700; color: var(--primary); }
+  .score-text { font-size: 1.2rem; margin: 8px 0 24px; }
+  button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover { background: #1d4ed8; }
+  button:disabled { background: #94a3b8; cursor: not-allowed; }
+  .btn-row { text-align: center; margin-top: 20px; }
+  .explanation { font-size: 0.9rem; margin-top: 6px; opacity: 0.9; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Units & Kinematics Quiz</h1>
+    <p>Physical Science • Non-Science Majors • 10 Questions</p>
+  </header>
+
+  <div id="quiz">
+    <!-- Questions will be inserted here by JavaScript -->
+  </div>
+
+  <div id="results">
+    <h2>Quiz Complete!</h2>
+    <div class="score" id="score-display">0/10</div>
+    <div class="score-text" id="score-message"></div>
+    <button onclick="location.reload()">Try Again</button>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    q: "What is the SI (metric) base unit of length?",
+    options: ["Foot", "Meter", "Yard", "Mile"],
+    answer: 1,
+    explain: "The meter is the SI base unit of length. Scientists worldwide use the metric system."
+  },
+  {
+    q: "How many meters are in 1 kilometer?",
+    options: ["10", "100", "1 000", "10 000"],
+    answer: 2,
+    explain: "1 kilometer = 1 000 meters. The prefix “kilo-” means 1 000."
+  },
+  {
+    q: "Which quantity is a vector (has both magnitude and direction)?",
+    options: ["Distance", "Speed", "Displacement", "Time"],
+    answer: 2,
+    explain: "Displacement is a vector because it includes direction. Distance is a scalar (magnitude only)."
+  },
+  {
+    q: "A car travels 120 km in 2 hours. What is its average speed?",
+    options: ["60 km/h", "240 km/h", "122 km/h", "30 km/h"],
+    answer: 0,
+    explain: "Average speed = total distance ÷ total time = 120 km ÷ 2 h = 60 km/h."
+  },
+  {
+    q: "What is the difference between speed and velocity?",
+    options: [
+      "They are exactly the same",
+      "Speed has direction; velocity does not",
+      "Velocity has direction; speed does not",
+      "Speed is measured in m/s²"
+    ],
+    answer: 2,
+    explain: "Velocity is a vector (speed + direction). Speed is a scalar (how fast only)."
+  },
+  {
+    q: "Acceleration is defined as the rate of change of:",
+    options: ["Distance", "Displacement", "Velocity", "Time"],
+    answer: 2,
+    explain: "Acceleration = change in velocity ÷ time. It tells how quickly velocity is changing."
+  },
+  {
+    q: "What is the SI unit of acceleration?",
+    options: ["m/s", "m/s²", "km/h", "N"],
+    answer: 1,
+    explain: "Acceleration is measured in meters per second squared (m/s²)."
+  },
+  {
+    q: "Near Earth’s surface, the acceleration due to gravity is approximately:",
+    options: ["9.8 m/s", "9.8 m/s²", "98 m/s²", "0.98 m/s²"],
+    answer: 1,
+    explain: "The acceleration due to gravity (g) is about 9.8 m/s² downward."
+  },
+  {
+    q: "A runner goes 400 m east, then 300 m west. What is the total distance traveled?",
+    options: ["100 m", "700 m", "500 m", "0 m"],
+    answer: 1,
+    explain: "Distance is the total path length: 400 m + 300 m = 700 m (direction does not matter for distance)."
+  },
+  {
+    q: "If an object starts from rest and accelerates at 2 m/s² for 5 seconds, its final velocity is:",
+    options: ["2 m/s", "5 m/s", "10 m/s", "25 m/s"],
+    answer: 2,
+    explain: "v = u + at → v = 0 + (2 m/s²)(5 s) = 10 m/s."
+  }
+];
+
+const quizEl = document.getElementById('quiz');
+let userAnswers = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+  let html = '';
+  questions.forEach((q, i) => {
+    html += `
+      <div class="question" id="q${i}">
+        <div class="q-number">Question ${i + 1} of ${questions.length}</div>
+        <div class="q-text">${q.q}</div>
+        <div class="options">
+          ${q.options.map((opt, j) => `
+            <label id="label-${i}-${j}">
+              <input type="radio" name="q${i}" value="${j}" onchange="selectAnswer(${i}, ${j})">
+              ${opt}
+            </label>
+          `).join('')}
+        </div>
+        <div class="feedback" id="feedback-${i}"></div>
+      </div>
+    `;
+  });
+  html += `
+    <div class="btn-row">
+      <button id="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+    </div>
+  `;
+  quizEl.innerHTML = html;
+}
+
+function selectAnswer(qIndex, optIndex) {
+  if (submitted) return;
+  userAnswers[qIndex] = optIndex;
+  // visual selection
+  const labels = document.querySelectorAll(`#q${qIndex} label`);
+  labels.forEach(l => l.classList.remove('selected'));
+  document.getElementById(`label-${qIndex}-${optIndex}`).classList.add('selected');
+}
+
+function submitQuiz() {
+  if (userAnswers.includes(null)) {
+    alert('Please answer all questions before submitting.');
+    return;
+  }
+  submitted = true;
+  document.getElementById('submit-btn').disabled = true;
+
+  let score = 0;
+  questions.forEach((q, i) => {
+    const feedback = document.getElementById(`feedback-${i}`);
+    const labels = document.querySelectorAll(`#q${i} label`);
+    
+    // disable further changes
+    document.querySelectorAll(`input[name="q${i}"]`).forEach(inp => inp.disabled = true);
+
+    if (userAnswers[i] === q.answer) {
+      score++;
+      labels[q.answer].classList.add('correct');
+      feedback.className = 'feedback show correct';
+      feedback.innerHTML = `<strong>Correct!</strong><div class="explanation">${q.explain}</div>`;
+    } else {
+      labels[userAnswers[i]].classList.add('wrong');
+      labels[q.answer].classList.add('correct');
+      feedback.className = 'feedback show wrong';
+      feedback.innerHTML = `<strong>Incorrect.</strong> The correct answer is: <em>${q.options[q.answer]}</em><div class="explanation">${q.explain}</div>`;
+    }
+  });
+
+  // show results
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('score-display').textContent = `${score}/10`;
+  
+  let msg = '';
+  if (score === 10) msg = 'Perfect! Excellent work.';
+  else if (score >= 8) msg = 'Great job! You understand the material well.';
+  else if (score >= 6) msg = 'Good effort. Review the explanations above.';
+  else msg = 'Keep practicing — review the explanations and try again.';
+  document.getElementById('score-message').textContent = msg;
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
