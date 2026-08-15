@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waves </title>
+<style>
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.5;
+    background: #f0f9ff;
+    color: #0f172a;
+  }
+  h1 {
+    text-align: center;
+    color: #0c4a6e;
+  }
+  .subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 28px;
+  }
+  .question {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  .question h3 {
+    margin-top: 0;
+    color: #0369a1;
+  }
+  .wave-figure {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+  }
+  label {
+    display: block;
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  label:hover {
+    background: #e0f2fe;
+  }
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 1.15rem;
+    background: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  button:hover {
+    background: #0369a1;
+  }
+  #result {
+    margin-top: 30px;
+    padding: 22px;
+    background: white;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.25rem;
+    display: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+<h1>Waves </h1>
+<p> Quiz</p>
+
+<form id="quizForm">
+
+  <!-- Q1 -->
+  <div class="question">
+    <h3>1. Look at the wave below. What does the double-headed arrow labeled <strong>A</strong> represent?</h3>
+    <div class="wave-figure">
+      <svg viewBox="0 0 480 190" width="420">
+        <!-- Midline -->
+        <line x1="30" y1="95" x2="450" y2="95" stroke="#94a3b8" stroke-width="1.5"/>
+        
+        <!-- Clean sine-like wave (wavelength = 120) -->
+        <path d="M30,95 
+                 Q60,35 90,95 
+                 Q120,155 150,95 
+                 Q180,35 210,95 
+                 Q240,155 270,95 
+                 Q300,35 330,95 
+                 Q360,155 390,95 
+                 Q420,35 450,95" 
+              fill="none" stroke="#0284c7" stroke-width="3.5"/>
+        
+        <!-- Amplitude A -->
+        <line x1="90" y1="95" x2="90" y2="65" stroke="#dc2626" stroke-width="2.5"/>
+        <polygon points="90,65 84,70 96,75" fill="#dc2626"/>
+        <polygon points="90,95 84,85 96,85" fill="#dc2626"/>
+        <text x="102" y="82" fill="#dc2626" font-size="20" font-weight="bold">A</text>
+        
+        <!-- Wavelength B (crest to crest) -->
+        <line x1="90" y1="165" x2="210" y2="165" stroke="#16a34a" stroke-width="2.5"/>
+        <line x1="90" y1="158" x2="90" y2="172" stroke="#16a34a" stroke-width="2"/>
+        <line x1="210" y1="158" x2="210" y2="172" stroke="#16a34a" stroke-width="2"/>
+        <text x="135" y="183" fill="#16a34a" font-size="18" font-weight="bold">B</text>
+      </svg>
+    </div>
+    <label><input type="radio" name="q1" value="a"> Wavelength</label>
+    <label><input type="radio" name="q1" value="b"> Amplitude</label>
+    <label><input type="radio" name="q1" value="c"> Frequency</label>
+    <label><input type="radio" name="q1" value="d"> Period</label>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question">
+    <h3>2. In the same wave diagram above, what does the distance labeled <strong>B</strong> represent?</h3>
+    <label><input type="radio" name="q2" value="a"> Amplitude</label>
+    <label><input type="radio" name="q2" value="b"> Frequency</label>
+    <label><input type="radio" name="q2" value="c"> Wavelength</label>
+    <label><input type="radio" name="q2" value="d"> Wave speed</label>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question">
+    <h3>3. Look at this wave. Which letters correctly label the <strong>crests</strong>?</h3>
+    <div class="wave-figure">
+      <svg viewBox="0 0 480 170" width="420">
+        <line x1="30" y1="85" x2="450" y2="85" stroke="#94a3b8" stroke-width="1.5"/>
+        
+        <path d="M30,85 
+                 Q60,25 90,85 
+                 Q120,145 150,85 
+                 Q180,25 210,85 
+                 Q240,145 270,85 
+                 Q300,25 330,85 
+                 Q360,145 390,85 
+                 Q420,25 450,85" 
+              fill="none" stroke="#7c3aed" stroke-width="3.5"/>
+        
+        <!-- Crests -->
+        <text x="65" y="38" fill="#0f172a" font-size="19" font-weight="bold">P</text>
+        <text x="180" y="38" fill="#0f172a" font-size="19" font-weight="bold">Q</text>
+        
+        <!-- Troughs -->
+        <text x="130" y="142" fill="#0f172a" font-size="19" font-weight="bold">R</text>
+        <text x="250" y="142" fill="#0f172a" font-size="19" font-weight="bold">S</text>
+      </svg>
+    </div>
+    <label><input type="radio" name="q3" value="a"> P only</label>
+    <label><input type="radio" name="q3" value="b"> R and S</label>
+    <label><input type="radio" name="q3" value="c"> Q only</label>
+    <label><input type="radio" name="q3" value="d"> Both P and Q</label>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question">
+    <h3>4. In the wave shown below, the vertical distance from the rest position (middle line) to the top of a crest is called the:</h3>
+    <div class="wave-figure">
+      <svg viewBox="0 0 420 160" width="400">
+        <line x1="20" y1="80" x2="400" y2="80" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5"/>
+        
+        <path d="M20,80 
+                 Q50,25 80,80 
+                 Q110,135 140,80 
+                 Q170,25 200,80 
+                 Q230,135 260,80 
+                 Q290,25 320,80 
+                 Q350,135 380,80 
+                 Q400,55 400,80" 
+              fill="none" stroke="#0891b2" stroke-width="3.5"/>
+        
+        <!-- Amplitude marker -->
+        <line x1="80" y1="80" x2="80" y2="50" stroke="#dc2626" stroke-width="2.5"/>
+        <polygon points="80,45 74,50 86,55" fill="#dc2626"/>
+        <polygon points="80,80 74,70 86,70" fill="#dc2626"/>
+        <text x="92" y="70" fill="#dc2626" font-size="19" font-weight="bold">?</text>
+      </svg>
+    </div>
+    <label><input type="radio" name="q4" value="a"> Wavelength</label>
+    <label><input type="radio" name="q4" value="b"> Amplitude</label>
+    <label><input type="radio" name="q4" value="c"> Period</label>
+    <label><input type="radio" name="q4" value="d"> Frequency</label>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question">
+    <h3>5. Frequency of a wave is defined as:</h3>
+    <label><input type="radio" name="q5" value="a"> The distance between two consecutive crests</label>
+    <label><input type="radio" name="q5" value="b"> The number of complete waves that pass a point per second</label>
+    <label><input type="radio" name="q5" value="c"> The height of the wave</label>
+    <label><input type="radio" name="q5" value="d"> How fast the wave travels</label>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question">
+    <h3>6. The relationship between wave speed (v), frequency (f), and wavelength (λ) is:</h3>
+    <label><input type="radio" name="q6" value="a"> v = f + λ</label>
+    <label><input type="radio" name="q6" value="b"> v = f × λ</label>
+    <label><input type="radio" name="q6" value="c"> v = f ÷ λ</label>
+    <label><input type="radio" name="q6" value="d"> v = λ ÷ f</label>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question">
+    <h3>7. In a transverse wave, the particles of the medium move:</h3>
+    <label><input type="radio" name="q7" value="a"> Parallel to the direction the wave travels</label>
+    <label><input type="radio" name="q7" value="b"> Perpendicular to the direction the wave travels</label>
+    <label><input type="radio" name="q7" value="c"> In circles</label>
+    <label><input type="radio" name="q7" value="d"> Not at all</label>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question">
+    <h3>8. Sound waves are an example of:</h3>
+    <label><input type="radio" name="q8" value="a"> Transverse waves</label>
+    <label><input type="radio" name="q8" value="b"> Longitudinal waves</label>
+    <label><input type="radio" name="q8" value="c"> Electromagnetic waves</label>
+    <label><input type="radio" name="q8" value="d"> Surface waves only</label>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question">
+    <h3>9. Light waves are:</h3>
+    <label><input type="radio" name="q9" value="a"> Longitudinal mechanical waves</label>
+    <label><input type="radio" name="q9" value="b"> Transverse electromagnetic waves</label>
+    <label><input type="radio" name="q9" value="c"> Longitudinal electromagnetic waves</label>
+    <label><input type="radio" name="q9" value="d"> Only able to travel through air</label>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question">
+    <h3>10. When a wave bounces off a barrier (for example, light hitting a mirror), the process is called:</h3>
+    <label><input type="radio" name="q10" value="a"> Refraction</label>
+    <label><input type="radio" name="q10" value="b"> Diffraction</label>
+    <label><input type="radio" name="q10" value="c"> Reflection</label>
+    <label><input type="radio" name="q10" value="d"> Interference</label>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question">
+    <h3>11. The bending of light as it passes from air into water is an example of:</h3>
+    <label><input type="radio" name="q11" value="a"> Reflection</label>
+    <label><input type="radio" name="q11" value="b"> Refraction</label>
+    <label><input type="radio" name="q11" value="c"> Diffraction</label>
+    <label><input type="radio" name="q11" value="d"> Dispersion only</label>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question">
+    <h3>12. Which of the following has the longest wavelength in the electromagnetic spectrum?</h3>
+    <label><input type="radio" name="q12" value="a"> Gamma rays</label>
+    <label><input type="radio" name="q12" value="b"> Visible light</label>
+    <label><input type="radio" name="q12" value="c"> X-rays</label>
+    <label><input type="radio" name="q12" value="d"> Radio waves</label>
+  </div>
+
+  <!-- Q13 -->
+  <div class="question">
+    <h3>13. Which color of visible light has the shortest wavelength (and highest frequency)?</h3>
+    <label><input type="radio" name="q13" value="a"> Red</label>
+    <label><input type="radio" name="q13" value="b"> Green</label>
+    <label><input type="radio" name="q13" value="c"> Yellow</label>
+    <label><input type="radio" name="q13" value="d"> Violet / Blue</label>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question">
+    <h3>14. The spreading of waves as they pass through a narrow opening or around an obstacle is called:</h3>
+    <label><input type="radio" name="q14" value="a"> Reflection</label>
+    <label><input type="radio" name="q14" value="b"> Refraction</label>
+    <label><input type="radio" name="q14" value="c"> Diffraction</label>
+    <label><input type="radio" name="q14" value="d"> Absorption</label>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question">
+    <h3>15. White light can be separated into the colors of the rainbow by a prism because of:</h3>
+    <label><input type="radio" name="q15" value="a"> Reflection</label>
+    <label><input type="radio" name="q15" value="b"> Diffraction</label>
+    <label><input type="radio" name="q15" value="c"> Dispersion (different wavelengths bend by different amounts)</label>
+    <label><input type="radio" name="q15" value="d"> Polarization</label>
+  </div>
+
+  <!-- Q16 (new) -->
+  <div class="question">
+    <h3>16. The time it takes for one complete wave to pass a given point is called the:</h3>
+    <label><input type="radio" name="q16" value="a"> Frequency</label>
+    <label><input type="radio" name="q16" value="b"> Wavelength</label>
+    <label><input type="radio" name="q16" value="c"> Period</label>
+    <label><input type="radio" name="q16" value="d"> Amplitude</label>
+  </div>
+
+  <!-- Q17 (new) -->
+  <div class="question">
+    <h3>17. Which of the following statements is true about electromagnetic waves (including light)?</h3>
+    <label><input type="radio" name="q17" value="a"> They need a medium (such as air or water) to travel</label>
+    <label><input type="radio" name="q17" value="b"> They can travel through the vacuum of space</label>
+    <label><input type="radio" name="q17" value="c"> They are longitudinal waves</label>
+    <label><input type="radio" name="q17" value="d"> They travel slower than sound</label>
+  </div>
+
+  <!-- Q18 (new) -->
+  <div class="question">
+    <h3>18. If the frequency of a wave increases while the wave speed stays the same, what happens to the wavelength?</h3>
+    <label><input type="radio" name="q18" value="a"> Wavelength increases</label>
+    <label><input type="radio" name="q18" value="b"> Wavelength decreases</label>
+    <label><input type="radio" name="q18" value="c"> Wavelength stays the same</label>
+    <label><input type="radio" name="q18" value="d"> Wavelength becomes zero</label>
+  </div>
+
+  <!-- Q19 (new) -->
+  <div class="question">
+    <h3>19. When two waves meet and their amplitudes add together to make a larger wave, this is called:</h3>
+    <label><input type="radio" name="q19" value="a"> Destructive interference</label>
+    <label><input type="radio" name="q19" value="b"> Constructive interference</label>
+    <label><input type="radio" name="q19" value="c"> Reflection</label>
+    <label><input type="radio" name="q19" value="d"> Diffraction</label>
+  </div>
+
+  <!-- Q20 (new) -->
+  <div class="question">
+    <h3>20. A material that light can travel through (such as glass or water) is called a:</h3>
+    <label><input type="radio" name="q20" value="a"> Opaque material</label>
+    <label><input type="radio" name="q20" value="b"> Transparent material</label>
+    <label><input type="radio" name="q20" value="c"> Reflective material only</label>
+    <label><input type="radio" name="q20" value="d"> Magnetic material</label>
+  </div>
+
+  <button type="button" onclick="gradeQuiz()">Check My Score</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+const answers = {
+  q1: "b",  // amplitude
+  q2: "c",  // wavelength
+  q3: "d",  // both P and Q
+  q4: "b",  // amplitude
+  q5: "b",
+  q6: "b",
+  q7: "b",
+  q8: "b",
+  q9: "b",
+  q10: "c",
+  q11: "b",
+  q12: "d",
+  q13: "d",
+  q14: "c",
+  q15: "c",
+  q16: "c",  // period
+  q17: "b",  // can travel through vacuum
+  q18: "b",  // wavelength decreases
+  q19: "b",  // constructive interference
+  q20: "b"   // transparent
+};
+
+function gradeQuiz() {
+  let score = 0;
+  const total = 20;
+
+  for (let i = 1; i <= total; i++) {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    if (selected && selected.value === answers["q" + i]) {
+      score++;
+    }
+  }
+
+  const percent = Math.round((score / total) * 100);
+  const resultDiv = document.getElementById("result");
+  resultDiv.style.display = "block";
+
+  let message = "";
+  if (percent >= 90) message = "Outstanding! Excellent understanding of waves and light.";
+  else if (percent >= 75) message = "Great work! You have a solid grasp of the concepts.";
+  else if (percent >= 60) message = "Good effort — review the wave parts and light behavior for an even better score.";
+  else message = "Keep practicing! Focus on amplitude, wavelength, and how light behaves.";
+
+  resultDiv.innerHTML = `
+    <strong>Your Score: ${score} / ${total} (${percent}%)</strong><br><br>
+    ${message}
+  `;
+  resultDiv.scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>

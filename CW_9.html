@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solids and Solutions </title>
+<style>
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.5;
+    background: #fff7ed;
+    color: #9a3412;
+  }
+  h1 {
+    text-align: center;
+    color: #c2410c;
+  }
+  .subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 28px;
+  }
+  .question {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  .question h3 {
+    margin-top: 0;
+    color: #ea580c;
+  }
+  label {
+    display: block;
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  label:hover {
+    background: #ffedd5;
+  }
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 1.15rem;
+    background: #ea580c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  button:hover {
+    background: #c2410c;
+  }
+  #result {
+    margin-top: 30px;
+    padding: 22px;
+    background: white;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.25rem;
+    display: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+</style>
+</head>
+<body>
+
+<h1>Solids and Solutions</h1>
+<p class="subtitle">Quiz<br>
+Properties of solids • Solutions • Acids, bases & pH</p>
+
+<form id="quizForm">
+
+  <!-- Q1 -->
+  <div class="question">
+    <h3>1. Which state of matter has a definite shape and a definite volume?</h3>
+    <label><input type="radio" name="q1" value="a"> Gas</label>
+    <label><input type="radio" name="q1" value="b"> Liquid</label>
+    <label><input type="radio" name="q1" value="c"> Solid</label>
+    <label><input type="radio" name="q1" value="d"> Plasma</label>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question">
+    <h3>2. In a solid, the particles are:</h3>
+    <label><input type="radio" name="q2" value="a"> Far apart and moving freely</label>
+    <label><input type="radio" name="q2" value="b"> Closely packed and vibrating in place</label>
+    <label><input type="radio" name="q2" value="c"> Sliding past one another</label>
+    <label><input type="radio" name="q2" value="d"> Completely motionless</label>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question">
+    <h3>3. A solid that has a regular, repeating arrangement of particles is called a:</h3>
+    <label><input type="radio" name="q3" value="a"> Amorphous solid</label>
+    <label><input type="radio" name="q3" value="b"> Crystalline solid</label>
+    <label><input type="radio" name="q3" value="c"> Liquid crystal</label>
+    <label><input type="radio" name="q3" value="d"> Gas</label>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question">
+    <h3>4. Glass and rubber are examples of:</h3>
+    <label><input type="radio" name="q4" value="a"> Crystalline solids</label>
+    <label><input type="radio" name="q4" value="b"> Amorphous solids</label>
+    <label><input type="radio" name="q4" value="c"> Pure metals</label>
+    <label><input type="radio" name="q4" value="d"> Gases at room temperature</label>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question">
+    <h3>5. In a solution, the substance that is dissolved is called the:</h3>
+    <label><input type="radio" name="q5" value="a"> Solvent</label>
+    <label><input type="radio" name="q5" value="b"> Solute</label>
+    <label><input type="radio" name="q5" value="c"> Precipitate</label>
+    <label><input type="radio" name="q5" value="d"> Concentrate</label>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question">
+    <h3>6. In a solution, the substance that does the dissolving (usually present in larger amount) is called the:</h3>
+    <label><input type="radio" name="q6" value="a"> Solute</label>
+    <label><input type="radio" name="q6" value="b"> Solvent</label>
+    <label><input type="radio" name="q6" value="c"> Mixture</label>
+    <label><input type="radio" name="q6" value="d"> Suspension</label>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question">
+    <h3>7. What is the most common solvent on Earth?</h3>
+    <label><input type="radio" name="q7" value="a"> Alcohol</label>
+    <label><input type="radio" name="q7" value="b"> Oil</label>
+    <label><input type="radio" name="q7" value="c"> Water</label>
+    <label><input type="radio" name="q7" value="d"> Acetone</label>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question">
+    <h3>8. A solution that contains the maximum amount of solute that can dissolve at a given temperature is called:</h3>
+    <label><input type="radio" name="q8" value="a"> Unsaturated</label>
+    <label><input type="radio" name="q8" value="b"> Saturated</label>
+    <label><input type="radio" name="q8" value="c"> Dilute</label>
+    <label><input type="radio" name="q8" value="d"> Concentrated only</label>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question">
+    <h3>9. Which of the following usually increases the solubility of most solid solutes in water?</h3>
+    <label><input type="radio" name="q9" value="a"> Decreasing the temperature</label>
+    <label><input type="radio" name="q9" value="b"> Increasing the temperature</label>
+    <label><input type="radio" name="q9" value="c"> Decreasing the pressure</label>
+    <label><input type="radio" name="q9" value="d"> Removing the solvent</label>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question">
+    <h3>10. A mixture in which the solute particles are so large that they settle out is called a:</h3>
+    <label><input type="radio" name="q10" value="a"> Solution</label>
+    <label><input type="radio" name="q10" value="b"> Suspension</label>
+    <label><input type="radio" name="q10" value="c"> Colloid</label>
+    <label><input type="radio" name="q10" value="d"> Pure substance</label>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question">
+    <h3>11. Acids generally taste:</h3>
+    <label><input type="radio" name="q11" value="a"> Bitter</label>
+    <label><input type="radio" name="q11" value="b"> Sweet</label>
+    <label><input type="radio" name="q11" value="c"> Sour</label>
+    <label><input type="radio" name="q11" value="d"> Salty</label>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question">
+    <h3>12. Bases generally taste _____ and feel _____.</h3>
+    <label><input type="radio" name="q12" value="a"> Sour; slippery</label>
+    <label><input type="radio" name="q12" value="b"> Bitter; slippery</label>
+    <label><input type="radio" name="q12" value="c"> Sweet; rough</label>
+    <label><input type="radio" name="q12" value="d"> Sour; sticky</label>
+  </div>
+
+  <!-- Q13 -->
+  <div class="question">
+    <h3>13. The pH scale ranges from:</h3>
+    <label><input type="radio" name="q13" value="a"> 0 to 7</label>
+    <label><input type="radio" name="q13" value="b"> 7 to 14</label>
+    <label><input type="radio" name="q13" value="c"> 0 to 14</label>
+    <label><input type="radio" name="q13" value="d"> 1 to 10</label>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question">
+    <h3>14. A solution with a pH of 3 is:</h3>
+    <label><input type="radio" name="q14" value="a"> Neutral</label>
+    <label><input type="radio" name="q14" value="b"> Acidic</label>
+    <label><input type="radio" name="q14" value="c"> Basic (alkaline)</label>
+    <label><input type="radio" name="q14" value="d"> Neither acidic nor basic</label>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question">
+    <h3>15. A solution with a pH of 10 is:</h3>
+    <label><input type="radio" name="q15" value="a"> Acidic</label>
+    <label><input type="radio" name="q15" value="b"> Neutral</label>
+    <label><input type="radio" name="q15" value="c"> Basic (alkaline)</label>
+    <label><input type="radio" name="q15" value="d"> Strongly acidic</label>
+  </div>
+
+  <!-- Q16 -->
+  <div class="question">
+    <h3>16. A solution with a pH of 7 is:</h3>
+    <label><input type="radio" name="q16" value="a"> Strongly acidic</label>
+    <label><input type="radio" name="q16" value="b"> Strongly basic</label>
+    <label><input type="radio" name="q16" value="c"> Neutral</label>
+    <label><input type="radio" name="q16" value="d"> Slightly acidic</label>
+  </div>
+
+  <!-- Q17 -->
+  <div class="question">
+    <h3>17. What color does blue litmus paper turn in an acidic solution?</h3>
+    <label><input type="radio" name="q17" value="a"> Blue</label>
+    <label><input type="radio" name="q17" value="b"> Red</label>
+    <label><input type="radio" name="q17" value="c"> Green</label>
+    <label><input type="radio" name="q17" value="d"> It stays blue</label>
+  </div>
+
+  <!-- Q18 -->
+  <div class="question">
+    <h3>18. The reaction between an acid and a base is called:</h3>
+    <label><input type="radio" name="q18" value="a"> Oxidation</label>
+    <label><input type="radio" name="q18" value="b"> Neutralization</label>
+    <label><input type="radio" name="q18" value="c"> Combustion</label>
+    <label><input type="radio" name="q18" value="d"> Decomposition</label>
+  </div>
+
+  <!-- Q19 -->
+  <div class="question">
+    <h3>19. The products of a neutralization reaction between a strong acid and a strong base are usually:</h3>
+    <label><input type="radio" name="q19" value="a"> Salt and water</label>
+    <label><input type="radio" name="q19" value="b"> Only salt</label>
+    <label><input type="radio" name="q19" value="c"> Only water</label>
+    <label><input type="radio" name="q19" value="d"> Carbon dioxide and water</label>
+  </div>
+
+  <!-- Q20 -->
+  <div class="question">
+    <h3>20. Which of the following is a common household acid?</h3>
+    <label><input type="radio" name="q20" value="a"> Baking soda (sodium bicarbonate)</label>
+    <label><input type="radio" name="q20" value="b"> Vinegar (acetic acid)</label>
+    <label><input type="radio" name="q20" value="c"> Soap</label>
+    <label><input type="radio" name="q20" value="d"> Ammonia cleaner</label>
+  </div>
+
+  <button type="button" onclick="gradeQuiz()">Check My Score</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+const answers = {
+  q1: "c",  // solid
+  q2: "b",  // closely packed and vibrating
+  q3: "b",  // crystalline solid
+  q4: "b",  // amorphous solids
+  q5: "b",  // solute
+  q6: "b",  // solvent
+  q7: "c",  // water
+  q8: "b",  // saturated
+  q9: "b",  // increasing temperature
+  q10: "b", // suspension
+  q11: "c", // sour
+  q12: "b", // bitter; slippery
+  q13: "c", // 0 to 14
+  q14: "b", // acidic
+  q15: "c", // basic
+  q16: "c", // neutral
+  q17: "b", // red
+  q18: "b", // neutralization
+  q19: "a", // salt and water
+  q20: "b"  // vinegar
+};
+
+function gradeQuiz() {
+  let score = 0;
+  const total = 20;
+
+  for (let i = 1; i <= total; i++) {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    if (selected && selected.value === answers["q" + i]) {
+      score++;
+    }
+  }
+
+  const percent = Math.round((score / total) * 100);
+  const resultDiv = document.getElementById("result");
+  resultDiv.style.display = "block";
+
+  let message = "";
+  if (percent >= 90) message = "Excellent! You have a strong understanding of solids, solutions, and acids & bases.";
+  else if (percent >= 75) message = "Great work! Solid grasp of the key concepts.";
+  else if (percent >= 60) message = "Good effort — review solutions and the pH scale for an even better score.";
+  else message = "Keep practicing! Focus on solute/solvent, pH, and properties of acids and bases.";
+
+  resultDiv.innerHTML = `
+    <strong>Your Score: ${score} / ${total} (${percent}%)</strong><br><br>
+    ${message}
+  `;
+  resultDiv.scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
