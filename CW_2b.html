@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impulse and Momentum</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f4f6f9;
+    }
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+    }
+    .question {
+        background: white;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #2980b9;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<h1>Impulse and Momentum </h1>
+
+<form id="quizForm">
+
+<div class="question">
+    <p>1. Momentum depends on:</p>
+    <input type="radio" name="q1" value="a"> A. Mass and velocity<br>
+    <input type="radio" name="q1" value="b"> B. Mass only<br>
+    <input type="radio" name="q1" value="c"> C. Velocity only<br>
+    <input type="radio" name="q1" value="d"> D. Weight only<br>
+</div>
+
+<div class="question">
+    <p>2. The SI unit of momentum is:</p>
+    <input type="radio" name="q2" value="a"> A. Newton<br>
+    <input type="radio" name="q2" value="b"> B. kg·m/s<br>
+    <input type="radio" name="q2" value="c"> C. Joule<br>
+    <input type="radio" name="q2" value="d"> D. Watt<br>
+</div>
+
+<div class="question">
+    <p>3. A heavier object moving at the same speed as a lighter object has:</p>
+    <input type="radio" name="q3" value="a"> A. Less momentum<br>
+    <input type="radio" name="q3" value="b"> B. The same momentum<br>
+    <input type="radio" name="q3" value="c"> C. More momentum<br>
+    <input type="radio" name="q3" value="d"> D. Zero momentum<br>
+</div>
+
+<div class="question">
+    <p>4. Impulse is equal to:</p>
+    <input type="radio" name="q4" value="a"> A. Force × Time<br>
+    <input type="radio" name="q4" value="b"> B. Mass × Time<br>
+    <input type="radio" name="q4" value="c"> C. Velocity × Time<br>
+    <input type="radio" name="q4" value="d"> D. Force × Distance<br>
+</div>
+
+<div class="question">
+    <p>5. Impulse causes a change in:</p>
+    <input type="radio" name="q5" value="a"> A. Energy only<br>
+    <input type="radio" name="q5" value="b"> B. Momentum<br>
+    <input type="radio" name="q5" value="c"> C. Temperature<br>
+    <input type="radio" name="q5" value="d"> D. Weight<br>
+</div>
+
+<div class="question">
+    <p>6. Why do airbags reduce injuries in car crashes?</p>
+    <input type="radio" name="q6" value="a"> A. They increase mass<br>
+    <input type="radio" name="q6" value="b"> B. They reduce momentum<br>
+    <input type="radio" name="q6" value="c"> C. They increase stopping time<br>
+    <input type="radio" name="q6" value="d"> D. They increase speed<br>
+</div>
+
+<div class="question">
+    <p>7. A stationary object has:</p>
+    <input type="radio" name="q7" value="a"> A. Maximum momentum<br>
+    <input type="radio" name="q7" value="b"> B. Negative momentum<br>
+    <input type="radio" name="q7" value="c"> C. Zero momentum<br>
+    <input type="radio" name="q7" value="d"> D. Infinite momentum<br>
+</div>
+
+<div class="question">
+    <p>8. Which has greater momentum?</p>
+    <input type="radio" name="q8" value="a"> A. A bicycle moving slowly<br>
+    <input type="radio" name="q8" value="b"> B. A truck moving at the same speed<br>
+    <input type="radio" name="q8" value="c"> C. Both equal<br>
+    <input type="radio" name="q8" value="d"> D. Cannot be determined<br>
+</div>
+
+<div class="question">
+    <p>9. Catching a ball by moving your hands backward increases the stopping time and:</p>
+    <input type="radio" name="q9" value="a"> A. Increases force<br>
+    <input type="radio" name="q9" value="b"> B. Decreases force<br>
+    <input type="radio" name="q9" value="c"> C. Increases momentum<br>
+    <input type="radio" name="q9" value="d"> D. Stops the ball faster<br>
+</div>
+
+<div class="question">
+    <p>10. Which statement is true?</p>
+    <input type="radio" name="q10" value="a"> A. Impulse and momentum are unrelated<br>
+    <input type="radio" name="q10" value="b"> B. Momentum depends on mass and velocity<br>
+    <input type="radio" name="q10" value="c"> C. Impulse is measured in watts<br>
+    <input type="radio" name="q10" value="d"> D. Momentum exists only in vehicles<br>
+</div>
+
+<button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function gradeQuiz() {
+    const answers = {
+        q1: "a",
+        q2: "b",
+        q3: "c",
+        q4: "a",
+        q5: "b",
+        q6: "c",
+        q7: "c",
+        q8: "b",
+        q9: "b",
+        q10: "b"
+    };
+
+    let score = 0;
+
+    for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+            score++;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        `You scored <strong>${score}/10</strong>.`;
+}
+</script>
+
+</body>
+</html>
